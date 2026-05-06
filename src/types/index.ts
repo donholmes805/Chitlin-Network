@@ -42,6 +42,7 @@ export interface Show {
   channelId: string;
   ownerId: string;
   title: string;
+  slug: string;
   description: string;
   category: string;
   rating: string;
@@ -61,6 +62,7 @@ export interface Episode {
   channelId: string;
   ownerId: string;
   title: string;
+  slug: string;
   description: string;
   videoProvider: VideoProvider;
   videoUrl: string;
@@ -80,15 +82,15 @@ export type ProgramType = 'episode' | 'live' | 'news' | 'sports' | 'ad' | 'speci
 export interface Schedule {
   id: string;
   channelId: string;
-  ownerId: string;
+  ownerId: string; // email for owner/admin seeded data
   programType: ProgramType;
-  contentId: string; // ID of episode, show, or ad
+  contentId?: string; // ID of episode, show, or ad (optional for generic blocks)
   title: string;
   description: string;
   startTime: any;
   endTime: any;
   timezone: string;
-  status: 'active' | 'cancelled' | 'past';
+  status: 'approved' | 'cancelled' | 'archived';
   createdAt: any;
   updatedAt: any;
 }
@@ -131,4 +133,40 @@ export interface RevenueRecord {
   periodStart: any;
   periodEnd: any;
   createdAt: any;
+}
+
+export type LiveEventStatus = 'draft' | 'scheduled' | 'live' | 'ended' | 'disabled';
+
+export interface LiveEvent {
+  id: string;
+  channelId: string;
+  ownerId: string;
+  title: string;
+  description: string;
+  provider: 'cloudflare_stream';
+  ingestUrl: string;
+  streamKey: string;
+  playbackUrl: string;
+  playbackId: string;
+  status: LiveEventStatus;
+  scheduledStart: any;
+  scheduledEnd: any;
+  createdAt: any;
+  updatedAt: any;
+}
+
+export type AdOrderStatus = 'pending' | 'paid' | 'active' | 'rejected' | 'completed' | 'refunded';
+
+export interface AdOrder {
+  id: string;
+  advertiserName: string;
+  email: string;
+  packageType: 'basic' | 'featured' | 'sponsor';
+  channelId?: string;
+  amount: number;
+  stripeCheckoutSessionId?: string;
+  stripePaymentIntentId?: string;
+  status: AdOrderStatus;
+  createdAt: any;
+  updatedAt: any;
 }

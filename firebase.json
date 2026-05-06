@@ -27,5 +27,8 @@
         "supportEmail": "donholmes805@gmail.com"
       }
     }
+  },
+  "functions": {
+    "source": "functions"
   }
 }

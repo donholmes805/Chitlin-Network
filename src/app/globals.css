@@ -1,95 +1,89 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #f2ca50;
-  --color-primary-container: #d4af37;
-  --color-on-primary: #3c2f00;
-  --color-on-primary-container: #554300;
-
-  --color-secondary: #ffb4a8;
-  --color-secondary-container: #920703;
-  --color-on-secondary: #690000;
-  --color-on-secondary-container: #ff9a8a;
-
-  --color-background: #131313;
-  --color-surface: #131313;
-  --color-surface-dim: #131313;
-  --color-surface-bright: #3a3939;
-  --color-surface-variant: #353534;
-
-  --color-surface-container-lowest: #0e0e0e;
-  --color-surface-container-low: #1c1b1b;
-  --color-surface-container: #201f1f;
-  --color-surface-container-high: #2a2a2a;
-  --color-surface-container-highest: #353534;
-
-  --color-on-surface: #e5e2e1;
-  --color-on-surface-variant: #d0c5af;
-  --color-outline: #99907c;
-  --color-outline-variant: #4d4635;
+  /* Premium Palette */
+  --color-primary: #f2ca50; /* Premium Gold */
+  --color-primary-container: #d4af37; /* Deep Gold */
+  --color-on-primary: #080808;
+  
+  --color-secondary: #b10f0f; /* Deep Red Live */
+  --color-secondary-container: #8c6239; /* Bronze */
+  --color-on-secondary: #ffffff;
+  
+  --color-background: #080808; /* Deep Black */
+  --color-surface: #101010; /* Soft Black */
+  --color-surface-variant: #23201d; /* Elevated Surface */
+  
+  --color-surface-container-lowest: #050505;
+  --color-surface-container-low: #0c0c0c;
+  --color-surface-container: #101010;
+  --color-surface-container-high: #181818;
+  --color-surface-container-highest: #23201d;
+  
+  --color-on-surface: #f5efe3; /* Warm Cream */
+  --color-on-surface-variant: #c8b892; /* Muted Sand */
+  --color-outline: #8c6239; /* Bronze */
+  --color-outline-variant: rgba(242, 202, 80, 0.18);
 
   --font-headlines: "Epilogue", sans-serif;
   --font-body: "Inter", sans-serif;
 
-  --spacing-margin-mobile: 16px;
-  --spacing-margin-desktop: 64px;
-  --spacing-gutter: 24px;
-  --spacing-safe-area-tv: 80px;
-
-  --animate-live-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-live-pulse: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: .5;
-  }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.95); }
 }
 
 @layer base {
   body {
-    @apply bg-background text-on-surface font-body antialiased;
-    background-color: #131313;
+    @apply bg-background text-on-surface font-body antialiased selection:bg-primary selection:text-background;
+    background-color: #080808;
   }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-headlines font-bold tracking-tight;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headlines font-black tracking-tighter italic;
   }
 }
 
 @layer utilities {
   .glass-panel {
-    @apply backdrop-blur-3xl bg-surface/70 border border-white/10;
+    @apply backdrop-blur-2xl bg-surface/60 border border-outline-variant shadow-2xl;
   }
 
-  .focus-ring {
-    @apply outline-none transition-all duration-300;
-  }
-
-  .focus-ring:focus-visible {
-    @apply outline-[3px] outline-primary-container scale-[1.02];
+  .premium-blur {
+    @apply backdrop-blur-3xl bg-black/40;
   }
 
   .media-card {
-    @apply relative overflow-hidden rounded-xl bg-surface-container-high transition-all duration-300 border border-white/5;
+    @apply relative overflow-hidden rounded-2xl bg-surface-container-high transition-all duration-700 border border-white/5 shadow-2xl;
   }
 
   .media-card:hover {
-    @apply scale-[1.05] z-10 border-primary-container shadow-2xl;
-    border-width: 3px;
+    @apply -translate-y-2 border-primary/40 shadow-[0_20px_50px_rgba(242,202,80,0.15)];
+  }
+
+  .cinematic-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent;
+  }
+
+  .editorial-text {
+    @apply leading-relaxed tracking-tight;
   }
 
   .safe-area {
-    @apply px-margin-mobile md:px-margin-desktop;
+    @apply px-5 md:px-20 max-w-7xl mx-auto w-full;
+  }
+
+  .text-gold {
+    @apply text-primary bg-clip-text text-transparent bg-gradient-to-br from-primary to-primary-container;
+  }
+
+  .btn-gold {
+    @apply relative overflow-hidden px-8 py-4 rounded-xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-500 bg-primary text-on-primary hover:scale-105 active:scale-95 shadow-2xl hover:shadow-[0_0_30px_rgba(242,202,80,0.4)];
+  }
+
+  .btn-outline {
+    @apply relative overflow-hidden px-8 py-4 rounded-xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-500 border border-outline-variant text-on-surface hover:bg-white/5 hover:border-white/40 hover:scale-105 active:scale-95 shadow-2xl;
   }
 }

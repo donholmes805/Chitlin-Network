@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef, useState } from 'react';
 import { VideoProvider } from '@/types';
+import { getPlaceholderByCategory } from '@/lib/media/placeholders';
 
 interface VideoPlayerProps {
   provider: VideoProvider;
@@ -9,6 +10,7 @@ interface VideoPlayerProps {
   videoId?: string;
   posterUrl?: string;
   autoPlay?: boolean;
+  category?: string;
 }
 
 export default function VideoPlayer({ 
@@ -16,18 +18,33 @@ export default function VideoPlayer({
   videoUrl, 
   videoId, 
   posterUrl, 
-  autoPlay = false 
+  autoPlay = false,
+  category = 'CREATOR'
 }: VideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [hasPlayed, setHasPlayed] = useState(false);
+  const placeholder = getPlaceholderByCategory(category);
 
   // Verification: Ensure we have the necessary ID/URL
   const isMissingContent = !videoUrl && !videoId;
 
   if (isMissingContent) {
     return (
-      <div className="aspect-video w-full bg-surface-container flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-white/10">
-        <span className="material-symbols-outlined text-5xl text-on-surface-variant mb-4 animate-pulse">videocam_off</span>
-        <p className="text-on-surface-variant font-black uppercase tracking-widest text-[10px]">Content Currently Unavailable</p>
+      <div className={`aspect-video w-full rounded-2xl bg-gradient-to-br ${placeholder.gradient} flex flex-col items-center justify-center border border-white/5 relative overflow-hidden group`}>
+        <div className="absolute inset-0 bg-black/40 opacity-50" />
+        <div className="relative z-10 flex flex-col items-center animate-fade-in">
+          <span className="material-symbols-outlined text-6xl text-primary mb-4 opacity-80" style={{ fontVariationSettings: "'FILL' 1" }}>
+            {placeholder.icon}
+          </span>
+          <p className="text-primary font-black uppercase tracking-[0.3em] text-[10px] mb-1">{placeholder.label}</p>
+          <p className="text-on-surface-variant font-bold uppercase tracking-[0.1em] text-[9px] opacity-60">Broadcast Coming Soon</p>
+        </div>
+        
+        {/* Cinematic Brand Mark */}
+        <div className="absolute bottom-6 left-6 flex items-center gap-2 opacity-30 group-hover:opacity-100 transition-opacity">
+           <div className="w-1 h-4 bg-primary rounded-full" />
+           <span className="text-[10px] font-black uppercase tracking-widest text-white italic">Chitlin Network TV</span>
+        </div>
       </div>
     );
   }
@@ -59,10 +76,12 @@ export default function VideoPlayer({
       );
 
     case 'cloudflare_stream':
+      const subdomain = process.env.NEXT_PUBLIC_CLOUDFLARE_CUSTOMER_SUBDOMAIN;
+      const baseUrl = subdomain ? `https://${subdomain}.cloudflarestream.com` : `https://iframe.videodelivery.net`;
       return (
         <div className="aspect-video w-full bg-black rounded-xl overflow-hidden shadow-2xl">
           <iframe
-            src={`https://customer-XXXXX.cloudflarestream.com/${videoId}/iframe?autoplay=${autoPlay}`}
+            src={`${baseUrl}/${videoId}/iframe?autoplay=${autoPlay}`}
             className="w-full h-full border-none"
             allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
             allowFullScreen
@@ -73,7 +92,6 @@ export default function VideoPlayer({
     case 'mux':
       return (
         <div className="aspect-video w-full bg-black rounded-xl overflow-hidden shadow-2xl">
-          {/* Mux integration usually uses their custom element, but iframe for simple POC */}
           <iframe
             src={`https://stream.mux.com/${videoId}.m3u8`}
             className="w-full h-full border-none"
@@ -93,9 +111,10 @@ export default function VideoPlayer({
             poster={posterUrl}
             controls
             autoPlay={autoPlay}
+            onPlay={() => setHasPlayed(true)}
             className="w-full h-full"
           />
-          {!autoPlay && !videoRef.current?.played.length && (
+          {!autoPlay && !hasPlayed && (
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
               <span className="material-symbols-outlined text-white text-8xl opacity-80" style={{ fontVariationSettings: "'FILL' 1" }}>
                 play_circle

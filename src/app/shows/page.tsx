@@ -2,84 +2,82 @@
 
 import PublicHeader from "@/components/layout/PublicHeader";
 import PublicFooter from "@/components/layout/PublicFooter";
-import MediaCard from "@/components/media/MediaCard";
 import { useEffect, useState } from "react";
-import { Show } from "@/types";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/lib/firebase/config";
-import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
+import { Show } from "@/types";
+import Link from "next/link";
 
 export default function ShowsPage() {
   const [shows, setShows] = useState<Show[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function load() {
+    async function fetchShows() {
       try {
-        const q = query(
-          collection(db, 'shows'), 
-          where('status', '==', 'approved'),
-          orderBy('createdAt', 'desc')
-        );
+        const q = query(collection(db, 'shows'), where('status', '==', 'approved'));
         const snap = await getDocs(q);
-        setShows(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Show[]);
-      } catch (error) {
-        console.error(error);
+        setShows(snap.docs.map(doc => ({ id: doc.id, ...doc.data() } as Show)));
+      } catch (e) {
+        console.error(e);
       } finally {
         setLoading(false);
       }
     }
-    load();
+    fetchShows();
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-on-surface">
+    <div className="min-h-screen bg-surface flex flex-col">
       <PublicHeader />
       
-      <main className="flex-grow pt-24 pb-12">
-        <section className="safe-area py-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-headlines font-bold mb-4 text-primary italic">On-Demand Shows</h1>
-              <p className="text-on-surface-variant max-w-2xl text-lg">
-                Binge-worthy series, documentaries, and originals. Always streaming.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <button className="bg-surface-container-high px-6 py-3 rounded-full text-xs font-black uppercase tracking-widest border border-white/5 flex items-center gap-2">
-                <span className="material-symbols-outlined text-sm text-primary">filter_list</span>
-                Filter
-              </button>
-            </div>
-          </div>
+      <main className="flex-grow py-20 px-8 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <header className="mb-16">
+            <h1 className="text-6xl md:text-8xl font-headlines font-black text-white mb-6 tracking-tighter">On-Demand Series</h1>
+            <p className="text-on-surface-variant text-xl max-w-2xl leading-relaxed">
+              Binge your favorite independent programming. From gritty documentaries to community news and soul-stirring music performances.
+            </p>
+          </header>
 
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 animate-pulse">
-              {[1, 2, 3, 4].map(i => (
-                <div key={i} className="aspect-video bg-surface-container rounded-2xl border border-white/5" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+                <div key={i} className="aspect-[2/3] rounded-2xl bg-surface-container-high animate-pulse" />
               ))}
             </div>
-          ) : shows.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {shows.map((show) => (
-                <MediaCard 
-                  key={show.id}
-                  title={show.title}
-                  subtitle={show.category}
-                  imageUrl={show.posterUrl}
-                />
-              ))}
+          ) : shows.length === 0 ? (
+            <div className="text-center py-20 glass-panel rounded-3xl border-white/5">
+              <span className="material-symbols-outlined text-6xl text-white/10 mb-4">movie_filter</span>
+              <h2 className="text-2xl font-headlines font-bold mb-2">No Series Available</h2>
+              <p className="text-on-surface-variant">Check back soon for premiere episodes.</p>
             </div>
           ) : (
-            <div className="glass-panel p-20 rounded-3xl text-center border-white/5">
-              <span className="material-symbols-outlined text-6xl text-primary/20 mb-6">movie_filter</span>
-              <h3 className="text-2xl font-headlines font-bold mb-2">No Shows Available</h3>
-              <p className="text-on-surface-variant mb-8">Our library is growing. Check back soon for the latest premieres!</p>
-              <button className="bg-primary text-on-primary px-10 py-4 rounded-xl font-black uppercase tracking-widest text-xs shadow-2xl">
-                Notify Me of New Releases
-              </button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+              {shows.map(show => (
+                <Link key={show.id} href={`/shows/${show.id}`} className="group">
+                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 ring-1 ring-white/10 group-hover:ring-primary/50 transition-all shadow-2xl">
+                    <img 
+                      src={show.posterUrl} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" 
+                      alt={show.title} 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-primary/90 backdrop-blur-md text-on-primary text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
+                        {show.category}
+                      </span>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-headlines font-bold text-white mb-1 group-hover:text-primary transition-colors">{show.title}</h3>
+                  <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-widest">
+                    {show.rating} • {show.status}
+                  </p>
+                </Link>
+              ))}
             </div>
           )}
-        </section>
+        </div>
       </main>
 
       <PublicFooter />

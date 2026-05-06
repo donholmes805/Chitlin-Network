@@ -10,7 +10,7 @@ import { db } from "@/lib/firebase/config";
 import { doc, getDoc, collection, query, where, getDocs, limit } from "firebase/firestore";
 import Link from "next/link";
 
-export default function WatchPage() {
+export default function WatchClient() {
   const { episodeId } = useParams();
   const [episode, setEpisode] = useState<Episode | null>(null);
   const [show, setShow] = useState<Show | null>(null);

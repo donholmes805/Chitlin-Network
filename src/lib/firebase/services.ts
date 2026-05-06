@@ -26,6 +26,8 @@ export const COLLECTIONS = {
   ADS: 'ads',
   REVENUE_LEDGER: 'revenueLedger',
   PLATFORM_SETTINGS: 'platformSettings',
+  AD_ORDERS: 'adOrders',
+  LIVE_EVENTS: 'liveEvents',
 };
 
 // Generic Service functions
