@@ -17,6 +17,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Chitlin’ Network | Independent Culture & Live TV",
   description: "Chitlin’ Network brings pre-recorded shows, live programming, news, sports, music, comedy, and independent channels into one cable-style streaming experience.",
+  manifest: '/manifest.webmanifest',
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
+  },
 };
 
 import { AuthProvider } from "@/context/AuthContext";
