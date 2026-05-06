@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitlin’ Network - Southern Soul Sessions: E1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-overlay {
+            backdrop-filter: blur(24px);
+            background: rgba(19, 19, 19, 0.7);
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#f2ca50",
+                      "secondary-container": "#920703",
+                      "surface-dim": "#131313",
+                      "tertiary-fixed-dim": "#cac99f",
+                      "on-surface": "#e5e2e1",
+                      "outline": "#99907c",
+                      "on-tertiary": "#323214",
+                      "on-surface-variant": "#d0c5af",
+                      "surface-container-highest": "#353534",
+                      "inverse-on-surface": "#313030",
+                      "on-error-container": "#ffdad6",
+                      "on-background": "#e5e2e1",
+                      "on-primary": "#3c2f00",
+                      "on-tertiary-fixed": "#1d1d03",
+                      "on-tertiary-container": "#474727",
+                      "surface-tint": "#e9c349",
+                      "surface-container": "#201f1f",
+                      "tertiary-container": "#b6b58c",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#ff9a8a",
+                      "background": "#131313",
+                      "surface": "#131313",
+                      "outline-variant": "#4d4635",
+                      "on-primary-container": "#554300",
+                      "secondary": "#ffb4a8",
+                      "surface-variant": "#353534",
+                      "primary-fixed-dim": "#e9c349",
+                      "on-primary-fixed": "#241a00",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary-fixed-variant": "#574500",
+                      "on-tertiary-fixed-variant": "#484828",
+                      "on-secondary-fixed": "#410000",
+                      "tertiary-fixed": "#e6e5b9",
+                      "on-secondary": "#690000",
+                      "tertiary": "#d2d1a6",
+                      "primary-fixed": "#ffe088",
+                      "on-secondary-fixed-variant": "#920703",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary-fixed-dim": "#ffb4a8",
+                      "secondary-fixed": "#ffdad4",
+                      "inverse-primary": "#735c00",
+                      "error-container": "#93000a",
+                      "primary-container": "#d4af37",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-bright": "#3a3939",
+                      "surface-container-high": "#2a2a2a",
+                      "on-error": "#690005"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "safe-area-tv": "80px"
+              },
+              "fontFamily": {
+                      "label-bold": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Epilogue"],
+                      "body-lg": ["Inter"],
+                      "headline-xl": ["Epilogue"],
+                      "body-md": ["Inter"],
+                      "display-lg": ["Epilogue"]
+              },
+              "fontSize": {
+                      "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 shadow-2xl border-b border-white/10 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter">Chitlin’ Network</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1" href="#">Watch Live</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Advertise</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Start a Channel</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-2 border border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-bold text-on-surface placeholder:text-on-surface-variant w-48" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-bold hover:scale-105 transition-all duration-300">Sign In</button>
+</div>
+</header>
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-gutter grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Video & Metadata Section -->
+<section class="lg:col-span-8 space-y-6">
+<!-- Ad Placeholder -->
+<div class="bg-surface-container-low border border-white/5 rounded-xl p-4 flex items-center justify-between text-on-surface-variant italic text-label-sm">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">info</span>
+                    Ad Messaging: Sponsored Content in 0:15
+                </span>
+<span class="font-label-bold text-primary cursor-pointer hover:underline">Remove Ads</span>
+</div>
+<!-- Video Player -->
+<div class="relative aspect-video bg-black rounded-xl overflow-hidden group shadow-2xl ring-1 ring-white/10">
+<img class="w-full h-full object-cover opacity-80 group-hover:opacity-90 transition-opacity" data-alt="A cinematic low-angle shot of a soulful Black male singer performing in a dimly lit, atmospheric studio. Warm golden spotlights catch the smoke in the air, creating a rich hazy texture. The lighting is dramatic and prestigious, with deep shadows and vibrant gold highlights against a dark charcoal background. The mood is intimate and powerful, capturing the essence of 'Black Excellence' in a modern musical session." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjjaEBwJvQ_BtL8kjaiDwNRSluB_uKa1vsfQiFc5oDhrC86xG51sufFoCoIVrMm-SKZBWFKmgTJzAPSFxkBAkLlFYkhCsU72qmghJ8pJqkOkdj_7gj_eIQ7CZQmO89Y0v-M1iq9sS82jXpL3sbTcSuZTjeai6rd-TEHA63yJTF1UfUy2hmCEy7h1lH-Z8rutGedwmvbnFLkm_0tXlXHgPPwhxiK6mCe28FBQbLcQhheAguvaC8xbufGZbkC9eh74-_CdTO_PNsxfI"/>
+<!-- Player Controls Overlay (Simulated) -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-gutter opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-full bg-white/20 h-1.5 rounded-full mb-4 overflow-hidden">
+<div class="bg-secondary-container h-full w-1/3"></div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-display-lg leading-none cursor-pointer hover:scale-110 transition-transform">play_arrow</span>
+<span class="material-symbols-outlined text-headline-md leading-none cursor-pointer hover:scale-110 transition-transform">skip_next</span>
+<span class="material-symbols-outlined text-headline-md leading-none cursor-pointer hover:scale-110 transition-transform">volume_up</span>
+<span class="font-label-bold text-white">12:45 / 45:00</span>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-headline-md leading-none cursor-pointer">settings</span>
+<span class="material-symbols-outlined text-headline-md leading-none cursor-pointer">fullscreen</span>
+</div>
+</div>
+</div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-secondary-container text-white px-3 py-1 rounded-lg text-label-bold flex items-center gap-1 animate-pulse">
+<span class="w-2 h-2 bg-white rounded-full"></span> LIVE
+                    </span>
+<span class="bg-primary/20 backdrop-blur-md border border-primary/30 text-primary px-3 py-1 rounded-lg text-label-bold">PREMIUM</span>
+</div>
+</div>
+<!-- Metadata -->
+<div class="space-y-4">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="space-y-1">
+<h1 class="font-headline-xl text-headline-xl tracking-tight text-on-surface">E1: The Delta Echoes</h1>
+<div class="flex items-center gap-3">
+<a class="text-primary font-label-bold text-body-lg hover:underline transition-all" href="#">Southern Soul Sessions</a>
+<span class="text-on-surface-variant">•</span>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-primary/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A macro studio shot of a vintage gold-plated microphone against a dark, textured background. The lighting is sophisticated, emphasizing the metallic sheen and the high-production quality of the media brand. The aesthetic is professional and cinematic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb2V-x3dletqmn7N7AJibVffasMbzmAMuXFX9BYNxtYxqg6dTiYbsF6BnGR1XKeMzZfbgknjIXzJZiHFaRGHCzFhH7ZIHDgGLpWsIDk5hXZPneT2S2pKu1jakgVBHbp7MiZM6QAa00rlMab9lC0Des611hKbj6JJAg5cKdRLYvKLIe0I5ERauiUFBMblglb9Kzn0jExN_0hqSF8iFLML0CgwRRTCYjPBaj4c1brubhSxb0uiKvgczcSw3FE_3yfqX3-Nw-mAjb8_U"/>
+</div>
+<span class="text-on-surface-variant font-label-bold">Soul Stage</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 bg-surface-container hover:bg-surface-container-high text-on-surface px-5 py-2.5 rounded-lg border border-white/5 transition-all active:scale-95">
+<span class="material-symbols-outlined">thumb_up</span>
+<span class="font-label-bold">Like</span>
+</button>
+<button class="flex items-center gap-2 bg-surface-container hover:bg-surface-container-high text-on-surface px-5 py-2.5 rounded-lg border border-white/5 transition-all active:scale-95">
+<span class="material-symbols-outlined">share</span>
+<span class="font-label-bold">Share</span>
+</button>
+<button class="flex items-center gap-2 bg-primary-container text-on-primary-container px-5 py-2.5 rounded-lg font-label-bold hover:scale-105 transition-all active:scale-95">
+<span class="material-symbols-outlined">bookmark_add</span>
+<span>Save to Watchlist</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-low border border-white/5 rounded-xl p-6">
+<h3 class="font-label-bold text-on-surface-variant mb-2">Description</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed max-w-3xl">
+                        Journey into the heart of the Mississippi Delta as we trace the origins of modern rhythm and blues. In this premiere episode, 'The Delta Echoes', we host intimate performances from emerging local legends and explore the deep cultural roots that continue to influence global music today. Features exclusive interviews with historians and a breathtaking live rendition of 'Soul's Lament' on the Soul Stage.
+                    </p>
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="text-label-sm font-label-bold text-primary bg-primary/10 px-2 py-1 rounded">#SouthernSoul</span>
+<span class="text-label-sm font-label-bold text-primary bg-primary/10 px-2 py-1 rounded">#DeltaBlues</span>
+<span class="text-label-sm font-label-bold text-primary bg-primary/10 px-2 py-1 rounded">#BlackExcellence</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar Section -->
+<aside class="lg:col-span-4 space-y-gutter">
+<!-- Next Episode Card -->
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">play_circle</span>
+                    Up Next
+                </h2>
+<div class="group relative bg-surface-container rounded-xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors cursor-pointer shadow-lg">
+<div class="aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="A cinematic 16:9 landscape shot of a jazz ensemble performing on a stage bathed in deep blue and warm amber stage lighting. The drummer is in soft focus in the background, while a saxophonist takes the lead. The atmosphere is vibrant and professional, using a cinematic modernism aesthetic with high contrast and rich textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQz5U9wOoOUASIIGEW3uMLKj2EIIUyTce13YEo_Ud-PeeHCgkeH99PR2eEP-ux6RB8d4LEqBfe1Xns4z_0CbLowl5gcf-CVl37Dx1OghyzTr9wBL3baEIGR7gg4jPYLmo4sgB5uLRq0k_0Fz1CMzRmuORkj4TTtdPftopf70CsVESfDLfhOzNKDxZlKrrY2i7sTRWFbqgQkCiUCCTBDboATH471j3Y2dlBkFZrTKKl9w8crwOD9UvLoEiF_fJOBcSaqpyh8iihyOI"/>
+<div class="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 rounded text-[10px] font-label-bold">48:12</div>
+</div>
+<div class="p-4">
+<span class="text-primary font-label-bold text-label-sm uppercase tracking-wider">Episode 2</span>
+<h3 class="font-headline-md text-body-lg mt-1 group-hover:text-primary transition-colors">Harlem Nights &amp; Neon Lights</h3>
+<p class="text-on-surface-variant text-label-sm line-clamp-1 mt-1">Southern Soul Sessions • Soul Stage</p>
+</div>
+</div>
+</div>
+<!-- Related Episodes List -->
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md">More from Soul Stage</h2>
+<div class="space-y-4">
+<!-- Related Item 1 -->
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-32 h-20 flex-shrink-0 relative rounded-lg overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A high-contrast landscape shot of a turntable and a vinyl record in a stylish, dark-themed music lounge. The lighting is cinematic, with a soft gold glow hitting the edges of the vinyl, reflecting a premium and soul-focused atmosphere. Deep blacks and warm amber tones dominate the color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA-irYxXh00qMIkn7CIEMuxtZ-V-yJ-F9Q5nGhgHBVzdnBwra4BhujC-gs-7FW19lHZf02-dyHjQhG4-IftWdUIB5yQHN6i7vi_QBa9ULH4c3ziP2MVsEzKIACJI3PW_nBvvpeY2NbQlPULKi0zd0WZOVvULXDXEHNDWi3EY2hL0tXYktmh-mgL0hC9k7SvaR60rdV2LY5NlYfYpd4heKnDNPLKks1exZjP18glNfKR1rSzt9PSK84VFDtnOBtxQnpYTB4dLdZs6w"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-label-bold text-on-surface group-hover:text-primary transition-colors line-clamp-2">The Legacy of Vinyl: DJ Premier Special</h4>
+<p class="text-on-surface-variant text-label-sm mt-1">Soul Stage • 254K Views</p>
+</div>
+</div>
+<!-- Related Item 2 -->
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-32 h-20 flex-shrink-0 relative rounded-lg overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A wide cinematic shot of a gospel choir performing in a historic brick-walled church during sunset. God-rays of light stream through stained glass, illuminating the gold and white robes of the performers. The scene is majestic, soulful, and represents the high-end media quality of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2DNcEXYoadNSUfZk1-EPJFmTf5l2ItS4NH05u5x2VLgM9ufXOSUPkZM1xPERscPAGIwk4xZ6mGV-e6LoOytsz3Skh02wEV_VAXAyL0ElJU6r9sXTi60bBLvTrTISzqtNDpLNsvWmMbnixPqOaI_ZbmYCq9fLEY1Z6bm0vcWcot5P7QMPf-blL2EzdZmcqyfKMK0ahs6GcrV1sVT7WsQFxxL8o8sqEOHswp10slGSgRzii90MSt0SnTqf3CBhx3giA3Bu6Y2Fv4_Y"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-label-bold text-on-surface group-hover:text-primary transition-colors line-clamp-2">Gospel Roots: A Sunday Morning with The Believers</h4>
+<p class="text-on-surface-variant text-label-sm mt-1">Soul Stage • 1.2M Views</p>
+</div>
+</div>
+<!-- Related Item 3 -->
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-32 h-20 flex-shrink-0 relative rounded-lg overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A cinematic night shot of a bustling city street with neon signs reflecting in puddles. The focus is sharp on a jazz club entrance with a gold sign. The lighting uses deep reds and golds against a dark, moody background, creating a sense of urban elegance and musical history." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk8W7Ev_UmKkwjbuwUyF-xPrtNo7BpBGkSff3eFrnLSkc_O6B2D8kqtCslvZ-ArMGyRCT5UdZpTxLhNOXh3Sr5Mrirnlyy_eQVRxKdnRVZ6lksyTHrd8_NuljwfC1DkoZKwGf_sj9nSdcswG3G1Vkoy_khPOw-N-bZPgWZCrYFZrIgF9LLU4wtmyxKRU9-vdjCdtUangM6NoHml0iTHbxCAkIY-y6hl7DhnkYHFa2Dz9PPEIQ7pr6B645D8fVjalGfv9qFfowxXGI"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-label-bold text-on-surface group-hover:text-primary transition-colors line-clamp-2">Jazz on the Street: Chicago’s South Side</h4>
+<p class="text-on-surface-variant text-label-sm mt-1">Soul Stage • 89K Views</p>
+</div>
+</div>
+</div>
+<button class="w-full border border-white/10 text-on-surface font-label-bold py-3 rounded-lg hover:bg-surface-container transition-colors mt-2">Show All 12 Episodes</button>
+</div>
+<!-- Promotion Banner -->
+<div class="bg-gradient-to-br from-secondary-container to-black border border-white/10 rounded-xl p-6 space-y-4">
+<h3 class="font-headline-md text-white">Chitlin’ Plus</h3>
+<p class="text-on-surface-variant text-label-sm">Stream original series, live concerts, and exclusive documentaries without ads.</p>
+<button class="bg-primary text-on-primary font-label-bold px-6 py-2.5 rounded-lg w-full hover:scale-105 transition-transform">Get Started</button>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="space-y-4">
+<span class="text-headline-md font-headline-xl text-primary font-black">Chitlin’ Network</span>
+<p class="text-on-surface-variant text-label-sm max-w-xs">Connecting the world through the power of Black media. Authentic stories, cinematic quality, cultural soul.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-bold text-primary mb-2">Network</h4>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm transition-colors duration-200" href="#">Advertise</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm transition-colors duration-200" href="#">Start a Channel</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-label-bold text-primary mb-2">Support</h4>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm transition-colors duration-200" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm transition-colors duration-200" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm transition-colors duration-200" href="#">Help Center</a>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-bold text-primary mb-2">Follow Us</h4>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:text-primary cursor-pointer transition-all">
+<span class="material-symbols-outlined">public</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:text-primary cursor-pointer transition-all">
+<span class="material-symbols-outlined">share</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:text-primary cursor-pointer transition-all">
+<span class="material-symbols-outlined">mail</span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-6 border-t border-white/5 text-center md:text-left">
+<p class="text-on-surface-variant text-label-sm">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitlin’ Network Viewer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#f2ca50",
+                    "secondary-container": "#920703",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#cac99f",
+                    "on-surface": "#e5e2e1",
+                    "outline": "#99907c",
+                    "on-tertiary": "#323214",
+                    "on-surface-variant": "#d0c5af",
+                    "surface-container-highest": "#353534",
+                    "inverse-on-surface": "#313030",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#3c2f00",
+                    "on-tertiary-fixed": "#1d1d03",
+                    "on-tertiary-container": "#474727",
+                    "surface-tint": "#e9c349",
+                    "surface-container": "#201f1f",
+                    "tertiary-container": "#b6b58c",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#ff9a8a",
+                    "background": "#131313",
+                    "surface": "#131313",
+                    "outline-variant": "#4d4635",
+                    "on-primary-container": "#554300",
+                    "secondary": "#ffb4a8",
+                    "surface-variant": "#353534",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-fixed-variant": "#484828",
+                    "on-secondary-fixed": "#410000",
+                    "tertiary-fixed": "#e6e5b9",
+                    "on-secondary": "#690000",
+                    "tertiary": "#d2d1a6",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#920703",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "secondary-fixed": "#ffdad4",
+                    "inverse-primary": "#735c00",
+                    "error-container": "#93000a",
+                    "primary-container": "#d4af37",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#3a3939",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "safe-area-tv": "80px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Epilogue"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Epilogue"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Epilogue"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .focused-element:focus, .focused-element:hover {
+            outline: 3px solid #d4af37;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 shadow-2xl border-b border-white/10 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter">Chitlin’ Network</span>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Watch Live</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Advertise</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Start a Channel</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-high border-none rounded-full pl-10 pr-4 py-2 text-label-sm focus:ring-2 focus:ring-primary w-64 transition-all" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-bold hover:scale-105 transition-all">Sign In</button>
+</div>
+</nav>
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-12 space-y-12">
+<!-- Welcome Header & Account Overview -->
+<header class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-2 flex flex-col justify-center space-y-4">
+<h1 class="text-display-lg font-display-lg text-primary">Welcome back, Marcus</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">Your front-row seat to Black Excellence is ready. Pick up where you left off or discover something new from the community.</p>
+</div>
+<div class="glass-panel p-6 rounded-xl space-y-6">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-primary">Account Overview</h3>
+<span class="material-symbols-outlined text-primary">settings</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center border-b border-white/5 pb-2">
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Status</span>
+<span class="text-label-bold text-on-surface">Free Viewer</span>
+</div>
+<div class="flex justify-between items-center border-b border-white/5 pb-2">
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Member Since</span>
+<span class="text-label-bold text-on-surface">Oct 2023</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<button class="w-full py-3 bg-primary text-on-primary font-label-bold rounded-lg focused-element">Upgrade to Premium</button>
+<div class="flex gap-2">
+<button class="flex-1 py-2 border border-outline text-on-surface rounded-lg text-label-sm hover:bg-white/5 transition-colors">Payment History</button>
+<button class="flex-1 py-2 border border-outline text-on-surface rounded-lg text-label-sm hover:bg-white/5 transition-colors">Edit Profile</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Section 1: Continue Watching (16:9) -->
+<section class="space-y-6">
+<div class="flex justify-between items-end">
+<h2 class="text-headline-xl font-headline-xl">Continue Watching</h2>
+<a class="text-primary font-label-bold flex items-center gap-1 hover:underline" href="#">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="flex gap-gutter overflow-x-auto hide-scrollbar pb-4 snap-x">
+<!-- Card 1 -->
+<div class="flex-shrink-0 w-80 md:w-[450px] space-y-3 snap-start group">
+<div class="relative aspect-video rounded-xl overflow-hidden focused-element cursor-pointer shadow-xl">
+<img class="w-full h-full object-cover" data-alt="A cinematic still from a modern drama series featuring two Black leads in a high-end jazz club setting. The lighting is warm and moody with amber glows and deep shadows, reflecting a premium cinematic production style. The scene is rich in texture and emotional depth, captured in a 16:9 widescreen format." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4oy5Ut1XfL-WeAMUIYqDMfBxSKJTNO4wBmFbyl-d5HAcQqAWlYFbUsZPUQXOQ6PVVA0RPq3tI0RBN87pKz5Qr3jvJLTgdQM2K5-SQpXWM8uV9mYNTZB3UWzj9aLiTNZt_6XQLPY1nXaiVFhUrUX1s80WaMX9OEe7QSqWQNF-_-CfxEn-d-x9POs9HX3kw2I6M8nIeJsqS3LR2WCx_FLhYQjybcqPzOSKpTQ0QbCvaGmCqWIK7erOcZneVmJy09FbMQHGfbGERV2A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
+<div class="h-full bg-secondary-container" style="width: 65%;"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-bold text-lg">The Midnight Session • S1 E4</h4>
+<p class="text-label-sm text-on-surface-variant">Drama • 12m remaining</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex-shrink-0 w-80 md:w-[450px] space-y-3 snap-start group">
+<div class="relative aspect-video rounded-xl overflow-hidden focused-element cursor-pointer shadow-xl">
+<img class="w-full h-full object-cover" data-alt="A vibrant documentary still showing a bustling creative workspace filled with architectural models and digital screens. A group of diverse Black professionals are engaged in a collaborative design process. The lighting is bright and modern, emphasizing a sense of innovation and professional excellence within a high-tech studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWODHZ85tqd3RSpZMEd44ejeuCKBBkBOfkgms4xFdKdIMBbNQnxfjhEvyRRqxZ1D02tPng3qNXPi6o0hOMuHpn3MOvNGwC3ehUf6YLfZJyKwjsK_oamTO9TKb18XH3FqVSSL1ne6t9oEPuAmSeD3QIz2IhomnHqjqS4ETk4FcNzY7Yry8wEluE6vhz0lIetxglGmSyWicIYbfoY6NJNnP_R_DGWMbnGuOkCraa4HEIGwmPdMn2pycgBhj4uroMVJ5f6d_b_-semoA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
+<div class="h-full bg-secondary-container" style="width: 25%;"></div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-white drop-shadow-lg" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div>
+<h4 class="font-label-bold text-lg">Modern Pioneers • S2 E1</h4>
+<p class="text-label-sm text-on-surface-variant">Docuseries • 42m remaining</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: My Watchlist (2:3 Posters) -->
+<section class="space-y-6">
+<h2 class="text-headline-xl font-headline-xl">My Watchlist</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+<!-- Poster 1 -->
+<div class="space-y-2 group">
+<div class="aspect-[2/3] rounded-xl overflow-hidden focused-element cursor-pointer shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="A premium cinematic movie poster featuring a silhouette of a dancer against a backdrop of vibrant, colorful city lights at night. The aesthetic is modern and stylish with high contrast and deep saturated blues and purples. Gold typography accents suggest a high-end production about urban culture and artistic expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyKDwvcvTUEcHvyf_ECpmq0bVMjbP6ghGqlMkrehMdlfItaVp5yo-AE7nnN9MrszY1VO29QUXMcyEW2T7jlwldePn5ks-I8hLcc19IWXPaAf-Gpoi_NwJDxFSE3ZGpG6Y5CQ61jHZPofufk2PRGBLlJanwOQuBsaUh6ta8oXz9j2qVrs_WAw6e3T0UAlTli1WCRxS0Sz_HjZXxay8EtqqvPyra6NILvW-Gp2mMzifm59GBbjpJP68q4r87nTtQkoIZHeQFaUrc9ys"/>
+<div class="absolute top-2 right-2 glass-panel p-1 rounded-md">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+</div>
+<h4 class="font-label-bold text-center">Neon Rhythm</h4>
+</div>
+<!-- Poster 2 -->
+<div class="space-y-2 group">
+<div class="aspect-[2/3] rounded-xl overflow-hidden focused-element cursor-pointer shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="A dramatic movie poster showing a powerful upward angle of a historical figure in period-accurate 1920s attire. The background is a soft-focus sepia-toned street scene. The lighting creates a dignified aura, emphasizing themes of leadership and resilience in a premium cinematic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6_qQ2138HTwUsTrutDSQF3Yf1p723G8PznaDQVKe_jOmeknqOR2YvZck598IvPExlbaHp0K9AQd9oN_IQcJIExfN9uIKl_8k671SK2k2xW8O5Sj0gtof-P0fOTNmlZKfEoSUb2MPvyIs0j0V00rdanmdvrqSDOef43S1b2C57lhyn3aCF65g4PXYSPjJWK2-DFasztJHW3Zgraqogu8uDAqf5T_-l4Khrw-xYI54pA6WadvKN8_zxRfzbccqO0RLZzTk1apa1zSY"/>
+<div class="absolute top-2 right-2 glass-panel p-1 rounded-md">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+</div>
+<h4 class="font-label-bold text-center">Founding Pillars</h4>
+</div>
+<!-- Poster 3 -->
+<div class="space-y-2 group">
+<div class="aspect-[2/3] rounded-xl overflow-hidden focused-element cursor-pointer shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="A stylized movie poster for a sci-fi thriller featuring glowing holographic interfaces reflected on a focused protagonist's face. The lighting is cool neon blue with gold sparks. The composition is tight and intense, conveying a sense of high-stakes technology and futurism within a Black cinematic context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuART676UEf-0hJw-VRVTi8SmjB_8zkMDNwo9HNJsDRlEiYbDu_AugCYzWpl7v0Jlc0Qtopp38zFM3V2BeiFyO7DepD9REimOZH38xr6G52ODZuEL457V2oODXHiEnXpihoqeDFWFofThOtJ7hxeU_TdTFdU22clxyGjMBBGUjGDKKIKLsFu0EqORPQoG1niHggPtO99KCG7ZJlPpatf10u1UWoeYNqR7gsOhby_hbhpXZYIL-sfMjOaPiZ70FHmPRrXVxTjB0on_ZM"/>
+<div class="absolute top-2 right-2 glass-panel p-1 rounded-md">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+</div>
+<h4 class="font-label-bold text-center">Null Vector</h4>
+</div>
+<!-- Poster 4 -->
+<div class="space-y-2 group">
+<div class="aspect-[2/3] rounded-xl overflow-hidden focused-element cursor-pointer shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="A beautiful landscape-oriented movie poster showing a serene coastal village at dawn. The light is soft pink and gold. In the foreground, a fishing boat rests on the sand. The image evokes a sense of peace, heritage, and storytelling, styled like a prestige international film festival entry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQSZhPog-HW4AGe30sFI6zZ8UO04qTOs2EWF1LB-SaJG2PkmlTWKw7g2VBZ5Fp0A3LooTTdGa_vPbWREuKddEmV-WmZa7EEqYTCw_qpHqxW-LuV9TPQJo4p-_URkRHZ_REM2ejW0wasi_8Z6BmjGeclpAZYkHdEpo1LfcLMlS8mlcsE62x9VDSEwmHBIUDZUN_qbtRRhzNH5iDUd7ZyLsi7k3O63tM7sGXRJN9gyEdWxItsE9wrIDIAFuh-sYngm2UeyGX1asztig"/>
+<div class="absolute top-2 right-2 glass-panel p-1 rounded-md">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+</div>
+<h4 class="font-label-bold text-center">Coastline Tales</h4>
+</div>
+<!-- Poster 5 -->
+<div class="space-y-2 group">
+<div class="aspect-[2/3] rounded-xl overflow-hidden focused-element cursor-pointer shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="A minimalist film poster with a bold central icon of a vintage microphone bathed in a single golden spotlight against a pitch-black background. The style is ultra-modern and elegant, suggesting a high-profile stand-up comedy special or a musical performance film with extreme visual clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0NZfRETP3A9Aux_x9nMfiEc-vdKAcnKZAniJfbHm__FxH-QmE0Zf6zuc4jgjwjz7jrP7xwg_Js1RQ_1cl61qzkd5sFeAmybMXGhDe6oMxBDq_AOZgS19XsS4wswiJNXz-BLQJaYkMjxmKGbMQ2jJbfOCdjiW9Dc9TRBeM3sE6bchVh42HMWk5iGJM2HFaF5ImeKZgWfvnGM2Ahen-B-yNtgAwgBdhSERB04D_m-1RzXjD4fkYtRBSF-ODiSWn9PjZGbREma0xJxM"/>
+<div class="absolute top-2 right-2 glass-panel p-1 rounded-md">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+</div>
+<h4 class="font-label-bold text-center">Unfiltered</h4>
+</div>
+<!-- Poster 6 -->
+<div class="space-y-2 group">
+<div class="aspect-[2/3] rounded-xl overflow-hidden focused-element cursor-pointer shadow-2xl relative">
+<img class="w-full h-full object-cover" data-alt="A high-concept thriller poster showing a distorted reflection in a broken mirror. The shards capture different facial expressions of a single person. The lighting is stark and dramatic, with deep charcoal tones and sharp highlights. It conveys mystery and psychological complexity in a sleek modern design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2_hJGLN0-_YK7pJ9gojlNHHP7kBv98TJ0_Cb0i4FFK4VQein_7e8NdOaJH_HdE4AfpUKzguD4hcifvmyv61xEVHZGWNeX4st-pEN2bd6c7JXn7kMVbsXgIDZ2F6zKRvRI6Q_2e7ztFkjfms3axWFnP5nKaVAnSzpEv-h6U28yGnnZTOG63y77ahUMfzadzI-BtPJhg14jfTJha6sv0cIYBKAm5ynK54eN3rLP8WsOXvw5JqETABwz-lOHsBzJx_TkYezd9sncpqg"/>
+<div class="absolute top-2 right-2 glass-panel p-1 rounded-md">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+</div>
+<h4 class="font-label-bold text-center">Refractions</h4>
+</div>
+</div>
+</section>
+<!-- Section 3: Followed Channels -->
+<section class="space-y-6">
+<h2 class="text-headline-xl font-headline-xl">Followed Channels</h2>
+<div class="flex gap-8 overflow-x-auto hide-scrollbar pb-4">
+<!-- Channel 1 -->
+<div class="flex flex-col items-center gap-3 min-w-[120px]">
+<div class="relative w-24 h-24 rounded-full border-4 border-secondary-container p-1 focused-element cursor-pointer">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container-high flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A professional circular logo for a media channel named 'TechNoir'. It features a stylized golden circuit board pattern integrated with a sleek black letter T. The design is modern, premium, and tech-focused, set against a dark glassmorphic background with a glowing red live indicator nearby." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaVY2kczOWwnhkZ2lWeI9MLZd-eUm7J-qgOXFv3K9WeO3rCKN3WadgCiJZevPwU4zVQv65S-cCWjGJwlqAu8WiIut0bwU1t2RMZGdS11NtiGzh6mh5MHaDrmuCMlNKwaW598ZzgvpWB9KHrJb8U_nWaS0oghrdlBUrPoQlaWrdAWjdHdt00rVO_XaQLrDzCSpVwcs7enF06_L9-NEbNN91xJFg8pJ4qgvEWxgGUmT7YefMRvT_OceTYTdcMFqOEnlkV-jr7KWNQaQ"/>
+</div>
+<div class="absolute bottom-1 right-1 bg-secondary-container text-[10px] font-bold text-white px-1.5 py-0.5 rounded-full border-2 border-background animate-pulse">LIVE</div>
+</div>
+<span class="font-label-bold text-sm">TechNoir TV</span>
+</div>
+<!-- Channel 2 -->
+<div class="flex flex-col items-center gap-3 min-w-[120px]">
+<div class="relative w-24 h-24 rounded-full border-2 border-outline-variant p-1 focused-element cursor-pointer">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container-high flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A minimalist circular logo for a gaming channel called 'Nexus Gaming'. It depicts a golden geometric cube unfolding into a series of smaller glowing particles. The style is clean, digital, and professional, reflecting high-quality gaming content with a premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2wbOfSEQ3eVEub3r9eQmkcC-bOap4jpLsrI6z4fQE7vuaewaEX9zwW10MebRseLL2PwTq433BjnzV4FhXP6-LEEg30hhqsb9J2OD4vn8dAjJeFBqgd282Gy7Eck-PmuA6iwjih0c6BgpQJPRfuxVcdsrC0UFd_kD8D1LOn-mdeUjTfDMdJ1R5J7H5gp30AcPsIzEaxDZgRn2wtOt2k7sJBucNjg8dqCa1eenq056DWdDtjYgF_DJGOUuM1gtQpUaFwUDS2kJPMiU"/>
+</div>
+</div>
+<span class="font-label-bold text-sm">Nexus Gaming</span>
+</div>
+<!-- Channel 3 -->
+<div class="flex flex-col items-center gap-3 min-w-[120px]">
+<div class="relative w-24 h-24 rounded-full border-2 border-outline-variant p-1 focused-element cursor-pointer">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container-high flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A sophisticated circular logo for a music and arts channel named 'Rhythm Hub'. It features an abstract representation of sound waves in gold against a deep matte black background. The design is elegant, artistic, and suggests high-end musical production and cultural commentary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZyFHv3cjT45_QkoiAjRu38PuethstqZT447M6LAa1bXuh_rhULggBJ4UxXkz3djeCap34RTz3KRGwgLB2rO3T9e3iDTmWjNBhrYuc7ud8SczTtThCv7QM2lAwMhV8744-r2B9NIYHd7EFujaQlq4N1sR2l7g3QXDzU9JW_dY6rlcVqX76WTgAzLuCgN4dwGfGkBYFCtUaknZy_aQnAKN_Kvs7NXx5mu_WCH5VH-2LJkGPBE1_HaA-6SbSgPM4E96K5cRttha1hb4"/>
+</div>
+</div>
+<span class="font-label-bold text-sm">Rhythm Hub</span>
+</div>
+<!-- Channel 4 -->
+<div class="flex flex-col items-center gap-3 min-w-[120px]">
+<div class="relative w-24 h-24 rounded-full border-4 border-secondary-container p-1 focused-element cursor-pointer">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container-high flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="A bold circular logo for a news channel called 'Global Pulse'. It features a stylized gold globe with a sharp red pulse line running through the center. The design is authoritative, modern, and communicates a high-trust media brand for global Black news." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgZ3lsl0AL9H-TbCQnITSiEfjkzc5UQS-da8hxu0lFd5rtvEeiaGkSzj5OZ9SBf1ZdDmmk_i38X5oVzhLuJKvMn74eIwJlRQ4kFo7ia_8L1KT3M63mJmRrTu9kvVXwLxAxVlPAjI_g2_jarN4fdcI_nKU4JkjmdBznNT82iJ9Qd76T84j0i3q2I7uUlBYS65UoxlcNYbBILT_PMs9DJIp1rvJb8luB-F1MDrULb9EwCAb9KAxlJVXYr46wumEDwVocH_TR5Jm4ihc"/>
+</div>
+<div class="absolute bottom-1 right-1 bg-secondary-container text-[10px] font-bold text-white px-1.5 py-0.5 rounded-full border-2 border-background animate-pulse">LIVE</div>
+</div>
+<span class="font-label-bold text-sm">Global Pulse</span>
+</div>
+<!-- Add New -->
+<div class="flex flex-col items-center gap-3 min-w-[120px]">
+<div class="w-24 h-24 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center cursor-pointer hover:border-primary transition-colors group">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">add</span>
+</div>
+<span class="font-label-bold text-sm text-on-surface-variant">Explore More</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-white/5 full-width bottom-0 mt-auto shadow-none">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="space-y-4">
+<span class="text-headline-md font-headline-xl text-primary font-black">Chitlin’ Network</span>
+<p class="text-label-sm text-on-surface-variant">Empowering Black creators and audiences through premium cinematic storytelling and live broadcasting.</p>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-bold text-primary">Content</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Advertise</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Start a Channel</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-bold text-primary">Legal</h4>
+<nav class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Privacy</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-label-bold text-primary">Newsletter</h4>
+<div class="flex gap-2">
+<input class="bg-surface-container border-none rounded-lg text-label-sm w-full" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary px-4 rounded-lg"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-6 border-t border-white/5 text-center md:text-left">
+<p class="text-label-sm text-on-surface-variant opacity-70">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+</div>
+</footer>
+</body></html>

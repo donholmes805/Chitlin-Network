@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitlin’ Network Global Revenue Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#f2ca50",
+                    "secondary-container": "#920703",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#cac99f",
+                    "on-surface": "#e5e2e1",
+                    "outline": "#99907c",
+                    "on-tertiary": "#323214",
+                    "on-surface-variant": "#d0c5af",
+                    "surface-container-highest": "#353534",
+                    "inverse-on-surface": "#313030",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#3c2f00",
+                    "on-tertiary-fixed": "#1d1d03",
+                    "on-tertiary-container": "#474727",
+                    "surface-tint": "#e9c349",
+                    "surface-container": "#201f1f",
+                    "tertiary-container": "#b6b58c",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#ff9a8a",
+                    "background": "#131313",
+                    "surface": "#131313",
+                    "outline-variant": "#4d4635",
+                    "on-primary-container": "#554300",
+                    "secondary": "#ffb4a8",
+                    "surface-variant": "#353534",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-fixed-variant": "#484828",
+                    "on-secondary-fixed": "#410000",
+                    "tertiary-fixed": "#e6e5b9",
+                    "on-secondary": "#690000",
+                    "tertiary": "#d2d1a6",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#920703",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "secondary-fixed": "#ffdad4",
+                    "inverse-primary": "#735c00",
+                    "error-container": "#93000a",
+                    "primary-container": "#d4af37",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#3a3939",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "safe-area-tv": "80px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Epilogue"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Epilogue"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Epilogue"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .focus-ring:focus {
+            outline: 3px solid #d4af37;
+            transform: scale(1.05);
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 shadow-2xl border-b border-white/10">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-gutter">
+<span class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter">Chitlin’ Network</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Watch Live</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Advertise</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Start a Channel</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<input class="bg-surface-container border border-outline-variant text-on-surface rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary focus:outline-none w-64" placeholder="Search data..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-bold px-6 py-2 rounded-lg hover:scale-105 transition-all duration-300">Sign In</button>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full px-margin-mobile md:px-margin-desktop py-12 max-w-[1600px] mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+<div>
+<h1 class="font-headline-xl text-display-lg text-on-surface tracking-tight mb-2">Financial Operations &amp; Ledger</h1>
+<p class="text-on-surface-variant font-body-lg">Real-time global revenue tracking and distribution management.</p>
+</div>
+<div class="flex gap-4">
+<button class="flex items-center gap-2 border-2 border-on-surface-variant/30 text-on-surface font-label-bold px-6 py-3 rounded-lg hover:bg-white/5 transition-colors focus-ring">
+<span class="material-symbols-outlined">download</span> Export CSV
+                </button>
+<button class="flex items-center gap-2 bg-primary text-on-primary font-label-bold px-6 py-3 rounded-lg hover:brightness-110 transition-all focus-ring shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+<span class="material-symbols-outlined">payments</span> Process Payouts
+                </button>
+</div>
+</div>
+<!-- Metrics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter mb-12">
+<!-- Gross Revenue -->
+<div class="glass-panel p-6 rounded-xl flex flex-col justify-between">
+<div>
+<span class="text-on-surface-variant font-label-sm uppercase tracking-widest block mb-4">Gross Revenue</span>
+<span class="text-headline-xl font-headline-xl text-primary">$4,829,102.50</span>
+</div>
+<div class="mt-4 flex items-center text-primary text-label-sm font-label-bold">
+<span class="material-symbols-outlined mr-1">trending_up</span> +12.4% vs last month
+                </div>
+</div>
+<!-- Network Share -->
+<div class="glass-panel p-6 rounded-xl">
+<span class="text-on-surface-variant font-label-sm uppercase tracking-widest block mb-4">Network Share (30%)</span>
+<span class="text-headline-xl font-headline-xl">$1,448,730.75</span>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-6 overflow-hidden">
+<div class="bg-primary h-full w-[30%]"></div>
+</div>
+</div>
+<!-- Creator Share -->
+<div class="glass-panel p-6 rounded-xl">
+<span class="text-on-surface-variant font-label-sm uppercase tracking-widest block mb-4">Creator Share (70%)</span>
+<span class="text-headline-xl font-headline-xl">$3,380,371.75</span>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-6 overflow-hidden">
+<div class="bg-tertiary h-full w-[70%]"></div>
+</div>
+</div>
+<!-- Pending Payouts -->
+<div class="glass-panel p-6 rounded-xl">
+<span class="text-on-surface-variant font-label-sm uppercase tracking-widest block mb-4">Pending Payouts</span>
+<span class="text-headline-xl font-headline-xl text-secondary-fixed">$842,019.00</span>
+<div class="mt-4 flex items-center text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined mr-1" style="font-variation-settings: 'FILL' 1;">schedule</span> 142 disbursements queued
+                </div>
+</div>
+<!-- Total Payouts -->
+<div class="glass-panel p-6 rounded-xl">
+<span class="text-on-surface-variant font-label-sm uppercase tracking-widest block mb-4">Total Payouts</span>
+<span class="text-headline-xl font-headline-xl">$22,109,400.20</span>
+<div class="mt-4 flex items-center text-on-surface-variant text-label-sm">
+<span class="material-symbols-outlined mr-1">verified</span> Lifetime distributed
+                </div>
+</div>
+</div>
+<!-- Ledger Controls -->
+<div class="glass-panel p-4 rounded-t-xl flex flex-wrap items-center justify-between gap-4 border-b-0">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant text-label-sm">Filter by Channel:</span>
+<select class="bg-surface-container border border-outline-variant text-on-surface rounded-lg px-3 py-1.5 font-label-bold focus:ring-primary focus:border-primary">
+<option>All Channels</option>
+<option>Urban Cinema HD</option>
+<option>Legacy News</option>
+<option>The Culture Live</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant text-label-sm">Date Range:</span>
+<select class="bg-surface-container border border-outline-variant text-on-surface rounded-lg px-3 py-1.5 font-label-bold focus:ring-primary focus:border-primary">
+<option>Last 30 Days</option>
+<option>Current Quarter</option>
+<option>Annual View</option>
+</select>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant text-label-sm">Revenue Source:</span>
+<div class="flex gap-1">
+<span class="px-3 py-1 rounded-full bg-primary-container/20 text-primary text-label-sm font-label-bold border border-primary/20 cursor-pointer">Ad Rev</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-bold border border-outline-variant cursor-pointer hover:bg-surface-container-highest transition-colors">Subscriptions</span>
+</div>
+</div>
+</div>
+<div class="text-on-surface-variant text-label-sm">
+                Showing 1,248 transactions
+            </div>
+</div>
+<!-- Transaction Table -->
+<div class="glass-panel rounded-b-xl overflow-hidden shadow-2xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/50 border-b border-white/5">
+<th class="px-6 py-4 font-label-bold text-on-surface uppercase tracking-widest text-xs">Date</th>
+<th class="px-6 py-4 font-label-bold text-on-surface uppercase tracking-widest text-xs">Entity</th>
+<th class="px-6 py-4 font-label-bold text-on-surface uppercase tracking-widest text-xs">Type</th>
+<th class="px-6 py-4 font-label-bold text-on-surface uppercase tracking-widest text-xs">Amount</th>
+<th class="px-6 py-4 font-label-bold text-on-surface uppercase tracking-widest text-xs">Status</th>
+<th class="px-6 py-4 font-label-bold text-on-surface uppercase tracking-widest text-xs text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 font-label-sm text-on-surface-variant">Oct 24, 2024</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-sm">movie</span>
+</div>
+<span class="font-label-bold">Urban Cinema HD</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-highest px-3 py-1 rounded text-label-sm">Ad Rev</span>
+</td>
+<td class="px-6 py-4 font-label-bold text-primary">+$12,450.00</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-green-400 text-label-sm">
+<span class="w-2 h-2 rounded-full bg-green-400"></span> Completed
+                                </div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-primary/10 rounded-full text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">receipt_long</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 font-label-sm text-on-surface-variant">Oct 24, 2024</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-sm">person</span>
+</div>
+<span class="font-label-bold">Creator: @TheLegacy</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-highest px-3 py-1 rounded text-label-sm">Payout</span>
+</td>
+<td class="px-6 py-4 font-label-bold text-secondary-fixed-dim">-$4,200.00</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-primary text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Pending
+                                </div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-primary/10 rounded-full text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">history_edu</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 font-label-sm text-on-surface-variant">Oct 23, 2024</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+</div>
+<span class="font-label-bold">Global Subscriptions</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-highest px-3 py-1 rounded text-label-sm">Subscription</span>
+</td>
+<td class="px-6 py-4 font-label-bold text-primary">+$88,290.50</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-green-400 text-label-sm">
+<span class="w-2 h-2 rounded-full bg-green-400"></span> Completed
+                                </div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-primary/10 rounded-full text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">description</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 font-label-sm text-on-surface-variant">Oct 23, 2024</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">campaign</span>
+</div>
+<span class="font-label-bold">Advertiser: Luxe Beauty</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-surface-container-highest px-3 py-1 rounded text-label-sm">Ad Rev</span>
+</td>
+<td class="px-6 py-4 font-label-bold text-primary">+$5,000.00</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2 text-green-400 text-label-sm">
+<span class="w-2 h-2 rounded-full bg-green-400"></span> Completed
+                                </div>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 hover:bg-primary/10 rounded-full text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined">launch</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-surface-container-low flex justify-center border-t border-white/5">
+<nav class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-white/5 text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-label-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-white/5 text-on-surface-variant">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-white/5 text-on-surface-variant">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-white/5 text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+<!-- System Status & Map (Visual Anchor) -->
+<div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-2 glass-panel p-6 rounded-xl relative overflow-hidden h-[300px]">
+<div class="relative z-10">
+<h3 class="font-headline-md text-on-surface mb-2">Global Network Activity</h3>
+<p class="text-on-surface-variant text-label-sm">Real-time revenue attribution by geographic node.</p>
+</div>
+<!-- Map Background Placeholder -->
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+<div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&amp;w=2033&amp;auto=format&amp;fit=crop')] bg-cover bg-center" data-alt="A dark, stylized world map with glowing golden nodes and connecting lines representing data flow and financial transactions. The map is rendered in a cinematic charcoal and gold aesthetic, with soft light blooming from major metropolitan areas to symbolize global network activity. The visual style is premium, modern, and highly technical." data-location="Global" style=""></div>
+</div>
+<div class="absolute bottom-6 right-6 z-10 flex flex-col gap-2">
+<div class="flex items-center gap-2 bg-surface/80 px-3 py-1 rounded-full border border-white/10">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-xs font-label-bold">North America: $2.4M</span>
+</div>
+<div class="flex items-center gap-2 bg-surface/80 px-3 py-1 rounded-full border border-white/10">
+<span class="w-2 h-2 rounded-full bg-primary/60"></span>
+<span class="text-xs font-label-bold">Africa: $1.1M</span>
+</div>
+<div class="flex items-center gap-2 bg-surface/80 px-3 py-1 rounded-full border border-white/10">
+<span class="w-2 h-2 rounded-full bg-primary/40"></span>
+<span class="text-xs font-label-bold">Europe: $0.9M</span>
+</div>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl flex flex-col justify-center text-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-4" style="font-variation-settings: 'wght' 200;">verified_user</span>
+<h3 class="font-headline-md text-on-surface mb-2">Immutable Audit Log</h3>
+<p class="text-on-surface-variant font-body-md mb-6">Every transaction is cryptographicly signed and verified for 100% creator transparency.</p>
+<button class="bg-surface-container border border-outline text-on-surface font-label-bold py-3 rounded-lg hover:bg-surface-container-highest transition-all focus-ring">View Transparency Report</button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col gap-4">
+<span class="text-headline-md font-headline-xl text-primary font-black">Chitlin’ Network</span>
+<p class="text-on-surface-variant font-body-md">Black Excellence in Media. The premier destination for global urban storytelling and content distribution.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-on-surface font-label-bold uppercase tracking-widest text-xs">Resources</span>
+<ul class="flex flex-col gap-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm" href="#">About</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm" href="#">Advertise</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm" href="#">Start a Channel</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-on-surface font-label-bold uppercase tracking-widest text-xs">Support</span>
+<ul class="flex flex-col gap-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm" href="#">Terms</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm" href="#">Privacy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm" href="#">API Documentation</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-on-surface font-label-bold uppercase tracking-widest text-xs">Follow Us</span>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#"><span class="material-symbols-outlined">brand_awareness</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200" href="#"><span class="material-symbols-outlined">video_library</span></a>
+</div>
+<p class="text-on-surface-variant font-label-sm mt-4">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+</div>
+</div>
+</footer>
+</body></html>

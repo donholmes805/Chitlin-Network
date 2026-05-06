@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Content Moderation Queue - Chitlin’ Network</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#f2ca50",
+                    "secondary-container": "#920703",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#cac99f",
+                    "on-surface": "#e5e2e1",
+                    "outline": "#99907c",
+                    "on-tertiary": "#323214",
+                    "on-surface-variant": "#d0c5af",
+                    "surface-container-highest": "#353534",
+                    "inverse-on-surface": "#313030",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#3c2f00",
+                    "on-tertiary-fixed": "#1d1d03",
+                    "on-tertiary-container": "#474727",
+                    "surface-tint": "#e9c349",
+                    "surface-container": "#201f1f",
+                    "tertiary-container": "#b6b58c",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#ff9a8a",
+                    "background": "#131313",
+                    "surface": "#131313",
+                    "outline-variant": "#4d4635",
+                    "on-primary-container": "#554300",
+                    "secondary": "#ffb4a8",
+                    "surface-variant": "#353534",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-fixed-variant": "#484828",
+                    "on-secondary-fixed": "#410000",
+                    "tertiary-fixed": "#e6e5b9",
+                    "on-secondary": "#690000",
+                    "tertiary": "#d2d1a6",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#920703",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "secondary-fixed": "#ffdad4",
+                    "inverse-primary": "#735c00",
+                    "error-container": "#93000a",
+                    "primary-container": "#d4af37",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#3a3939",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "safe-area-tv": "80px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Epilogue"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Epilogue"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Epilogue"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 253, 208, 0.1);
+        }
+        .focus-ring:focus {
+            outline: 3px solid #d4af37;
+            transform: scale(1.02);
+            transition: all 0.2s ease-in-out;
+        }
+        .live-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 bg-surface/70 backdrop-blur-24 border-b border-white/10 shadow-2xl flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter">Chitlin’ Network</div>
+<nav class="hidden md:flex items-center space-x-gutter">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Watch Live</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Advertise</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Start a Channel</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary focus-ring rounded-full p-2">search</button>
+<button class="bg-primary text-on-primary font-label-bold px-6 py-2 rounded-lg hover:scale-105 transition-all focus-ring">Sign In</button>
+</div>
+</header>
+<main class="flex-grow w-full max-w-[1920px] mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Main Content Area: Moderation Queue -->
+<section class="flex-grow">
+<div class="flex items-center justify-between mb-8">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Content Moderation Queue</h1>
+<div class="flex items-center gap-4">
+<span class="bg-secondary-container text-on-surface px-3 py-1 rounded-full text-label-sm font-label-bold flex items-center gap-2">
+<span class="w-2 h-2 bg-white rounded-full live-pulse"></span>
+                            12 PENDING
+                        </span>
+</div>
+</div>
+<!-- Bento Grid / List for Moderation -->
+<div class="space-y-4">
+<!-- Moderation Item 1 (Selected) -->
+<div class="glass-panel p-4 rounded-xl flex flex-col md:flex-row gap-6 border-l-4 border-primary ring-1 ring-primary/30">
+<div class="relative w-full md:w-64 aspect-video overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-definition film still showcasing a vibrant community festival in a modern urban Black neighborhood. The lighting is golden hour, casting deep, rich shadows and warm highlights across the diverse crowd. The image uses a cinematic aspect ratio with professional color grading that emphasizes deep blacks and radiant golden tones, reflecting a premium media aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAScLzxZOhi1C9OAiR-J58_nMm_aqG1H1gKTKtez7XFIHvx2Svh_AkGjd7f0rqGm_U72rWLQstFrUNlyuvUUmUnYu-rgUyUyx3nfNy4cE0cVTmzMA9PsmLFoevzJSwJNKRFGqrxvxeigMTMqMz2Jufma3jbEMtrzKU4Hbg1rN-OanFehiHNxZwfNhRlESDTX9rXv9KJHcjXpifnDEVWxoNXl96aSBz0m4MuMnXC4tFIJjINOI2TOOVru8zs9woHkT3l7lSimBfS11U"/>
+<div class="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 rounded text-label-sm">42:15</div>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-primary font-label-bold text-label-sm uppercase tracking-widest">Documentary</span>
+<span class="text-on-surface-variant text-label-sm">• 2 hours ago</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">The Legacy of Bronzeville: Ep 4</h3>
+<p class="text-on-surface-variant font-body-md">By <span class="text-on-surface font-label-bold">Urban Visionaries Network</span></p>
+</div>
+<div class="flex flex-wrap items-center gap-3 mt-4">
+<button class="bg-primary text-on-primary font-label-bold px-6 py-2 rounded-lg flex items-center gap-2 hover:scale-105 transition-all focus-ring">
+<span class="material-symbols-outlined text-[18px]">check_circle</span> Approve
+                                </button>
+<button class="border-2 border-outline text-on-surface font-label-bold px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-surface-container transition-all focus-ring">
+<span class="material-symbols-outlined text-[18px]">edit_note</span> Request Changes
+                                </button>
+<button class="text-error font-label-bold px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-error-container/20 transition-all focus-ring">
+<span class="material-symbols-outlined text-[18px]">cancel</span> Reject
+                                </button>
+</div>
+</div>
+</div>
+<!-- Moderation Item 2 -->
+<div class="glass-panel p-4 rounded-xl flex flex-col md:flex-row gap-6 opacity-80 hover:opacity-100 transition-opacity">
+<div class="relative w-full md:w-64 aspect-video overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover" data-alt="A professional high-contrast portrait of a jazz musician playing a saxophone in a dimly lit, atmospheric studio. The scene is illuminated by a single sharp rim light, creating a dramatic chiaroscuro effect against the deep charcoal background. The visual style is modern cinematic, using a palette of monochromatic blacks and whites with subtle warm gold highlights on the instrument." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL4KXYJ5UXHg21ihyGd29Ts0AvpAkgMlF4sQ6w7wWkq-oK3WIMNfvDAvnE_WjTFuVP1JMgm1oiD8Ox8u6V37aUmJV6vIyZMu9ECyoGnmlTXen8ZSeo454u2Tyf3vtZLg5jhRVWgdt0TPfqonCQPyM5l5-ptS6dfC5PsPg4zelqRZV0HRYteB62xztCG7Est91Lt74ojF7_tSXimmC2L95WFDSb0cl9prJp8Fni_LnatXEMzrUXOklkZx6Y5cJzsJLDIjB2LZod8xs"/>
+<div class="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 rounded text-label-sm">28:04</div>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-primary font-label-bold text-label-sm uppercase tracking-widest">Music</span>
+<span class="text-on-surface-variant text-label-sm">• 5 hours ago</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Soul Sessions: Live at The Blue Note</h3>
+<p class="text-on-surface-variant font-body-md">By <span class="text-on-surface font-label-bold">Melody Makers TV</span></p>
+</div>
+<div class="flex flex-wrap items-center gap-3 mt-4">
+<button class="bg-primary text-on-primary font-label-bold px-6 py-2 rounded-lg flex items-center gap-2 hover:scale-105 transition-all focus-ring">
+<span class="material-symbols-outlined text-[18px]">check_circle</span> Approve
+                                </button>
+<button class="border-2 border-outline text-on-surface font-label-bold px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-surface-container transition-all focus-ring">
+<span class="material-symbols-outlined text-[18px]">edit_note</span> Request Changes
+                                </button>
+<button class="text-error font-label-bold px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-error-container/20 transition-all focus-ring">
+<span class="material-symbols-outlined text-[18px]">cancel</span> Reject
+                                </button>
+</div>
+</div>
+</div>
+<!-- Moderation Item 3 -->
+<div class="glass-panel p-4 rounded-xl flex flex-col md:flex-row gap-6 opacity-80 hover:opacity-100 transition-opacity">
+<div class="relative w-full md:w-64 aspect-video overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover" data-alt="A modern, high-tech podcast studio setup with high-end microphones, soundproof acoustic panels, and warm ambient neon lighting. The atmosphere is sophisticated and professional, featuring a dark color scheme with glowing gold and amber accents. The image capture is clean and sharp, representing the high production value of top-tier digital media content." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTAx3XcldGNBr4cwDbf1GUbt2if6gVcGcI9edjBrz28HE_9wOVVWLu5nNslSTkjXiS4hCho9K4QTyaRNHluPK5URL7aNNNmUa2QEknbD3wF52KXEOVesoeP8krQV79h0C31sIkNUl6U_bTlXH5THkycfdEFCl0VRz1LjFLbG9yIQaj6KD2KZ3Gn99AosWFImflGKZONFKC7mNyQURXIrf__W4rUwrW2JkPDnN6vr-EywvPB2Kiy3SJTvxwNUeSLDBVeYo3Wu-kuS4"/>
+<div class="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 rounded text-label-sm">15:30</div>
+</div>
+<div class="flex-grow flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-primary font-label-bold text-label-sm uppercase tracking-widest">Talk Show</span>
+<span class="text-on-surface-variant text-label-sm">• Yesterday</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Tech Talk: Future of Fintech</h3>
+<p class="text-on-surface-variant font-body-md">By <span class="text-on-surface font-label-bold">The Daily Hustle</span></p>
+</div>
+<div class="flex flex-wrap items-center gap-3 mt-4">
+<button class="bg-primary text-on-primary font-label-bold px-6 py-2 rounded-lg flex items-center gap-2 hover:scale-105 transition-all focus-ring">
+<span class="material-symbols-outlined text-[18px]">check_circle</span> Approve
+                                </button>
+<button class="border-2 border-outline text-on-surface font-label-bold px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-surface-container transition-all focus-ring">
+<span class="material-symbols-outlined text-[18px]">edit_note</span> Request Changes
+                                </button>
+<button class="text-error font-label-bold px-6 py-2 rounded-lg flex items-center gap-2 hover:bg-error-container/20 transition-all focus-ring">
+<span class="material-symbols-outlined text-[18px]">cancel</span> Reject
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar: Preview Player -->
+<aside class="w-full lg:w-[420px] shrink-0">
+<div class="sticky top-28 space-y-gutter">
+<div class="glass-panel overflow-hidden rounded-xl">
+<div class="bg-surface-container-high p-4 border-b border-white/5">
+<h2 class="font-label-bold text-label-bold text-primary flex items-center gap-2 uppercase tracking-tighter">
+<span class="material-symbols-outlined">play_circle</span> Preview Player
+                            </h2>
+</div>
+<div class="relative group aspect-video bg-black">
+<img class="w-full h-full object-cover opacity-60" data-alt="A detailed cinematic still showing the bustling streets of a historic Chicago neighborhood at dusk. The lighting is moody and atmospheric, with orange street lamps contrasting against deep blue evening sky. The focus is sharp and the composition is professional, maintaining the high-production value and cultural soul of the Chitlin Network brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkoTOSaZgeDs3vjM1Hwl_zISYHtXayCfZ_Vg9jDs2BU0QOoUxsOJTEdnxNEOebYzSvSo41ZwQgeUSx-CNsKPIONcuSPOIbHJ6ncIOYhdnzIRKr2JtSe7oINKRct7tcoaqHEC7ojurYecBoyw2xOjVJCJATShZBkzVRUnMrA_hkiHYSufwEcyfDeoIVOfh3XN62VDjFpzbLKJhqpLlTDljxKkYLUyhpvVf7g7g44f54LJaDbK8vXRb8fdsMwQ13zdVCdJG_bIexJts"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-2xl scale-100 hover:scale-110 transition-transform focus-ring">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Video Progress Bar -->
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
+<div class="h-full bg-secondary-container w-1/3"></div>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div>
+<h4 class="font-headline-md text-on-surface">The Legacy of Bronzeville: Ep 4</h4>
+<p class="text-on-surface-variant text-label-sm mt-1">Uploaded by Urban Visionaries Network</p>
+</div>
+<div class="grid grid-cols-2 gap-4 text-label-sm">
+<div class="bg-surface-container p-3 rounded-lg">
+<p class="text-on-surface-variant font-label-bold uppercase">Duration</p>
+<p class="text-on-surface text-body-md">42m 15s</p>
+</div>
+<div class="bg-surface-container p-3 rounded-lg">
+<p class="text-on-surface-variant font-label-bold uppercase">Quality</p>
+<p class="text-on-surface text-body-md">4K UHD</p>
+</div>
+</div>
+<div class="pt-4 border-t border-white/5">
+<p class="text-on-surface-variant font-body-md mb-4 italic">"This episode explores the cultural renaissance of the 1920s and its lasting impact on modern entrepreneurship in the district."</p>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest px-3 py-1 rounded text-label-sm">History</span>
+<span class="bg-surface-container-highest px-3 py-1 rounded text-label-sm">Culture</span>
+<span class="bg-surface-container-highest px-3 py-1 rounded text-label-sm">Finance</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Meta Info Card -->
+<div class="glass-panel p-6 rounded-xl border-dashed border-2 border-outline/30">
+<h4 class="font-label-bold text-on-surface mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span> Moderation Guide
+                        </h4>
+<ul class="text-label-sm text-on-surface-variant space-y-2">
+<li class="flex items-start gap-2">• Verify all copyright clearances are provided.</li>
+<li class="flex items-start gap-2">• Ensure video bitrate meets the 15Mbps minimum.</li>
+<li class="flex items-start gap-2">• Check for accurate closed caption synchronization.</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5 bg-surface-container-lowest grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col gap-4">
+<div class="text-headline-md font-headline-xl text-primary font-black">Chitlin’ Network</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="text-primary font-label-bold">Company</h5>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors duration-200" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors duration-200" href="#">Privacy</a>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="text-primary font-label-bold">Business</h5>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors duration-200" href="#">Advertise</a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors duration-200" href="#">Start a Channel</a>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="text-primary font-label-bold">Social</h5>
+<div class="flex gap-4">
+<a class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" href="#">public</a>
+<a class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" href="#">share</a>
+<a class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" href="#">hub</a>
+</div>
+</div>
+</footer>
+</body></html>

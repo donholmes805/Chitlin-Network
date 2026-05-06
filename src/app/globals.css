@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #f2ca50;
+  --color-primary-container: #d4af37;
+  --color-on-primary: #3c2f00;
+  --color-on-primary-container: #554300;
+
+  --color-secondary: #ffb4a8;
+  --color-secondary-container: #920703;
+  --color-on-secondary: #690000;
+  --color-on-secondary-container: #ff9a8a;
+
+  --color-background: #131313;
+  --color-surface: #131313;
+  --color-surface-dim: #131313;
+  --color-surface-bright: #3a3939;
+  --color-surface-variant: #353534;
+
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container: #201f1f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353534;
+
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #d0c5af;
+  --color-outline: #99907c;
+  --color-outline-variant: #4d4635;
+
+  --font-headlines: "Epilogue", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --spacing-margin-mobile: 16px;
+  --spacing-margin-desktop: 64px;
+  --spacing-gutter: 24px;
+  --spacing-safe-area-tv: 80px;
+
+  --animate-live-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .5;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-body antialiased;
+    background-color: #131313;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-headlines font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply backdrop-blur-3xl bg-surface/70 border border-white/10;
+  }
+
+  .focus-ring {
+    @apply outline-none transition-all duration-300;
+  }
+
+  .focus-ring:focus-visible {
+    @apply outline-[3px] outline-primary-container scale-[1.02];
+  }
+
+  .media-card {
+    @apply relative overflow-hidden rounded-xl bg-surface-container-high transition-all duration-300 border border-white/5;
+  }
+
+  .media-card:hover {
+    @apply scale-[1.05] z-10 border-primary-container shadow-2xl;
+    border-width: 3px;
+  }
+
+  .safe-area {
+    @apply px-margin-mobile md:px-margin-desktop;
+  }
+}

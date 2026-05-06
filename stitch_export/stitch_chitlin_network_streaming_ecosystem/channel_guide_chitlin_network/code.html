@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Channel Guide | Chitlin’ Network</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#f2ca50",
+                    "secondary-container": "#920703",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#cac99f",
+                    "on-surface": "#e5e2e1",
+                    "outline": "#99907c",
+                    "on-tertiary": "#323214",
+                    "on-surface-variant": "#d0c5af",
+                    "surface-container-highest": "#353534",
+                    "inverse-on-surface": "#313030",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#3c2f00",
+                    "on-tertiary-fixed": "#1d1d03",
+                    "on-tertiary-container": "#474727",
+                    "surface-tint": "#e9c349",
+                    "surface-container": "#201f1f",
+                    "tertiary-container": "#b6b58c",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#ff9a8a",
+                    "background": "#131313",
+                    "surface": "#131313",
+                    "outline-variant": "#4d4635",
+                    "on-primary-container": "#554300",
+                    "secondary": "#ffb4a8",
+                    "surface-variant": "#353534",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-fixed-variant": "#484828",
+                    "on-secondary-fixed": "#410000",
+                    "tertiary-fixed": "#e6e5b9",
+                    "on-secondary": "#690000",
+                    "tertiary": "#d2d1a6",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#920703",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "secondary-fixed": "#ffdad4",
+                    "inverse-primary": "#735c00",
+                    "error-container": "#93000a",
+                    "primary-container": "#d4af37",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#3a3939",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "safe-area-tv": "80px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Epilogue"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Epilogue"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Epilogue"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-panel {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .epg-grid {
+            display: grid;
+            grid-template-columns: 240px repeat(6, 300px);
+        }
+        .now-indicator {
+            left: 540px; /* Example offset for 'Now' */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar predicted component -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 shadow-2xl bg-surface/70 backdrop-blur-24 border-b border-white/10">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter">
+                Chitlin’ Network
+            </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors font-label-bold text-label-bold uppercase tracking-wide" href="#">Watch Live</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1 font-label-bold text-label-bold uppercase tracking-wide" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors font-label-bold text-label-bold uppercase tracking-wide" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors font-label-bold text-label-bold uppercase tracking-wide" href="#">Advertise</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors font-label-bold text-label-bold uppercase tracking-wide" href="#">Start a Channel</a>
+</nav>
+<div class="flex items-center space-x-6">
+<div class="hidden lg:flex items-center bg-surface-container-high px-4 py-2 rounded-full border border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-sm placeholder-on-surface-variant w-48 ml-2" placeholder="Search shows..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-bold px-6 py-2 rounded-full hover:scale-105 transition-all duration-300 active:scale-95">
+                    Sign In
+                </button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section / Title -->
+<section class="px-margin-mobile md:px-margin-desktop py-12 bg-gradient-to-b from-surface-container-low to-background">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-display-lg font-display-lg mb-2 text-primary">Channel Guide</h1>
+<p class="text-on-surface-variant max-w-2xl font-body-lg">Real-time scheduling for Black excellence. Discover the pulse of the community through our curated live network.</p>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-label-bold">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-label-bold">Sunday, Nov 24, 2024</span>
+</div>
+</div>
+<!-- Filters -->
+<div class="mt-10 flex flex-wrap gap-3 scrollbar-hide">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full font-label-bold border-2 border-primary transition-all">All</button>
+<button class="px-6 py-2 bg-surface-container border-2 border-white/5 text-on-surface rounded-full font-label-bold hover:border-primary/50 transition-all">News</button>
+<button class="px-6 py-2 bg-surface-container border-2 border-white/5 text-on-surface rounded-full font-label-bold hover:border-primary/50 transition-all">Sports</button>
+<button class="px-6 py-2 bg-surface-container border-2 border-white/5 text-on-surface rounded-full font-label-bold hover:border-primary/50 transition-all">Music</button>
+<button class="px-6 py-2 bg-surface-container border-2 border-white/5 text-on-surface rounded-full font-label-bold hover:border-primary/50 transition-all">Comedy</button>
+<button class="px-6 py-2 bg-surface-container border-2 border-white/5 text-on-surface rounded-full font-label-bold hover:border-primary/50 transition-all">Faith</button>
+<button class="px-6 py-2 bg-surface-container border-2 border-white/5 text-on-surface rounded-full font-label-bold hover:border-primary/50 transition-all">Culture</button>
+<button class="px-6 py-2 bg-surface-container border-2 border-white/5 text-on-surface rounded-full font-label-bold hover:border-primary/50 transition-all">Movies</button>
+<button class="px-6 py-2 bg-surface-container border-2 border-white/5 text-on-surface rounded-full font-label-bold hover:border-primary/50 transition-all">Talk Shows</button>
+</div>
+</section>
+<!-- EPG Grid Content -->
+<section class="px-margin-mobile md:px-margin-desktop pb-24 overflow-hidden">
+<div class="relative rounded-xl border border-white/10 bg-surface-container-lowest overflow-x-auto scrollbar-hide shadow-2xl">
+<!-- Time Header -->
+<div class="epg-grid bg-surface-container-highest/50 border-b border-white/10 sticky top-0 z-20">
+<div class="p-4 border-r border-white/10 glass-panel">
+<span class="text-label-bold text-primary">CHANNELS</span>
+</div>
+<div class="p-4 flex items-center justify-center border-r border-white/10 text-label-bold">6:00 PM</div>
+<div class="p-4 flex items-center justify-center border-r border-white/10 text-label-bold">6:30 PM</div>
+<div class="p-4 flex items-center justify-center border-r border-white/10 text-label-bold">7:00 PM</div>
+<div class="p-4 flex items-center justify-center border-r border-white/10 text-label-bold">7:30 PM</div>
+<div class="p-4 flex items-center justify-center border-r border-white/10 text-label-bold">8:00 PM</div>
+<div class="p-4 flex items-center justify-center border-r border-white/10 text-label-bold">8:30 PM</div>
+</div>
+<!-- Now Indicator Line -->
+<div class="absolute top-0 bottom-0 w-0.5 bg-primary/80 z-30 now-indicator shadow-[0_0_10px_rgba(242,202,80,0.8)] pointer-events-none">
+<div class="absolute -top-1 -left-1 w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+<!-- Grid Rows -->
+<div class="flex flex-col">
+<!-- Row 1 -->
+<div class="epg-grid border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="p-4 flex items-center gap-4 border-r border-white/10 bg-surface-container-lowest/80 sticky left-0 z-10 group-hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-secondary-container flex items-center justify-center text-on-surface font-black text-[10px] text-center">
+                                CN<br/>NEWS
+                            </div>
+<span class="text-label-bold truncate">Chitlin’ Newsroom</span>
+</div>
+<div class="col-span-2 p-1">
+<div class="h-full w-full bg-surface-container rounded-lg border-l-4 border-secondary-container p-3 flex flex-col justify-center relative overflow-hidden group/card hover:scale-[1.02] transition-transform cursor-pointer">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="text-[10px] font-bold text-secondary-container">LIVE</span>
+</div>
+<h4 class="text-label-bold truncate">Evening Report with Angela Bass</h4>
+<p class="text-[10px] text-on-surface-variant">6:00 PM - 7:00 PM</p>
+<div class="absolute bottom-0 left-0 h-1 bg-secondary-container w-[75%]"></div>
+</div>
+</div>
+<div class="col-span-1 p-1">
+<div class="h-full w-full bg-surface-container-low border border-white/5 rounded-lg p-3 flex flex-col justify-center opacity-60 hover:opacity-100 transition-opacity">
+<h4 class="text-label-bold truncate">Global Perspective</h4>
+<p class="text-[10px] text-on-surface-variant">7:00 PM - 7:30 PM</p>
+</div>
+</div>
+<div class="col-span-3 p-1">
+<div class="h-full w-full bg-surface-container-low border border-white/5 rounded-lg p-3 flex flex-col justify-center opacity-60 hover:opacity-100 transition-opacity">
+<h4 class="text-label-bold truncate">Town Hall: The Future of Media</h4>
+<p class="text-[10px] text-on-surface-variant">7:30 PM - 9:00 PM</p>
+</div>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="epg-grid border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="p-4 flex items-center gap-4 border-r border-white/10 bg-surface-container-lowest/80 sticky left-0 z-10 group-hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-primary-container flex items-center justify-center text-on-primary font-black text-[10px] text-center">
+                                CSD
+                            </div>
+<span class="text-label-bold truncate">Chitlin’ Sports Desk</span>
+</div>
+<div class="col-span-1 p-1">
+<div class="h-full w-full bg-surface-container-low border border-white/5 rounded-lg p-3 flex flex-col justify-center opacity-60">
+<h4 class="text-label-bold truncate">HBCU Gameday Preview</h4>
+<p class="text-[10px] text-on-surface-variant">6:00 PM - 6:30 PM</p>
+</div>
+</div>
+<div class="col-span-4 p-1">
+<div class="h-full w-full bg-primary-container/20 border-2 border-primary rounded-lg p-3 flex flex-col justify-center cursor-pointer hover:bg-primary-container/30 transition-all scale-[1.03] z-10 shadow-xl">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-[10px] font-bold text-primary uppercase">Marquee Event</span>
+</div>
+<h4 class="text-label-bold text-primary truncate">Friday Night Lights: Classics</h4>
+<p class="text-[10px] text-on-surface-variant">6:30 PM - 8:30 PM</p>
+<div class="absolute bottom-0 left-0 h-1 bg-primary w-[30%]"></div>
+</div>
+</div>
+<div class="col-span-1 p-1">
+<div class="h-full w-full bg-surface-container-low border border-white/5 rounded-lg p-3 flex flex-col justify-center opacity-60">
+<h4 class="text-label-bold truncate">Inside the Paint</h4>
+<p class="text-[10px] text-on-surface-variant">8:30 PM - 9:00 PM</p>
+</div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="epg-grid border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="p-4 flex items-center gap-4 border-r border-white/10 bg-surface-container-lowest/80 sticky left-0 z-10 group-hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-tertiary-container flex items-center justify-center text-on-tertiary font-black text-[10px] text-center">
+                                SOUL
+                            </div>
+<span class="text-label-bold truncate">Soul Stage</span>
+</div>
+<div class="col-span-3 p-1">
+<div class="h-full w-full bg-surface-container rounded-lg border-l-4 border-primary p-3 flex flex-col justify-center cursor-pointer relative overflow-hidden group/card hover:scale-[1.02] transition-transform">
+<h4 class="text-label-bold truncate">Soul Unplugged: Live from ATL</h4>
+<p class="text-[10px] text-on-surface-variant">6:00 PM - 7:30 PM</p>
+<div class="absolute bottom-0 left-0 h-1 bg-primary w-[90%]"></div>
+</div>
+</div>
+<div class="col-span-2 p-1">
+<div class="h-full w-full bg-surface-container-low border border-white/5 rounded-lg p-3 flex flex-col justify-center opacity-60">
+<h4 class="text-label-bold truncate">The Remix: Golden Era</h4>
+<p class="text-[10px] text-on-surface-variant">7:30 PM - 8:30 PM</p>
+</div>
+</div>
+<div class="col-span-1 p-1">
+<div class="h-full w-full bg-surface-container-low border border-white/5 rounded-lg p-3 flex flex-col justify-center opacity-60">
+<h4 class="text-label-bold truncate">After Hours Jazz</h4>
+<p class="text-[10px] text-on-surface-variant">8:30 PM - 9:00 PM</p>
+</div>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="epg-grid border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="p-4 flex items-center gap-4 border-r border-white/10 bg-surface-container-lowest/80 sticky left-0 z-10 group-hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-surface-container-high border border-white/10 flex items-center justify-center text-primary font-black text-[10px] text-center">
+                                INDIE
+                            </div>
+<span class="text-label-bold truncate">Indie Film House</span>
+</div>
+<div class="col-span-6 p-1">
+<div class="h-full w-full bg-surface-container rounded-lg border-l-4 border-primary-container p-3 flex flex-col justify-center cursor-pointer relative overflow-hidden group/card hover:scale-[1.02] transition-transform">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="text-label-bold truncate">Feature Presentation: "Bridges of Bronze"</h4>
+<p class="text-[10px] text-on-surface-variant">6:00 PM - 9:00 PM</p>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<span class="text-[10px] border border-white/20 px-2 py-0.5 rounded text-on-surface-variant">HD</span>
+<span class="text-[10px] border border-white/20 px-2 py-0.5 rounded text-on-surface-variant">5.1</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 h-1 bg-primary-container w-[45%]"></div>
+</div>
+</div>
+</div>
+<!-- Row 5 -->
+<div class="epg-grid border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="p-4 flex items-center gap-4 border-r border-white/10 bg-surface-container-lowest/80 sticky left-0 z-10 group-hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-error-container flex items-center justify-center text-on-error-container font-black text-[10px] text-center">
+                                LAUGH
+                            </div>
+<span class="text-label-bold truncate">The Laugh Factory</span>
+</div>
+<div class="col-span-2 p-1">
+<div class="h-full w-full bg-surface-container-low border border-white/5 rounded-lg p-3 flex flex-col justify-center opacity-60">
+<h4 class="text-label-bold truncate">Classic Comedy Hour</h4>
+<p class="text-[10px] text-on-surface-variant">6:00 PM - 7:00 PM</p>
+</div>
+</div>
+<div class="col-span-2 p-1">
+<div class="h-full w-full bg-surface-container rounded-lg border-l-4 border-secondary-container p-3 flex flex-col justify-center cursor-pointer relative overflow-hidden group/card hover:scale-[1.02] transition-transform">
+<h4 class="text-label-bold truncate">Laughs After Dark</h4>
+<p class="text-[10px] text-on-surface-variant">7:00 PM - 8:00 PM</p>
+<div class="absolute bottom-0 left-0 h-1 bg-secondary-container w-[15%]"></div>
+</div>
+</div>
+<div class="col-span-2 p-1">
+<div class="h-full w-full bg-surface-container-low border border-white/5 rounded-lg p-3 flex flex-col justify-center opacity-60">
+<h4 class="text-label-bold truncate">New Voices Showcase</h4>
+<p class="text-[10px] text-on-surface-variant">8:00 PM - 9:00 PM</p>
+</div>
+</div>
+</div>
+<!-- Row 6 -->
+<div class="epg-grid border-b border-white/5 hover:bg-white/5 transition-colors group">
+<div class="p-4 flex items-center gap-4 border-r border-white/10 bg-surface-container-lowest/80 sticky left-0 z-10 group-hover:bg-surface-container-highest">
+<div class="w-10 h-10 rounded-lg overflow-hidden bg-primary-container/20 border border-primary/20 flex items-center justify-center text-primary font-black text-[10px] text-center">
+                                VIBE
+                            </div>
+<span class="text-label-bold truncate">Culture &amp; Vibes</span>
+</div>
+<div class="col-span-3 p-1">
+<div class="h-full w-full bg-surface-container rounded-lg border-l-4 border-primary p-3 flex flex-col justify-center relative overflow-hidden">
+<h4 class="text-label-bold truncate">The Sunday Table</h4>
+<p class="text-[10px] text-on-surface-variant">6:00 PM - 7:30 PM</p>
+<div class="absolute bottom-0 left-0 h-1 bg-primary w-[80%]"></div>
+</div>
+</div>
+<div class="col-span-3 p-1">
+<div class="h-full w-full bg-surface-container-low border border-white/5 rounded-lg p-3 flex flex-col justify-center opacity-60">
+<h4 class="text-label-bold truncate">Street Art Series</h4>
+<p class="text-[10px] text-on-surface-variant">7:30 PM - 9:00 PM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Floating Info -->
+<div class="mt-8 flex justify-center">
+<div class="glass-panel px-8 py-4 rounded-full flex items-center gap-8 shadow-xl">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<span class="text-label-sm font-label-bold">Live Now</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="text-label-sm font-label-bold">Premiere</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-white/20"></span>
+<span class="text-label-sm font-label-bold">Replay</span>
+</div>
+<div class="h-4 w-px bg-white/10"></div>
+<button class="text-primary hover:underline text-label-sm font-label-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">settings</span>
+                        Guide Settings
+                    </button>
+</div>
+</div>
+</section>
+<!-- Promotional Bento Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-20 bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[500px]">
+<div class="md:col-span-2 relative rounded-2xl overflow-hidden group cursor-pointer border border-white/5">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic medium shot of a soulful music performance on a brightly lit stage with neon accents and deep golden backlighting. The atmosphere is electric, filled with smoke and dynamic movement. The style is modern high-production streaming content focusing on Black artistic excellence and cultural pride, with high contrast and rich textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-2I_oNwIwVqCEgSjgCA5H8ZGLC4CTSuRTKP97P0biP8sSbfwEmd23mKL1emASW5SfrTDNIMGkJ9JSSIg5xppjitkR-GpXodlhadVtUSyoW_NEa5JXTfzUJYawfyCqVmSV0FMp-VjQehGKFtX8bj3RnVcqlwyiIkakOM3u0q1K97bTXWDy4BAvo2Si4LnEtacCdzoVoTCLoQRtz7ltoAQpv7ib8lqBLGXbDTwHqYHkfEc-vQx276HRG30xlh-7LvouDzNYreNGqTc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="inline-block px-3 py-1 bg-primary text-on-primary font-label-bold rounded text-[10px] mb-4 uppercase">New Series</span>
+<h3 class="text-headline-xl font-headline-xl mb-2">Soul Stage Originals</h3>
+<p class="text-on-surface-variant max-w-md">The stories behind the sounds. Join us tonight at 9 PM for the series premiere of Echoes of the Delta.</p>
+<button class="mt-6 flex items-center gap-2 bg-white text-black font-label-bold px-6 py-2 rounded-full hover:bg-primary transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+                            Watch Trailer
+                        </button>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex-1 relative rounded-2xl overflow-hidden group cursor-pointer border border-white/5">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A close-up high-contrast image of a modern professional broadcasting studio with glowing red 'On Air' signs and sophisticated camera equipment. The color palette features deep blacks and rich reds, emphasizing a high-stakes journalistic environment. The lighting is sharp and cinematic, evoking a sense of prestige and authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1dQqQuPt4f5aJHnZjQqwykmG4dwoyh4K187dmSynAtid159Ksl9EQ0uuphan95RT46QbL0x7VV3ppzaKuyHrF7Lz5Dak_FC1Om5X-0tCKrJfh0NpC3pw9JyJSkotInt2ABIBEWMKVN85I293B0gJJFjCNUS3UDEXtHC-e68T-JSk1f7ZECML8eFoi4XRjbpeQJ5NZZqFA7FhrO-C7dc75hlUl9RxVTaI2RG0ZYxpQOtbbCybQbsmhHUqyMkwWXioD4r3Xdcim1zM"/>
+<div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
+<div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
+<h4 class="text-headline-md font-headline-md mb-2">Live News Hub</h4>
+<p class="text-label-sm text-on-surface-variant">Stay informed with unfiltered perspectives.</p>
+</div>
+</div>
+<div class="flex-1 relative rounded-2xl overflow-hidden group cursor-pointer border border-white/5">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An expansive aerial view of a packed sports stadium at night under bright stadium lights. The field is vibrant green, surrounded by a sea of enthusiastic fans. The lighting creates a dramatic glow against the dark sky, using the brand's secondary red and primary gold tones to highlight the intensity of the competition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWhEYllau0eOENZX05AlT9v7nE0GEgSSsI5cTMdSLfoVSkv9fwaduM7Qgj2rVcltXSQS909h0iN48RuFVQek-pqEMdUYEqOzvGE07PjUnEkLpN8jgL2Z585Ts3ptsl2bG98HhqGBkQEPQw-jw1JOAOxUzFAOEpIx9cCpoNYwqq0n_nI42l7dng7qK9OEz8p60GG0-x384mMTtzcA4P5eLke9tX-w4prAjC5GRsHHv3g2i3tajh6w3ba2QunjfZAqA3qywGcKs6tGk"/>
+<div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
+<div class="absolute inset-0 flex flex-col justify-center items-center text-center p-6">
+<h4 class="text-headline-md font-headline-md mb-2">Sports Central</h4>
+<p class="text-label-sm text-on-surface-variant">HBCU Athletics and beyond.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer predicted component -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5 bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col gap-4">
+<div class="text-headline-md font-headline-xl text-primary font-black">
+                    Chitlin’ Network
+                </div>
+<p class="text-on-surface-variant text-label-sm leading-relaxed">
+                    Celebrating Black culture, history, and the future through premium digital media experiences.
+                </p>
+<div class="flex gap-4 mt-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">social_leaderboard</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">brand_family</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">share</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="font-label-bold text-primary mb-2">Network</h5>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 font-label-sm" href="#">About</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 font-label-sm" href="#">Advertise</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 font-label-sm" href="#">Start a Channel</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 font-label-sm" href="#">Careers</a>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="font-label-bold text-primary mb-2">Support</h5>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 font-label-sm" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 font-label-sm" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 font-label-sm" href="#">Help Center</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200 font-label-sm" href="#">Cookie Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="font-label-bold text-primary mb-2">Newsletter</h5>
+<p class="text-on-surface-variant text-label-sm">Get weekly updates on new shows and channels.</p>
+<div class="flex items-center bg-surface-container-high rounded-lg overflow-hidden border border-white/10 mt-2">
+<input class="bg-transparent border-none focus:ring-0 text-label-sm px-4 py-2 w-full" placeholder="Your email" type="email"/>
+<button class="bg-primary text-on-primary p-2">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="border-t border-white/5 py-6 px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-on-surface-variant font-label-sm">© 2024 Chitlin’ Network. Black Excellence in Media.</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">public</span>
+<span class="text-on-surface-variant font-label-sm">Available Globally</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitlin’ Network | Show Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#f2ca50",
+                    "secondary-container": "#920703",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#cac99f",
+                    "on-surface": "#e5e2e1",
+                    "outline": "#99907c",
+                    "on-tertiary": "#323214",
+                    "on-surface-variant": "#d0c5af",
+                    "surface-container-highest": "#353534",
+                    "inverse-on-surface": "#313030",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#3c2f00",
+                    "on-tertiary-fixed": "#1d1d03",
+                    "on-tertiary-container": "#474727",
+                    "surface-tint": "#e9c349",
+                    "surface-container": "#201f1f",
+                    "tertiary-container": "#b6b58c",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#ff9a8a",
+                    "background": "#131313",
+                    "surface": "#131313",
+                    "outline-variant": "#4d4635",
+                    "on-primary-container": "#554300",
+                    "secondary": "#ffb4a8",
+                    "surface-variant": "#353534",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-fixed-variant": "#484828",
+                    "on-secondary-fixed": "#410000",
+                    "tertiary-fixed": "#e6e5b9",
+                    "on-secondary": "#690000",
+                    "tertiary": "#d2d1a6",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#920703",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "secondary-fixed": "#ffdad4",
+                    "inverse-primary": "#735c00",
+                    "error-container": "#93000a",
+                    "primary-container": "#d4af37",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#3a3939",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "safe-area-tv": "80px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Epilogue"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Epilogue"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Epilogue"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #131313; color: #e5e2e1; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-card { backdrop-filter: blur(24px); background-color: rgba(19, 19, 19, 0.7); border: 1px solid rgba(255, 253, 208, 0.1); }
+        .focus-ring:focus { outline: 3px solid #d4af37; outline-offset: 4px; transform: scale(1.05); }
+        .shelf-gradient { background: linear-gradient(to top, #131313 0%, transparent 100%); }
+        .hero-gradient { background: linear-gradient(to right, #131313 0%, rgba(19, 19, 19, 0.4) 50%, transparent 100%); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 bg-surface/70 backdrop-blur-24 border-b border-white/10 shadow-2xl">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter cursor-pointer">Chitlin’ Network</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Watch Live</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Channels</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1 hover:scale-105 hover:text-primary transition-all duration-300" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Advertise</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Start a Channel</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors focus-ring" data-icon="search">search</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded font-label-bold hover:scale-105 active:scale-95 transition-all">Sign In</button>
+</div>
+</nav>
+</header>
+<main class="flex-grow">
+<!-- Featured Show Hero -->
+<section class="relative w-full h-[716px] md:h-[870px] overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="The Front Porch Report" class="w-full h-full object-cover" data-alt="A cinematic wide shot of a traditional Southern American front porch at dusk, featuring two comfortable rocking chairs and warm amber lighting spilling from the windows. The atmosphere is nostalgic and cozy, with deep charcoal shadows and golden highlights reflecting a premier streaming aesthetic. In the background, a lush suburban landscape is visible under a deep indigo twilight sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGLUBAK9JBXlB64o3qZg0BlXswmZLjW1wmgrUgvSjF0YVsNtFpQpH7Fjid8K9M1Fnu0iJ_6TuvMXwaRjAjnFMv3aXT2bRgS0PlS34UhwDtZ-HQw6_CBdFZoPFgey-qsGBMqszzaI6nprNOo4XC15hhR8FP4FXZ15xT5FfGZUtXbGvHFqr9WEyXZD5lfriDag7D3d3awtiFkZ2DTl5eMHmeJ2GtrWBylLMVSrUZ9zqdv0EuqfmNRjAUXtSb47b7Rom_7TTDm0wmR5M"/>
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 flex flex-col justify-end h-full px-margin-mobile md:px-margin-desktop pb-20 md:pb-32 max-w-4xl">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded text-label-sm font-label-bold w-fit mb-4 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-on-secondary-container animate-pulse"></span>
+                    FEATURED SERIES
+                </span>
+<h1 class="font-display-lg text-display-lg text-white mb-4 tracking-tighter">The Front Porch Report</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-8 max-w-2xl">Sit down with local legends and cultural icons as they share untold stories of community, resilience, and the soul of the neighborhood. This week: A deep dive into the jazz heritage of the South Side.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-bold flex items-center gap-2 hover:scale-105 transition-all focus-ring">
+<span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+                        Watch Latest
+                    </button>
+<button class="border-2 border-on-surface text-on-surface px-8 py-3 rounded-lg font-label-bold flex items-center gap-2 hover:bg-on-surface hover:text-background transition-all focus-ring">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Add to Watchlist
+                    </button>
+</div>
+</div>
+</section>
+<!-- Content Rows -->
+<div class="space-y-16 py-12">
+<!-- Continue Watching -->
+<section class="px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-md text-headline-md mb-6 flex items-center gap-2">
+                    Continue Watching
+                    <span class="material-symbols-outlined text-primary text-sm" data-icon="history">history</span>
+</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Progress Card 1 -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-high transition-all hover:scale-105 cursor-pointer">
+<img class="aspect-video object-cover w-full opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A landscape shot of a dimly lit professional music studio with a vintage microphone in focus and soundboard lights glowing softly. The color palette consists of deep reds and blacks, evoking a high-quality cinematic production feel. Subtle lens flares and bokeh from the studio equipment create a sense of depth and professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAye_yBuDekWO2ep7xbV4wnLtv6TM594w87HsLpyDcRGurbY9ajrfOp8KZKVs8C6zl-jXKFkqWXFMuOmQFD1cug5UKjhKbNpgUnoD1d0oGBWGRmQ4lwMHDcT8YQLMYLnVKEVnnmGATiu35FeeLhPam4Vew7TSv086t2EodZkwX2Oqz9DAd1DZlJ7NRo3AKjYO2_9O5qUHP1qZHGeWbhr6-f_BSd5RK-VuOnbpxqlwsmnyYUc6Q9RlvGp7WNbPU126NQGBtwmpXf5pc"/>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary-container w-[75%]"></div>
+</div>
+<div class="p-4">
+<h3 class="font-label-bold text-on-surface">Soul Sessions: EP 4</h3>
+<p class="text-label-sm text-on-surface-variant">15m remaining</p>
+</div>
+</div>
+<!-- Progress Card 2 -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-high transition-all hover:scale-105 cursor-pointer">
+<img class="aspect-video object-cover w-full opacity-80 group-hover:opacity-100 transition-opacity" data-alt="A vibrant landscape shot of a crowded concert stage with colorful stage lights casting beams of gold and deep crimson through a hazy atmosphere. The silhouette of a performer is visible against the brilliant backdrop. The cinematic style emphasizes the energy and prestige of a live high-end musical performance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1m-DqI1_MFyWANXFOov8-PXzGoh8KyMiFd75DsRp1dVIXGzVRgpuu1KO_B6EPlkB0MLai9HSXdz7OduUumAxSRTe9ht7jdmWhfgOZME_7c2ToBhRe9CJD3XUnj5OgrCu4MFen7ulLum9C7CtsvoYOZQLCFsp1HHogAZr2C-oS7BwyOzmt4CmnAxZ42XiAG7l8BdUXU0PTrE5SmniwsjMwfg3VwXksfRtG-oZnu5a6b-3swMUcw8HxziHgQYDEe5XpUyLQ-q4-5zo"/>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary-container w-[30%]"></div>
+</div>
+<div class="p-4">
+<h3 class="font-label-bold text-on-surface">Live at The Apollo</h3>
+<p class="text-label-sm text-on-surface-variant">42m remaining</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Now (Posters) -->
+<section class="px-margin-mobile md:px-margin-desktop overflow-hidden">
+<h2 class="font-headline-md text-headline-md mb-6">Trending Now</h2>
+<div class="flex gap-gutter overflow-x-auto pb-8 snap-x no-scrollbar">
+<!-- Poster 1 -->
+<div class="flex-none w-[200px] md:w-[280px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden mb-3 border border-white/10 group-hover:scale-105 group-hover:border-primary transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="A dramatic vertical movie poster style image featuring a close-up of a powerful figure in silhouette against a golden sunset cityscape. The composition is regal and heroic, using a palette of deep golds and rich blacks. The atmosphere is cinematic and high-contrast, representing Black excellence and urban storytelling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaQX7z7Ic1lYn7Yzgn1tTJloggKXOJIpTMTF5TX_gpeU-JM7rmSKCQHPUhRQUxCQ5uJb2GS0mmKnd-vtGuSmICNCfSVu0VTS2UwHI93p_M6CeKTY12Dd5LMKXxPHXo-rlZoDS0rFxu3nq_AhNLfm2tLJbXV6it0bZxkZ1u44CGSegwlXJwVj1UmARbwGbb-D1s8YhPb7Mkj3MdgsJsGtvdJT8cx5yu8Kx3e1EfwZZeIPwYHCQxRiXzhMYJVewGQZyjFH_6XDeBScs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="play_circle" data-weight="fill">play_circle</span>
+</div>
+</div>
+<h3 class="font-label-bold text-on-surface truncate">Legacy of the Block</h3>
+<p class="text-label-sm text-on-surface-variant">Documentary • 2024</p>
+</div>
+<!-- Poster 2 -->
+<div class="flex-none w-[200px] md:w-[280px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden mb-3 border border-white/10 group-hover:scale-105 group-hover:border-primary transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="A vertical cinematic poster depicting a modern skyline at night with neon lights reflecting in a rain-slicked street. A central focused character is walking towards the glowing horizon. The visual style is sleek, urban, and high-production, with a color scheme dominated by deep blues and vibrant gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWPE-hF71DIyeHMCLklUk3xLCRGwRYaEHxglUu-Q43x1wUW0pyiJa-s2aBObeeWGYO_UsG1L_IIIcAISXzhGdlEcQGrsQV8yIhgjYciojUnA0j9-emeNU6-FPJjfq00Szhio5hLg2zKHabFlj--cfMLsB1DaTdORl-ze2IJ_cvsSceS1YE77wtSp3UmpFZSfqDmwjU5nXz2DUDSmtaE6vpHKZ5azOkJMhlLGeLVGSsmwZ-BsgzsWhKmC1jUvPBbbH2E_PKOieOBy8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="play_circle" data-weight="fill">play_circle</span>
+</div>
+</div>
+<h3 class="font-label-bold text-on-surface truncate">Concrete Dreams</h3>
+<p class="text-label-sm text-on-surface-variant">Drama • Series</p>
+</div>
+<!-- Poster 3 -->
+<div class="flex-none w-[200px] md:w-[280px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden mb-3 border border-white/10 group-hover:scale-105 group-hover:border-primary transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="A vibrant vertical poster showcasing a group of stylish individuals in a high-fashion setting with warm spotlighting. The background is a minimalist studio with deep charcoal walls. The focus is on elegance and communal joy, styled like a luxury editorial with rich textures and a golden-hour lighting effect." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC59uOgE-kzmfjiqpmiTkzrzNnJ1aXa0hu1V5Sj2Xqew97ZupzLD01dxcB3pX-VFFfc1DGItf6Yh5NzvV3xoFTaQJBSht1mphGqxbzGZnmVTDS0InxQNA0dGhN8uZmlB3ts9EsROktetyuCh7fyWPi3oyVDEjjOWCA00p5iSaEOO3JPJcgK4Lvq6qQcq-KFuJp7suMQA3rdDbW3xu9AMGYG8EKMYM0cqh3Fag4XnUHPaTP2krwxhBHF1qd_H8hbg_xP7jGZGUlRUxU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="play_circle" data-weight="fill">play_circle</span>
+</div>
+</div>
+<h3 class="font-label-bold text-on-surface truncate">The Social Club</h3>
+<p class="text-label-sm text-on-surface-variant">Talk Show • Trending</p>
+</div>
+<!-- Poster 4 -->
+<div class="flex-none w-[200px] md:w-[280px] snap-start group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden mb-3 border border-white/10 group-hover:scale-105 group-hover:border-primary transition-all duration-300">
+<img class="w-full h-full object-cover" data-alt="A dramatic vertical poster of a classic sports car parked under a single streetlamp in a quiet city alley. The lighting is moody and cinematic, highlighting the chrome and sleek lines of the vehicle. The palette is dominated by deep blacks and cool grays with a warm yellow glow from the lamp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1zwVe6hsaH8d06sLilfy2XSfCV23F7aVbzFDqM5hwRbJ4ia-UPhaveYRz9m-ZJ5TBPnlNXGgSG6im0wTBCWQKaCQFMrAkccI01AJfdRMDSXx0vTBSQ0tgAVABIBe32577VFq0-2aFfStdQA8Ev1mgG3gPzhJOwV-m_d3Eym5R-BkiQGbUDKRw3igDAjMB7WWoTwOz0g67APMMwS3vWyhke-NqipeZZQhpzBOqGgxGKQvoRNGYGLw-Ap8CQ5K3HWjZRorhQ8NZfbU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-5xl" data-icon="play_circle" data-weight="fill">play_circle</span>
+</div>
+</div>
+<h3 class="font-label-bold text-on-surface truncate">Midnight Rides</h3>
+<p class="text-label-sm text-on-surface-variant">Lifestyle • New</p>
+</div>
+</div>
+</section>
+<!-- Chitlin’ Originals (Premium) -->
+<section class="bg-surface-container-low py-12 border-y border-white/5">
+<div class="px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Chitlin’ Originals</h2>
+<p class="text-on-surface-variant">Exclusive content only available here.</p>
+</div>
+<button class="text-primary font-label-bold flex items-center gap-2 hover:underline">
+                            See All
+                            <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Original 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-4 border-2 border-primary/20 group-hover:border-primary transition-all duration-500 shadow-2xl">
+<img class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700" data-alt="A high-end cinematic wide shot of a jazz singer in a spotlight, surrounded by a faint blue haze of smoke in a classic club setting. The lighting is focused and dramatic, emphasizing the glistening texture of the performer's outfit and the polished brass of the instruments. The style is moody, elegant, and prestigious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP7VjyIQWXOUjzun8b310YbfcqTL-nDptMnh8qoxTCxpfCLtdhYQOJPtWwXkPXF0qfAMxBNvBISer4NppS2zPJqRphGsnrKm1DqlDK0t6Nq54h-mpL5XvNLX7i7FCD9CjialqByf5kMfijmxlhRGVtHjECrkdzyb5tgEDYhhbqkhDgVamgyMZRqXEKm1Ytonyh5x4DUiy_q1lY66kK6_sDboXUq-zYw_pQ-Fqi6DK1Zzy6oytBZW5clw295U2mYbVm15SrL9f-G8c"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-2 py-1 rounded text-[10px] font-black tracking-widest uppercase">Original</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+</div>
+<h3 class="font-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">After Hours: Jazz Tales</h3>
+<p class="text-body-md text-on-surface-variant line-clamp-2">Exploring the hidden history of the jazz era through the eyes of the musicians who lived it.</p>
+</div>
+<!-- Original 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-4 border-2 border-primary/20 group-hover:border-primary transition-all duration-500 shadow-2xl">
+<img class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700" data-alt="A cinematic wide landscape of a vibrant neighborhood festival during the day, with colorful banners and diverse groups of people laughing and dancing. The sunlight is bright and warm, creating a celebratory atmosphere. The image is captured with professional cinema lenses, showing shallow depth of field and high dynamic range." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfy1HUPcRJAwsopvYseixciJvHi1emoL22xwFyK0s-mA4uGeOoRN5hrlp0NcYq-i8QZahCvE7Ol0J3JqgsTc6jvZ3_zzFfyKK8tY_ymomK8P8Cp36lZAoq1KiqvAP8vCCq5GD7u0KxWiXGcIiVfrHx6dnB5eM-rbslxtNZwHb3Q9HW54F-V5oD4nIKJYaSsF72SZuofuy-csPE-fRqe3HBUbZzTTYs79OdR_tbML_3gRwl4jktqtGQFdlGOPgjEVePYqzmkSA33PM"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-2 py-1 rounded text-[10px] font-black tracking-widest uppercase">Original</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+</div>
+<h3 class="font-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">Village Voices</h3>
+<p class="text-body-md text-on-surface-variant line-clamp-2">Stories of communal strength and the modern festivals that keep our heritage alive.</p>
+</div>
+<!-- Original 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-4 border-2 border-primary/20 group-hover:border-primary transition-all duration-500 shadow-2xl">
+<img class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700" data-alt="A high-contrast cinematic shot of an older man's hands expertly crafting a leather artisan piece in a rustic workshop. Dust motes dance in a single beam of morning light. The textures of the leather and wood are sharply detailed, reflecting a focus on tradition, craftsmanship, and the beauty of manual labor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3X13ZpzyrB_vCXARG6FgvtT0ujo_hmMAhNHOs-3L2ch-sQfdlXg9tLtYBDDuDyX92tuUtnZoQV_8-fF7QmebNjuzji0diozNIs3yCIq-VuISseo6oJ92nhomN0546fDZTLxWGPgaftowMdzzkVL4KywcCjvXpREanosICJsvKUpjCND0-JbH6aQYGD77Bi_8WzQ8Vhk7Ln8_cQn0sOeCx7csAtqRWTxuY2uyAbv96A8KTK4NyGlqEG8t0D6m-_n7cl6S7u4alsvk"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-2 py-1 rounded text-[10px] font-black tracking-widest uppercase">Original</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+</div>
+<h3 class="font-headline-md text-on-surface mb-1 group-hover:text-primary transition-colors">The Craftsman's Legacy</h3>
+<p class="text-body-md text-on-surface-variant line-clamp-2">A masterclass in tradition. Follow three generations of artisans preserving their craft.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- New Episodes & Comedy/Music Rows -->
+<section class="px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- New Episodes -->
+<div>
+<h2 class="font-headline-md text-headline-md mb-6">New Episodes</h2>
+<div class="space-y-4">
+<div class="flex gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="relative flex-none w-32 aspect-video rounded-md overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a professional radio studio with a high-end condenser microphone and a digital audio workstation screen visible in the background. The lighting is atmospheric with cool blue and warm gold tones. The style is modern, professional, and indicative of a premium podcast or radio broadcast environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF-3puNn-a0EpUdLyOvsl0u1GYdqLYp9fASpi4mU1qitxZUaWsaYGCmPJPtORqkh15196vUfp9JL8aqRunoj_gN1oqyFx6PprlwRr83lfdySx-Ca1IX3-a3lbZoTKw5YD8rIJx6vF04Vw_KN9hK-gyz8K8sjsPL-sSsitgNhuuW5QMsZt6W1YswHuXx5OuqgGwGpVl2Zkl2D-Q2aXnJFlkO_rxQI8S9QQiht29RA8ONYR0WLv-_DDXAaT8Myp065sG5qi0DgT-JSU"/>
+<div class="absolute top-1 left-1 bg-secondary-container text-white text-[8px] font-bold px-1 rounded">NEW</div>
+</div>
+<div>
+<h4 class="font-label-bold group-hover:text-primary transition-colors">Talk of the Town: S5 E12</h4>
+<p class="text-label-sm text-on-surface-variant line-clamp-2">Breaking down the latest headlines in urban development and cultural impact.</p>
+</div>
+</div>
+<div class="flex gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="relative flex-none w-32 aspect-video rounded-md overflow-hidden border border-white/10">
+<img class="w-full h-full object-cover" data-alt="A wide cinematic shot of a lively nightclub with a silhouetted crowd dancing under strobe lights. The color palette is vibrant with electric purples and deep blacks. The atmosphere is energetic and celebratory, captured with a professional film camera look featuring motion blur and light flares." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIyPKYaz_H52vVBC921RlRvSS273pKcIKOGUarXQYPYmAoCJHCG3fP_9j_NZaJdBAwlu4b1JvQFX5sqf6V2GOIpBCW54ScchIo1IMm8jPhG9tfvqdj-VF4n5ar325PUR4k0MEGGGAh_0dvIlzoTgh-rjTl4_aFH3ojP6umvbuG_XPohyq_Ww63zpC5bvOeX_I5Aj_kly3n_QBdifUUYwUihBft8WvmMJzbnA95pan-PCOoTJuGhA_gswLv1eNvYKR7Cu5vFSDI5Ng"/>
+<div class="absolute top-1 left-1 bg-secondary-container text-white text-[8px] font-bold px-1 rounded">NEW</div>
+</div>
+<div>
+<h4 class="font-label-bold group-hover:text-primary transition-colors">Comedy Central: Live Recap</h4>
+<p class="text-label-sm text-on-surface-variant line-clamp-2">The funniest moments from last night's stand-up showcase at The Den.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Comedy & Music Row -->
+<div>
+<h2 class="font-headline-md text-headline-md mb-6">Comedy &amp; Music</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="group cursor-pointer">
+<div class="relative aspect-square rounded-xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A dramatic low-angle shot of a soulful singer on stage, holding a vintage microphone and bathed in a single golden spotlight. The background is a vast, dark theater. The lighting is prestigious and focused, capturing a moment of intense artistic expression in a cinematic style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY87bJfinH0d7dcmTBoCAjpogVHOT5T9iWYYOBb8qlVIjHynMgkT6vrFMUh9Thr2O1V7U6BHKG-ZR8fQpoBDDVIA6eVke3_Q7TQxkGmmcgKRsGLNuhbchHNeFeZBxGAJHfe8cL10BSWNyIJrMGhoD6acu54808FeSiQyqG1i-gXjbGZoH2Z0zcxKD1jyLnLkBjuxZyG42x7ZAT17TuLPLvFJVPJ6yQGpHWnC-HOVTep0UdoVBByrBU1juty7aVXyuK7EfD2KVpFO0"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-headline-md text-white drop-shadow-lg">Music</span>
+</div>
+</div>
+</div>
+<div class="group cursor-pointer">
+<div class="relative aspect-square rounded-xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A cinematic shot of a comedian under a warm spotlight on a brick-walled stage, captured from the audience's perspective showing blurry silhouettes of heads at the bottom. The atmosphere is intimate and funny, with high-quality stage lighting that creates a professional comedy club vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBurdnlXJLZ7aVtExZzWkFAmwMe47Ia-XYHSWvc7788prT4FZttkzF1bqIxFO-cHgHe5C8YrXlfXgnwaZucY6raJPlNJ_T8kOH3n2fUiHE1u6hOSHNs9K6ynRhwcD1KRli0Fv4iFbvcACK3ToxV3l-vL9BnP74G-go2rVSttSWipYXhxHH4I1N9-pnsdBtZZ6qMO1FoBUsK8m4WDAfSqzS5hXnDZCjTLHuH30yxFKDle2RjX6IY6l-URTgWOxGrjvZlgsOhoIPgM44"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-headline-md text-white drop-shadow-lg">Comedy</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5 bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div>
+<span class="text-headline-md font-headline-xl text-primary font-black mb-4 block">Chitlin’ Network</span>
+<p class="text-on-surface-variant font-body-md text-body-md">Celebrating the richness of Black culture through world-class media and storytelling. Join the movement.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-bold text-on-surface">Company</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">Advertise</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">Start a Channel</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-bold text-on-surface">Legal</span>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="#">Privacy</a>
+</div>
+<div>
+<span class="font-label-bold text-on-surface mb-4 block">Connect</span>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="facebook">facebook</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="music_note">music_note</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="slideshow">slideshow</button>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-6 border-t border-white/5 text-center md:text-left">
+<span class="text-on-surface-variant font-label-sm text-label-sm">© 2024 Chitlin’ Network. Black Excellence in Media.</span>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#f2ca50",
+                      "secondary-container": "#920703",
+                      "surface-dim": "#131313",
+                      "tertiary-fixed-dim": "#cac99f",
+                      "on-surface": "#e5e2e1",
+                      "outline": "#99907c",
+                      "on-tertiary": "#323214",
+                      "on-surface-variant": "#d0c5af",
+                      "surface-container-highest": "#353534",
+                      "inverse-on-surface": "#313030",
+                      "on-error-container": "#ffdad6",
+                      "on-background": "#e5e2e1",
+                      "on-primary": "#3c2f00",
+                      "on-tertiary-fixed": "#1d1d03",
+                      "on-tertiary-container": "#474727",
+                      "surface-tint": "#e9c349",
+                      "surface-container": "#201f1f",
+                      "tertiary-container": "#b6b58c",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#ff9a8a",
+                      "background": "#131313",
+                      "surface": "#131313",
+                      "outline-variant": "#4d4635",
+                      "on-primary-container": "#554300",
+                      "secondary": "#ffb4a8",
+                      "surface-variant": "#353534",
+                      "primary-fixed-dim": "#e9c349",
+                      "on-primary-fixed": "#241a00",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary-fixed-variant": "#574500",
+                      "on-tertiary-fixed-variant": "#484828",
+                      "on-secondary-fixed": "#410000",
+                      "tertiary-fixed": "#e6e5b9",
+                      "on-secondary": "#690000",
+                      "tertiary": "#d2d1a6",
+                      "primary-fixed": "#ffe088",
+                      "on-secondary-fixed-variant": "#920703",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary-fixed-dim": "#ffb4a8",
+                      "secondary-fixed": "#ffdad4",
+                      "inverse-primary": "#735c00",
+                      "error-container": "#93000a",
+                      "primary-container": "#d4af37",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-bright": "#3a3939",
+                      "surface-container-high": "#2a2a2a",
+                      "on-error": "#690005"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "safe-area-tv": "80px"
+              },
+              "fontFamily": {
+                      "label-bold": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Epilogue"],
+                      "body-lg": ["Inter"],
+                      "headline-xl": ["Epilogue"],
+                      "body-md": ["Inter"],
+                      "display-lg": ["Epilogue"]
+              },
+              "fontSize": {
+                      "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .focus-ring:focus {
+            outline: 3px solid #d4af37;
+            transform: scale(1.02);
+            transition: all 0.2s ease-in-out;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar (Shared Component) -->
+<nav class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 text-primary docked full-width top-0 sticky z-50 bg-surface/70 backdrop-blur-24 border-b border-white/10 shadow-2xl flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter">Chitlin’ Network</span>
+<div class="hidden lg:flex gap-6 items-center">
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1" href="#">Overview</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Schedule</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Analytics</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Revenue</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center glass-panel rounded-full px-4 py-2">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-bold font-label-bold w-48" placeholder="Search analytics..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="A sophisticated professional headshot of a Black male creator in a high-end recording studio. The background is softly blurred with cinematic warm lighting and expensive audio equipment. The overall aesthetic is one of Black excellence and creative professionalism, matching the premium cinematic modernism style of the portal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqtiEMDyt6IK425sCDJG29lvK3jvtrnVYZUlw6SnYkalJgv_QzJoOD38u5xek0RlYvvZP8gfQWedxzPIu4GY8aRPo_faxJ0mkEt9iE8Q59l45ptR0Te8GH1CxcE81mMO3K1mf1cKWp5VFp7IUb6uLa9pF9XpXbfkqusoMYQDX7297I0S7ZiWDRA2jykKP59PMortlDfkSNEaizI4eY4VFZDbXcE1BjgHhicTbKiObmCeuo5pr2uyN8oPBzWkRkDJO3Etod9O6ud5U"/>
+<span class="hidden md:block font-label-bold text-label-bold">Creator Name</span>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow px-margin-mobile md:px-margin-desktop py-8 max-w-[1600px] mx-auto w-full">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface mb-2">Hello, Marcus</h1>
+<p class="text-on-surface-variant font-body-md text-body-md">Your channel "Urban Echoes" has grown 12% this week. Great job!</p>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-bold text-label-bold flex items-center gap-2 hover:scale-105 active:scale-95 transition-all shadow-lg focus-ring">
+<span class="material-symbols-outlined">add_circle</span>
+                CREATE NEW SHOW
+            </button>
+</header>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-gutter mb-10">
+<!-- Card 1 -->
+<div class="glass-panel p-6 rounded-xl hover:border-primary/50 transition-colors group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">visibility</span>
+<span class="text-primary text-xs font-label-bold">+5.2%</span>
+</div>
+<p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-wider mb-1">Total Views</p>
+<h3 class="text-headline-md font-headline-md">1.2M</h3>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel p-6 rounded-xl hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<span class="text-primary text-xs font-label-bold">+2.1%</span>
+</div>
+<p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-wider mb-1">Watch Hours</p>
+<h3 class="text-headline-md font-headline-md">45.8K</h3>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel p-6 rounded-xl hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">live_tv</span>
+</div>
+<p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-wider mb-1">Active Shows</p>
+<h3 class="text-headline-md font-headline-md">12</h3>
+</div>
+<!-- Card 4 -->
+<div class="glass-panel p-6 rounded-xl border-primary/20 bg-primary/5">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">payments</span>
+<span class="text-primary text-xs font-label-bold">Trending</span>
+</div>
+<p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-wider mb-1">Estimated Revenue</p>
+<h3 class="text-headline-md font-headline-md text-primary">$14,250.00</h3>
+</div>
+<!-- Card 5 -->
+<div class="glass-panel p-6 rounded-xl hover:border-primary/50 transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary">event</span>
+</div>
+<p class="text-on-surface-variant text-label-sm font-label-sm uppercase tracking-wider mb-1">Next Payout</p>
+<h3 class="text-headline-md font-headline-md">Oct 25</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Main Column Left: Recent Uploads -->
+<div class="lg:col-span-2 space-y-gutter">
+<section class="glass-panel rounded-xl overflow-hidden">
+<div class="px-6 py-5 border-b border-white/5 flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md">Recent Uploads</h2>
+<button class="text-primary font-label-bold text-label-bold hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-high/50 text-on-surface-variant text-label-sm font-label-sm uppercase tracking-widest">
+<th class="px-6 py-4">Show Title</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Views</th>
+<th class="px-6 py-4">Upload Date</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 font-body-md text-body-md">
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4 flex items-center gap-4">
+<div class="w-16 h-10 rounded bg-surface-container-highest overflow-hidden">
+<img alt="Video thumbnail" class="w-full h-full object-cover" data-alt="A high-contrast cinematic thumbnail for a jazz music documentary. Dark moody atmosphere with a single warm spotlight on a saxophone. Deep blacks and golden highlights create a premium feel that aligns with the Chitlin’ Network aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB1BS8nAJJNuwgZXKqWYTtwwHFpTEd-qFrFFQzy-Ix2vNEcYjHPBskeCm29-7iQNUrAuo0oxLajEmOcvwNJxJnTln7Uwth1_7Diqzwi9Wk9_7Od5pMEnMqFHicGWdAvMTzeJkwYBAm_vOf4GD4prvGnru-mj6UXxq5KBQMsCSCY7tmZgW5efnZaFxnPYVDMtFCH0UQu-AN3Wxm2E6A5g8LlbApfM4DrF5b47wJ0HuPbVOO17tVQTokgW4A29o9Fx9Dm3Gdp1T4H2Q"/>
+</div>
+<span class="font-label-bold">Midnight Jazz Session #4</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-secondary-container text-white text-[10px] font-bold flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                                            LIVE
+                                        </span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">24.5K</td>
+<td class="px-6 py-4 text-on-surface-variant">2h ago</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 flex items-center gap-4">
+<div class="w-16 h-10 rounded bg-surface-container-highest overflow-hidden">
+<img alt="Video thumbnail" class="w-full h-full object-cover" data-alt="A modern cinematic scene of a movie set with a clapperboard in the foreground. Professional filmmaking equipment, shallow depth of field, and a rich color palette featuring deep reds and warm ambers, capturing the essence of Black cinema production." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIG4KN_R9pnjFMZOG14or7nxxL3V1qABHzkNLfh77_vt8DtUTM927lxrNSll0q76EWPy0lM9ex2n4wjV9Tr3UDP1ONOUH7IVykKTWcP4kyvTTSqe6yc_-XL3-RT31pWNABlwifcQ7VEuEYf7ebd_C_GPuT7ViAVEEUMaw2orBEOVoIGGJEKDuKWKRLxbog6ZPeBHKFg3gS87Xzfaq6S0t3kUICleaWYRR1icl8IBAvlaf_ZmYU8XyKnGDBvEoRzlnXZ2jpjEedazg"/>
+</div>
+<span class="font-label-bold">Behind The Lens: Episode 2</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] font-bold">PENDING</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">0</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 12</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="px-6 py-4 flex items-center gap-4">
+<div class="w-16 h-10 rounded bg-surface-container-highest overflow-hidden">
+<img alt="Video thumbnail" class="w-full h-full object-cover" data-alt="Vibrant concert stage lighting in a dark arena with a cheering audience in silhouette. The primary light source is a dramatic beam of gold light cutting through purple haze, representing high-energy community-driven media." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD63mtMBkPbq8k2fNdsYBT89WBSZqx-dFxZ56ZVT7T3fTUMwdBFaE8vNkXfJLwGl-F2WGu0r_TTd1DQBugk1qX0LfY4JdYYKd3BKqFg5YHGjLbziktuXRGbZqr-LIY_BCJs8tOJOW_4R4Q_EUAwyrj7e5rRHeWYITYt_aJA2YKwEfETT4Qa9xkVl3NunjLZAJFdFL_PVquniXu6zLHBy1FHYM1yklLqE_bW3RYkOndYGZi73swJoPP9a5wMmQ9kIOpIxU7fpjIfPBk"/>
+</div>
+<span class="font-label-bold">Summer Festival Highlights</span>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-error-container text-error text-[10px] font-bold">REJECTED</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">0</td>
+<td class="px-6 py-4 text-on-surface-variant">Oct 10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Analytics Sneak-peek -->
+<section class="glass-panel rounded-xl p-6">
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-headline-md">7-Day Viewership</h2>
+<select class="bg-surface-container-highest border-none rounded text-label-sm font-label-sm py-1 pl-3 pr-8 focus:ring-1 focus:ring-primary">
+<option>Views</option>
+<option>Watch Time</option>
+</select>
+</div>
+<div class="h-48 w-full flex items-end gap-2 group">
+<!-- Simulated Chart Bars -->
+<div class="flex-grow bg-primary/10 rounded-t-lg h-[40%] hover:bg-primary transition-all relative group/bar">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/bar:opacity-100 bg-surface-bright p-1 rounded text-[10px] text-primary">12K</span>
+</div>
+<div class="flex-grow bg-primary/10 rounded-t-lg h-[60%] hover:bg-primary transition-all relative group/bar">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/bar:opacity-100 bg-surface-bright p-1 rounded text-[10px] text-primary">18K</span>
+</div>
+<div class="flex-grow bg-primary/10 rounded-t-lg h-[35%] hover:bg-primary transition-all relative group/bar">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/bar:opacity-100 bg-surface-bright p-1 rounded text-[10px] text-primary">11K</span>
+</div>
+<div class="flex-grow bg-primary/10 rounded-t-lg h-[85%] hover:bg-primary transition-all relative group/bar">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/bar:opacity-100 bg-surface-bright p-1 rounded text-[10px] text-primary">25K</span>
+</div>
+<div class="flex-grow bg-primary/10 rounded-t-lg h-[70%] hover:bg-primary transition-all relative group/bar">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/bar:opacity-100 bg-surface-bright p-1 rounded text-[10px] text-primary">21K</span>
+</div>
+<div class="flex-grow bg-primary/10 rounded-t-lg h-[55%] hover:bg-primary transition-all relative group/bar">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover/bar:opacity-100 bg-surface-bright p-1 rounded text-[10px] text-primary">16K</span>
+</div>
+<div class="flex-grow bg-primary rounded-t-lg h-[95%] relative group/bar">
+<span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-100 bg-surface-bright p-1 rounded text-[10px] text-primary">28K</span>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-label-sm font-label-sm text-on-surface-variant">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</section>
+</div>
+<!-- Main Column Right -->
+<div class="space-y-gutter">
+<!-- Payout Status -->
+<section class="glass-panel rounded-xl p-6 border-l-4 border-primary">
+<h3 class="text-label-bold font-label-bold uppercase tracking-wider mb-4">Payout Milestone</h3>
+<div class="flex items-center justify-between mb-2">
+<span class="text-on-surface-variant text-label-sm">Threshold: $20,000</span>
+<span class="text-primary font-bold">71%</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden mb-6">
+<div class="h-full bg-primary" style="width: 71%"></div>
+</div>
+<p class="text-body-md text-on-surface-variant">Approx. $5,750 remaining until next disbursement.</p>
+</section>
+<!-- Audience Activity -->
+<section class="glass-panel rounded-xl p-6">
+<h3 class="text-headline-md font-headline-md mb-6">Audience Activity</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-3 hover:bg-white/5 rounded-lg transition-colors">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">chat</span>
+</div>
+<div>
+<p class="text-label-bold font-label-bold">New Comment</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">"Loving the new series!" - @user123</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 hover:bg-white/5 rounded-lg transition-colors">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<div>
+<p class="text-label-bold font-label-bold">Viral Milestone</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Your video hit 10k likes!</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-3 hover:bg-white/5 rounded-lg transition-colors">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">share</span>
+</div>
+<div>
+<p class="text-label-bold font-label-bold">Trending Update</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Shared 450 times on Twitter.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Platform News/Tips -->
+<section class="glass-panel rounded-xl overflow-hidden">
+<img alt="Platform News" class="w-full h-32 object-cover" data-alt="A clean, minimalist flat-lay of modern office tech—a tablet with analytics charts, a stylish black notebook, and a gold pen. Warm cinematic lighting, shallow depth of field, highlighting a professional and strategic creative environment for media owners." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1OXtvF338UPPNq2XtN9mdn45iexV02JLTruCQCQnROtvERXAEbvch8vho3DbjHm3NmnIV4Ld_QzE7ms1kVzr7ye-O3mnrLkTAF5eLhpnyc5upCM3_I3li7VUYXqfEUzz2e2eov0SGdu5bnDydHziZrzx_Ux7UcT-gZtPlmfgXJjjBCHmue0sS0SAbXUc4YZbg4F0-uaaFrNmuf5bD_A1BvX3Ei9AXEKC7cMX1N8wWdtJUa3FSkmAY6MU7Q4YGNWgbQGRzPpHLdrk"/>
+<div class="p-6">
+<h3 class="text-label-bold font-label-bold text-primary uppercase tracking-widest mb-2">Creator Tip</h3>
+<h4 class="font-headline-md text-headline-md mb-3">Maximize Your Ad Revenue</h4>
+<p class="text-on-surface-variant font-body-md text-body-md mb-4">Learn how to strategically place mid-rolls in 15+ minute content for 30% higher CPMs.</p>
+<button class="w-full py-3 rounded border border-primary/40 text-primary font-label-bold hover:bg-primary/10 transition-colors">READ GUIDE</button>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-white/5 bg-surface-container-lowest grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12 full-width bottom-0 mt-auto">
+<div>
+<span class="text-headline-md font-headline-xl text-primary font-black mb-4 block">Chitlin’ Network</span>
+<p class="text-on-surface-variant text-label-sm font-label-sm leading-relaxed">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-primary font-label-bold text-label-bold">Platform</h4>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Advertise</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Start a Channel</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-primary font-label-bold text-label-bold">Legal</h4>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-200" href="#">Privacy</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-primary font-label-bold text-label-bold">Follow Us</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">stream</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">video_library</span>
+</div>
+</div>
+</footer>
+</body></html>

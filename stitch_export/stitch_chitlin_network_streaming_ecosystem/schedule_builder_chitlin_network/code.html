@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitlin’ Network | Weekly Schedule Builder</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #353534;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4d4635;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#f2ca50",
+                        "secondary-container": "#920703",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#cac99f",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#99907c",
+                        "on-tertiary": "#323214",
+                        "on-surface-variant": "#d0c5af",
+                        "surface-container-highest": "#353534",
+                        "inverse-on-surface": "#313030",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "on-tertiary-fixed": "#1d1d03",
+                        "on-tertiary-container": "#474727",
+                        "surface-tint": "#e9c349",
+                        "surface-container": "#201f1f",
+                        "tertiary-container": "#b6b58c",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#ff9a8a",
+                        "background": "#131313",
+                        "surface": "#131313",
+                        "outline-variant": "#4d4635",
+                        "on-primary-container": "#554300",
+                        "secondary": "#ffb4a8",
+                        "surface-variant": "#353534",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-tertiary-fixed-variant": "#484828",
+                        "on-secondary-fixed": "#410000",
+                        "tertiary-fixed": "#e6e5b9",
+                        "on-secondary": "#690000",
+                        "tertiary": "#d2d1a6",
+                        "primary-fixed": "#ffe088",
+                        "on-secondary-fixed-variant": "#920703",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "secondary-fixed": "#ffdad4",
+                        "inverse-primary": "#735c00",
+                        "error-container": "#93000a",
+                        "primary-container": "#d4af37",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-bright": "#3a3939",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "safe-area-tv": "80px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Epilogue"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Epilogue"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Epilogue"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 bg-surface/70 backdrop-blur-24 border-b border-white/10 shadow-2xl flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-gutter">
+<h1 class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter cursor-default">Chitlin’ Network</h1>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 transition-all duration-300" href="#">Watch Live</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 transition-all duration-300" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 transition-all duration-300" href="#">Shows</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center gap-2 px-4 py-2 bg-surface-container rounded-lg border border-white/5">
+<span class="material-symbols-outlined text-primary text-body-md">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-bold w-48 placeholder-on-surface-variant" placeholder="Search content..." type="text"/>
+</div>
+<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-primary object-cover cursor-pointer hover:scale-110 transition-transform" data-alt="A close-up portrait of a confident Black professional man in a stylish charcoal suit, illuminated by warm cinematic lighting that emphasizes his features against a blurred, high-end studio background. The visual style is premium and sharp, reflecting the 'Black Excellence' aesthetic with rich skin tones and sophisticated color grading in a modern, dark-mode environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGrYwJBB3fXCj9wdfVSP2jwv205sq3XfCcG9MFH30PfzVpIZqaKb7YELMMiPSAJxoyFhBstnSeuSFCHKtoM-Ky9Gt9ea_berWC_vOBT26dg0kPDwkGmP-M31NnxdCbQXRsUlrPSfcivd5160MQLa1xCzS41VQ2j8RclcYGxzx0mRaj4FE5zmBdbKnbwXbe5RbCqWIPsyfhLSYL3he4HxmhlpWClBDZDMIisr-nSR6-eB0OjE4rzpuogHIWf_M-aohLRhkPs3Ex1uE"/>
+</div>
+</header>
+<!-- Sub-Header: Schedule Builder Controls -->
+<section class="bg-surface-container-low px-margin-mobile md:px-margin-desktop py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/5">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Schedule Builder</h2>
+<p class="text-on-surface-variant font-label-sm uppercase tracking-widest mt-1">Prime Time Lineup Management</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-bold flex items-center gap-2 hover:scale-105 active:scale-95 transition-all shadow-lg focus:ring-3 focus:ring-primary focus:outline-none">
+<span class="material-symbols-outlined">add_circle</span>
+                Add Program
+            </button>
+<button class="border-2 border-on-surface/20 text-on-surface px-6 py-2 rounded-lg font-label-bold hover:bg-white/5 active:scale-95 transition-all focus:ring-3 focus:ring-primary-fixed focus:outline-none">
+                Publish Schedule
+            </button>
+</div>
+</section>
+<!-- Main Content Area: Builder -->
+<main class="flex flex-1 flex-col overflow-hidden px-margin-mobile md:px-margin-desktop py-8 gap-gutter">
+<!-- Day Tabs -->
+<div class="flex gap-2 p-1 bg-surface-container-highest/30 backdrop-blur-md rounded-xl self-start">
+<button class="px-6 py-2 text-primary font-label-bold border-b-2 border-primary">Mon</button>
+<button class="px-6 py-2 text-on-surface-variant font-label-bold hover:text-on-surface transition-colors">Tue</button>
+<button class="px-6 py-2 text-on-surface-variant font-label-bold hover:text-on-surface transition-colors">Wed</button>
+<button class="px-6 py-2 text-on-surface-variant font-label-bold hover:text-on-surface transition-colors">Thu</button>
+<button class="px-6 py-2 text-on-surface-variant font-label-bold hover:text-on-surface transition-colors">Fri</button>
+<button class="px-6 py-2 text-on-surface-variant font-label-bold hover:text-on-surface transition-colors">Sat</button>
+<button class="px-6 py-2 text-on-surface-variant font-label-bold hover:text-on-surface transition-colors">Sun</button>
+</div>
+<!-- Schedule Canvas -->
+<div class="flex flex-1 gap-6 overflow-hidden min-h-[600px]">
+<!-- Left Sidebar: Assets / Info -->
+<aside class="hidden lg:flex flex-col w-72 gap-gutter">
+<div class="bg-surface-container rounded-xl p-6 border border-white/5">
+<h3 class="font-label-bold text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">inventory_2</span>
+                        Recent Clips
+                    </h3>
+<div class="space-y-3">
+<div class="group relative rounded-lg overflow-hidden border border-white/10 hover:border-primary transition-all cursor-move">
+<img class="w-full h-24 object-cover group-hover:scale-105 transition-transform" data-alt="A cinematic low-angle shot of a high-production talk show set with vibrant neon purple and gold lighting. The professional studio equipment, including heavy-duty cameras and monitors, is visible in the foreground, creating a behind-the-scenes atmosphere of Black media excellence. The mood is energetic and expertly produced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1kdBj24pxlo9vMuxhJxmMM9J-ypETaW59YBrXhrhpiHUAUI_Oyz9a4I8QT7QHW3PRStj7OAekbXNebN_sAnmD1t0d09TAxQs5R_tYy9brJv3KoIZfMJSJ1GBsTqFOHlEMEolqxpZYvZVYX_BUtNfTBTmOgh8V6HUCb1tFIVHM-1o7eSKwr6pFg8BmYsx8t7N9X-p9JMM5NDJw9M_iwB8FZaAojfAfTX_t6Kmb3vU4HhWNTyQc7vZW4tCLydkr_ZXVl8-vup-TSkA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-2">
+<span class="text-label-sm text-white font-bold">Midnight Jazz Live</span>
+</div>
+</div>
+<div class="group relative rounded-lg overflow-hidden border border-white/10 hover:border-primary transition-all cursor-move">
+<img class="w-full h-24 object-cover group-hover:scale-105 transition-transform" data-alt="A dynamic wide shot of a bustling urban community festival at dusk, captured with warm golden hour lighting that creates long shadows and a rich cinematic texture. The scene is filled with vibrant energy, celebrating Black culture through community gathering and shared storytelling in an expansive city park setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhZ2UfPB1iv3uLXrPFXvzvmNKMvQ9CwtE2xAdOH0RZnERyt6U2qwaEPzQvQhZVk90eFvA1hL_h3TVVZETwGrjAtdxNTkZuhNpm0qbEXzP1c511vFA0Uo8VQOcktbe6bNlAkQ9wOUGYpednpIXxwdoamlr_hmDNvIKM-wdcQ_pu2usU2AHtaqhMvvQuolH5N4tRj2iTJxxulSL69Tj1Qz6rwurLtfnn3XmlOFo4wqcitcJFINzmKXaY992Bxll-iqAMowXdv9D7Esw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-2">
+<span class="text-label-sm text-white font-bold">Documentary: The Block</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-xl p-6 border border-white/5">
+<h3 class="font-label-bold text-on-surface mb-2">Legend</h3>
+<ul class="space-y-2 text-label-sm">
+<li class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-primary-container"></span> Episode (Gold)</li>
+<li class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-secondary-container"></span> Live Show (Red)</li>
+<li class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-outline-variant"></span> Ad Block (Gray)</li>
+</ul>
+</div>
+</aside>
+<!-- Main Timeline Area -->
+<section class="flex-1 bg-surface-container-low rounded-xl border border-white/5 relative overflow-y-auto">
+<!-- Conflict Alert Banner (Pinned) -->
+<div class="sticky top-0 z-20 bg-error-container/90 backdrop-blur-md px-6 py-3 flex items-center justify-between border-b border-error/20">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-error-container">warning</span>
+<p class="text-on-error-container font-label-bold">Schedule Conflict Detected at 10:30 PM</p>
+</div>
+<button class="text-on-error-container font-label-sm underline decoration-dotted">Resolve All</button>
+</div>
+<div class="relative min-h-[1440px] flex">
+<!-- Hour Markers -->
+<div class="w-20 border-r border-white/5 flex flex-col pt-4">
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">12 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">01 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">02 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">03 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">04 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">05 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">06 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">07 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">08 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">09 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">10 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50 font-bold text-primary">11 AM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">12 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">01 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">02 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">03 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">04 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">05 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">06 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">07 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">08 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">09 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">10 PM</div>
+<div class="h-[60px] text-center text-label-sm text-on-surface-variant/50">11 PM</div>
+</div>
+<!-- Program Grid Content -->
+<div class="flex-1 relative p-4 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] bg-repeat">
+<!-- Horizontal Grid Lines -->
+<div class="absolute inset-0 flex flex-col">
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5"></div>
+<div class="h-[60px] border-b border-white/5 bg-primary/5"></div> <!-- Current Time Highlight -->
+</div>
+<!-- Scheduled Blocks -->
+<!-- Episode Block (Gold) -->
+<div class="absolute left-6 right-6 top-[480px] h-[120px] bg-primary-container/20 border-l-4 border-primary rounded-r-lg p-4 flex flex-col justify-between backdrop-blur-sm group hover:scale-[1.01] transition-transform cursor-pointer focus:ring-3 focus:ring-primary">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-primary font-label-bold uppercase tracking-tighter">Episode</span>
+<span class="text-on-surface-variant text-label-sm">8:00 AM - 10:00 AM</span>
+</div>
+<h4 class="font-headline-md text-on-surface">The Morning Hustle: Detroit</h4>
+</div>
+<div class="flex gap-2">
+<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded border border-primary/30 uppercase font-bold">HD</span>
+<span class="bg-primary/20 text-primary text-[10px] px-2 py-0.5 rounded border border-primary/30 uppercase font-bold">CC</span>
+</div>
+</div>
+<!-- Ad Block (Gray) -->
+<div class="absolute left-6 right-6 top-[600px] h-[30px] bg-outline-variant/20 border-l-4 border-outline-variant rounded-r-lg px-4 flex items-center justify-between backdrop-blur-sm cursor-pointer hover:bg-outline-variant/30 transition-colors">
+<span class="text-on-surface-variant font-label-sm italic">Ad Break: National Sponsors</span>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">lock</span>
+</div>
+<!-- Live Show Block (Red) -->
+<div class="absolute left-6 right-6 top-[1020px] h-[180px] bg-secondary-container/20 border-l-4 border-secondary-container rounded-r-lg p-4 flex flex-col justify-between backdrop-blur-sm group hover:ring-2 hover:ring-secondary-container transition-all cursor-pointer">
+<div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="bg-secondary-container text-white px-2 py-0.5 text-[10px] rounded font-bold animate-pulse">LIVE</span>
+<span class="text-secondary-container font-label-bold uppercase tracking-tighter">Live Show</span>
+</div>
+<span class="text-on-surface-variant text-label-sm">5:00 PM - 8:00 PM</span>
+</div>
+<h4 class="font-headline-md text-on-surface">Political Pulse with Dr. Grant</h4>
+<p class="text-on-surface-variant text-label-sm mt-1">Live coverage from the Capital Hill roundtable.</p>
+</div>
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-primary border-2 border-surface-container flex items-center justify-center text-on-primary text-xs font-bold">DG</div>
+<div class="w-8 h-8 rounded-full bg-secondary border-2 border-surface-container flex items-center justify-center text-on-secondary text-xs font-bold">+3</div>
+</div>
+</div>
+<!-- Conflict Alert Block (Overlapping) -->
+<div class="absolute left-10 right-10 top-[1320px] h-[90px] bg-error-container/40 border-2 border-error border-dashed rounded-lg p-4 flex items-center justify-center backdrop-blur-lg shadow-2xl z-10">
+<div class="text-center">
+<span class="material-symbols-outlined text-error text-headline-xl">warning</span>
+<h5 class="text-error font-label-bold">Overlap Conflict</h5>
+<p class="text-on-surface-variant text-[11px]">Late Night Soul vs Comedy Hour</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col gap-4">
+<h3 class="text-headline-md font-headline-xl text-primary font-black">Chitlin’ Network</h3>
+<p class="text-on-surface-variant font-label-sm">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-on-surface uppercase tracking-widest text-xs">Resources</h4>
+<div class="flex flex-col gap-2 font-label-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors duration-200" href="#">About</a>
+<a class="hover:text-primary transition-colors duration-200" href="#">Advertise</a>
+<a class="hover:text-primary transition-colors duration-200" href="#">Start a Channel</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-on-surface uppercase tracking-widest text-xs">Legal</h4>
+<div class="flex flex-col gap-2 font-label-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors duration-200" href="#">Terms</a>
+<a class="hover:text-primary transition-colors duration-200" href="#">Privacy</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-bold text-on-surface uppercase tracking-widest text-xs">Connect</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all cursor-pointer">public</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all cursor-pointer">rss_feed</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all cursor-pointer">share</span>
+</div>
+</div>
+</footer>
+</body></html>

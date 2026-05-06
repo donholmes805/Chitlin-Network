@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitlin’ Network | Independent Culture &amp; Live TV</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#f2ca50",
+                    "secondary-container": "#920703",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#cac99f",
+                    "on-surface": "#e5e2e1",
+                    "outline": "#99907c",
+                    "on-tertiary": "#323214",
+                    "on-surface-variant": "#d0c5af",
+                    "surface-container-highest": "#353534",
+                    "inverse-on-surface": "#313030",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#3c2f00",
+                    "on-tertiary-fixed": "#1d1d03",
+                    "on-tertiary-container": "#474727",
+                    "surface-tint": "#e9c349",
+                    "surface-container": "#201f1f",
+                    "tertiary-container": "#b6b58c",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#ff9a8a",
+                    "background": "#131313",
+                    "surface": "#131313",
+                    "outline-variant": "#4d4635",
+                    "on-primary-container": "#554300",
+                    "secondary": "#ffb4a8",
+                    "surface-variant": "#353534",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-fixed-variant": "#484828",
+                    "on-secondary-fixed": "#410000",
+                    "tertiary-fixed": "#e6e5b9",
+                    "on-secondary": "#690000",
+                    "tertiary": "#d2d1a6",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#920703",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "secondary-fixed": "#ffdad4",
+                    "inverse-primary": "#735c00",
+                    "error-container": "#93000a",
+                    "primary-container": "#d4af37",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#3a3939",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "safe-area-tv": "80px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Epilogue"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Epilogue"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Epilogue"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: #0A0A0A; }
+        .glass-panel { backdrop-filter: blur(24px); }
+        .focus-ring:focus { outline: 3px solid #D4AF37; transform: scale(1.05); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .media-card:hover { transform: scale(1.05); z-index: 10; border: 3px solid #D4AF37; }
+        .live-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+</head>
+<body class="text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 shadow-2xl bg-surface/70 backdrop-blur-24 border-b border-white/10">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter cursor-pointer">Chitlin’ Network</span>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Watch Live</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Advertise</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Start a Channel</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">search</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded font-label-bold hover:scale-105 transition-all focus:ring-3 focus:ring-primary focus:outline-none">Sign In</button>
+</div>
+</nav>
+</header>
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40" data-alt="A premium cinematic wide shot of a modern, sophisticated recording studio in a high-rise city loft at sunset. The lighting is warm and dramatic, highlighting professional microphones, soundboards, and plush velvet seating. The atmosphere exudes Black excellence, luxury media production, and deep charcoal and gold tones, reflecting a premier streaming destination's aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdk4v4uo2ScssGoVGZv8EAoMovzkIO-h_1A5gSGmU_yxf0zOjbc48SvI0pXkNSNQL3-Hrn1cvAgoFQz09XQrAoG6YU6nCw84YY7mKq2GmVfdsE9NLhHa7LWP-tNfyROx_DPy3JTmusYeMp65u34VpHsakEwd-OZpJhJEXFsw8kt6OaZ3i82qMUxFV7l-nVakAPRPurtZFOr0XPVi98m2Aeqmo0ktj8loMdWUI4gfKHf4tMnQn-Cun_eA7_3sqF7CCTVi6wSQ2UIl4"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<h1 class="font-display-lg text-display-lg text-white mb-6 leading-tight">
+                Independent Culture. <br/><span class="text-primary">Live TV. Real Stories.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">
+                Chitlin’ Network brings pre-recorded shows, live programming, news, sports, music, comedy, and independent channels into one cable-style streaming experience.
+            </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-label-bold text-lg flex items-center gap-2 hover:scale-105 transition-all shadow-xl">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+                    Watch Live
+                </button>
+<button class="border-2 border-outline text-on-surface px-8 py-4 rounded-lg font-label-bold text-lg hover:bg-white/5 transition-all">
+                    Start a Channel
+                </button>
+</div>
+</div>
+</section>
+<!-- Row 1: Featured Channels (Horizontal Bento-lite) -->
+<section class="py-12 px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-md text-headline-md text-white mb-8 border-l-4 border-primary pl-4">Featured Channels</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Newsroom -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-high h-[200px] cursor-pointer transition-all hover:ring-2 hover:ring-primary">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" data-alt="A sleek, high-tech digital news studio background with glowing screens displaying maps and data. The color palette is dominated by deep reds and golds, creating a professional and urgent news atmosphere typical of a premier cable news network, set against a dark, minimalist charcoal environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEf_Ig2IVGJe_Yr3GYDIADsAI2rDJszln1B6JYlM7Ht2R49tGq0iT-SBhevfjpApkQAV6g8CBx9QUF0liVatWbmW1vJKzk8usbyx1UaQ3fWjE-w82SCkczFlPX53HHP7kA81GiM_U0VysfSo02kT1oBrXfl4dS7UnCqAnaXd5POP5-hnx9R_BJNpsu6eAt3gUH0KcnnaFCvY_hbzCl5GeOcFuapV3dbY_QXuwEAeFaGU5DJAJj1o9bZaGmqEVRM_n7301o1eds1UA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h3 class="font-label-bold text-lg text-white">Chitlin' Newsroom</h3>
+<p class="text-label-sm text-on-surface-variant">24/7 Global Perspectives</p>
+</div>
+</div>
+<!-- Soul Stage -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-high h-[200px] cursor-pointer transition-all hover:ring-2 hover:ring-primary">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" data-alt="A vibrant, soulful live music concert scene with warm stage lighting and silhouettes of a band performing. The aesthetic is cinematic and intimate, featuring deep golden hues and soft bokeh effects that convey the energy and culture of a premium music channel, maintaining a sophisticated dark mode look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2ZK2eptWZ4RgIAQ0ddMeQcfvyGyc1YscQ2HCG-82OZEMuGXptfHi4W70EFLfDIvfHIy8kFu6vLykP2KeMQzTIcSaqGk166u5Y-waNIttj922YV0KB-XF3WDQwNm2-dbhhP3OZ4hYoOvp8JmzPB9Em-Np-90uirjVs2z5PPbdIXa4K3FFoM1Zvi8AdUahq6lvGRcqWtbWtBOgnota6yVLx-k0wlURK-qSv6xqlR3cH3y0uMCcIN9YgHr4v8GicepQf6PFP2Cz_pWw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h3 class="font-label-bold text-lg text-white">Soul Stage</h3>
+<p class="text-label-sm text-on-surface-variant">Live Music &amp; Interviews</p>
+</div>
+</div>
+<!-- Indie Film House -->
+<div class="group relative overflow-hidden rounded-xl bg-surface-container-high h-[200px] cursor-pointer transition-all hover:ring-2 hover:ring-primary">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" data-alt="An artistic cinematic arrangement of a film projector and movie reels in a moody, low-light studio environment. The styling is elegant and minimalist, emphasizing the craft of independent filmmaking with high contrast, deep shadows, and subtle gold accents on metallic surfaces, reflecting an elite film channel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiX_TiOjziySHP7uVkKp0SQTmTSyE7yrWRPA696Ve9jrOdLku77rJQBNmavpw_BsrTSld_8g52OST52JiTZMFp0VgF0GS7QV64ojTvWeTnoLDUD7EDHDwgItcTddR6ESP-V1dpNXtZSidEnVlkb4K2nv-52Y3fbouBqdi3KFVs-oJGc9aDVM0xtglBglbVt9d4uv_Iq3czM65wkCYSw0R92ixSewESnr4Hzk1Wsj4wfVzktwkc-pdr4RIGlvP6-H2w3rK6GKVF4jQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-4 left-4">
+<h3 class="font-label-bold text-lg text-white">Indie Film House</h3>
+<p class="text-label-sm text-on-surface-variant">Award-Winning Cinema</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Row 2: Live Now (16:9 Landscape) -->
+<section class="py-12 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest/50">
+<h2 class="font-headline-md text-headline-md text-white mb-8 border-l-4 border-secondary-container pl-4 flex items-center gap-3">
+            Live Now
+            <span class="live-pulse bg-secondary-container text-white text-[10px] px-2 py-0.5 rounded font-bold tracking-widest">LIVE</span>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Live Item 1 -->
+<div class="media-card group cursor-pointer transition-all duration-300">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-4 border border-white/5 shadow-2xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional broadcast talk show set with a circular desk, high-end microphones, and soft, multi-colored neon accent lighting in the background. The atmosphere is warm and engaging, featuring diverse people in conversation, captured in a sharp, cinematic style with a shallow depth of field and high-end streaming production value." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7yh6ziQfYK8KyphwidbzMXHSLN1GoJy8vzEs99zNfeBTOkdkIvwlvJSuAg3ktl0a_RWAwYouZxCzRPhbhhWtDgAt_SGnGwusYIKvhSWF_s1NmwhHpNo00FBDRYOJYDTqzOSBmaXE84YMXqPPpXs8b4i0e0wb3rwxbOzi1PUCWqzwbQv0wMpl4d11b3p_qmCg5hIec2ar962EHChi55vBiP481_SlOyFrEFKxY_ZTTJ2lJ0k2kpU0pymPhUxp3l29FWh_jBraXAa4"/>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary-container w-3/4"></div>
+</div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl" data-weight="fill">play_circle</span>
+</div>
+</div>
+<h3 class="font-label-bold text-lg text-white group-hover:text-primary">The Front Porch Report</h3>
+<p class="text-label-sm text-on-surface-variant mb-1">Season 4, Episode 12 • 420 watching</p>
+</div>
+<!-- Live Item 2 -->
+<div class="media-card group cursor-pointer transition-all duration-300">
+<div class="relative aspect-video rounded-xl overflow-hidden mb-4 border border-white/5 shadow-2xl">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional recording booth with a high-end condenser microphone and soundproof foam walls, bathed in deep red and amber lighting. The scene captures the essence of a late-night radio session or soulful podcast, with a sophisticated, moody, and culturally rich aesthetic that aligns with a high-production media brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVafzrKr2ologpLOu64nf6cyVeLu0HDVJ0jzFhvCyqyqy8KvNc-b9XVFmrLnLyiqHd862w0Dq1x078JPTJx00_fstHOMeRaJXyeWsFwMN0RBF12ZVkKoRWEbaNnvaIkCTD9IyxQ4D32lfmMrTbI7QEYiWCoHhNQRBvbajtbE6XHIQsj_NYO0goeI4e_RuUYehqb28G5A3Uw6Smnkc7VROMWEuK7BV4-kAyOdOjmFaZ83ARSXbS3-8nHxpUHV5OKTsTnFHFPhpD0z4"/>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary-container w-1/2"></div>
+</div>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl" data-weight="fill">play_circle</span>
+</div>
+</div>
+<h3 class="font-label-bold text-lg text-white group-hover:text-primary">Southern Soul Sessions</h3>
+<p class="text-label-sm text-on-surface-variant mb-1">Live Jam Session • 1.2k watching</p>
+</div>
+</div>
+</section>
+<!-- Row 3: Trending Shows (Poster Ratio 2:3) -->
+<section class="py-12 px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-md text-headline-md text-white mb-8 border-l-4 border-primary pl-4">Trending Shows</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+<!-- Poster Item -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden border border-white/5 media-card transition-all duration-300">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A cinematic sports documentary poster featuring an athlete in a stadium tunnel, captured in high-contrast black and white with dramatic golden light flares. The composition is powerful and artistic, with a gritty yet polished texture that emphasizes determination and Black excellence in professional athletics, suitable for a premier TV show cover." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnyXB-zf52tMbRV9FUNACQoaufMfRic9vSbXd_zFT5fTHehYrpymFLYQHuBW3Ev152mAZjyLbQLz_89DZs_WXLVziOJJcS2LtzSiX4liumF2Cw9sXRZsLK_mVh510CzVTEe0xHfPqt78SGuVGf3N3M9LFNodOF-TZKhVp0qb1tHzju7GkaPrj26cqE7LBP6m-fD-uR-yQqW_a5h5SJXAnyRTRFigcNtGRYcQvRKjD1qbEoSYJK9blxSPIrHyV2lV34cwpbvpeULxE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-3 left-3">
+<span class="bg-primary text-on-primary text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-tighter">Premium</span>
+</div>
+</div>
+<h4 class="mt-4 font-label-bold text-white group-hover:text-primary">Game Day Culture</h4>
+</div>
+<!-- Poster Item 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden border border-white/5 media-card transition-all duration-300">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A dramatic cinematic close-up of a vintage movie camera lens in a dimly lit studio environment. The reflections in the glass are complex and multi-layered, showing flashes of bright white and gold. The overall mood is mysterious and sophisticated, celebrating the art of independent cinematography within a modern dark mode interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzjmggrIjhKIbcwxHHIk53RW7iyt1JsIT_cymDFZOmcO9YPyD0hRYlb7snkIywtqoFuOax8xfXs60j8WEdh6IkVba9yORDrGudw8prDS6y4jLFp_wShNFDTBU687MoJcqquRVZKlUj89n7UHrExFU6HZXQSirq2q3nN8udBwfWUl-ltIw5ZrdCEHKJwngjzpTxfgG7nQ6cXOGwdGGz0CbIlhZsRpnaSvvSzO4tv9EW42PxLqI7fFagR0YP1z5gqtOLEpD-NW-b7rk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+</div>
+<h4 class="mt-4 font-label-bold text-white group-hover:text-primary">Independent Lens</h4>
+</div>
+<!-- Additional items for layout depth -->
+<div class="group cursor-pointer hidden md:block">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden border border-white/5 media-card transition-all duration-300">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Cinematic street photography at night featuring neon lights reflected in city puddles. The color palette is rich with deep blues, purples, and golden yellows, creating an urban, atmospheric, and modern cultural vibe for a documentary series poster." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzX6qIxJjdMEUCL_krE0M75U7ZvvjNacNgJzMO6zYXyNlka8rWEdPZI-6GpEruSvv3L30aB_efgg2UN_nqUPthFtNi27wHdTTd3ytopQqrDK0wjctw72NCXGPUBxmh02nwxdV9YC5ns6hJNMwPplKI9xFFemE9YLM58HQxW0kdT2lpUXGIp5P2Qq6nPs5zL7TvM_KKMpEwaIM7z_cWqhSNkOMt3TNmpYdZXLw1qRbrb9vqOFIqqPG5E0vU_rbIplfwhB-8sfXOBks"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+</div>
+<h4 class="mt-4 font-label-bold text-white group-hover:text-primary">Concrete Jungle</h4>
+</div>
+<div class="group cursor-pointer hidden md:block">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden border border-white/5 media-card transition-all duration-300">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A portrait of a fashion designer in a sun-drenched studio filled with colorful fabrics and sketches. The style is bright, artistic, and celebratory of creativity and entrepreneurship, with warm skin tones and vibrant textures, suitable for a lifestyle series poster." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoUiFZj4w4rWk5SeI9o_wV5Uh6y9q17lDjTI6VqMQ9sv615aZFI51AQ40ErIurZEfWYtmLd5Kfl9FYDqvybG0hg-Vw0OQRf7P2tBeLCPIKwoEPm_ST3lyvS4yAWK2lOygTNz20Wp08E0G95M7Rp9nX4C5ecI0bg1IdQoyoyyHd6W8juFrcRF7IFt9jVJ44OLt40yr2ecMAN-O1e7O5Wf2FfSlLfLZSG8em4qQ4D5gZgssOWtVS89RVRBEe8vcdfW_Pg4VFzRud46w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+</div>
+<h4 class="mt-4 font-label-bold text-white group-hover:text-primary">Threads &amp; Dreams</h4>
+</div>
+<div class="group cursor-pointer hidden lg:block">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden border border-white/5 media-card transition-all duration-300">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A jazz musician performing in a dimly lit, smoky club, the brass of the saxophone gleaming under a single warm spotlight. The aesthetic is timeless, cinematic, and deeply cultural, with a rich grain and deep contrast that evokes the classic age of jazz in a modern digital presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwqypmg1S_b-jRtO8_JY-HQfkzZBRyvyVAnGaRz5JzrwPc6f5euJmQTalByrGXcFxsQLfbkOcNqX87EPOpAXBP_-om0wgSPR91FKU4voNtGQVCua34Ux6FatngXg08niW_zwUqJg6aaLWFUj7gZxtOzW29ncf7DGmqNyhIFRq9ayyp-dwWKTIk6YHmt4CmiJ6y4Qg5oxVXUP8N6pb9ISbSmGsO0xTaqCZjQyYV6gc8-92228z79l4jXBI6Hq35qb4RA-962b6unbI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+</div>
+<h4 class="mt-4 font-label-bold text-white group-hover:text-primary">Notes from Harlem</h4>
+</div>
+<div class="group cursor-pointer hidden lg:block">
+<div class="relative aspect-[2/3] rounded-xl overflow-hidden border border-white/5 media-card transition-all duration-300">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A chef in a modern kitchen preparing a gourmet meal, with vibrant vegetables and steam rising from a pan. The lighting is crisp and professional, highlighting the textures of the food and the focus of the artist, creating an inviting and high-quality look for a culinary show poster." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr5T48_WxJJqRnPT-NfMLMGBs1Taidd7TOwU_5z5ZrT2EaibLkc_5Mhj1t4hWKIlOs1DzxJuVNJVctqc5_tsAXUOqSS7NK6DzALvJoEdivF5xKsvuNo1opwhtBWIn-5eUIEpVlr2IgmtSqJlhf3FJUKvvUKt6VfA3jm9rSPp9SRlxxOR0Z7bM7CkbMuRURvL-bGFNJBxI2_I3qRHgXreygy3vKRu2-IgGLWB2vfLUk3fpWsJ_E93xQig7j27M3J6eseG-VQCi0VYU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+</div>
+<h4 class="mt-4 font-label-bold text-white group-hover:text-primary">The Kitchen Table</h4>
+</div>
+</div>
+</section>
+<!-- News & Sports Grid -->
+<section class="py-12 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline-md text-headline-md text-white border-l-4 border-primary pl-4">News &amp; Sports</h2>
+<a class="text-primary font-label-bold hover:underline" href="#">View All Updates</a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Main News Story -->
+<div class="lg:col-span-2 group cursor-pointer overflow-hidden rounded-xl bg-surface-container border border-white/10 hover:border-primary/30 transition-all">
+<div class="h-64 overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A minimalist architectural shot of a modern city hall or government building at dawn, with sharp angles and dramatic shadows. The scene is quiet and authoritative, with a cold-blue and charcoal color palette that signifies serious news, high-stakes reporting, and institutional integrity in a modern metropolitan setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdqmuTcY7UqOvxf_hu4UPIZAkUXBCu-cl5exUCRKKre6Or56AGiWQjJTsO1CVLAbHoA39pftFYre3fXyUv8QzZnLI-kSa5Mw0Yl_0WhMGsCD1sXYxyvnCh0Y05hOtd3x1i-xGkZjl36vWJZJtKjyg1KLXAboRZm70ruGLUyC1dgYGLgOnkAv1VDOei-Ig0OcnUA-E8IqRzsCGo1ORMoLewUiEEqJn2B3J9Q_sZ7KZIjhlBFmbyQWxPSzZiaOFzpJDgtBM_mhIE2bw"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded font-label-bold text-xs">TOP STORY</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-white mb-3">Community Growth: New Development Hubs Launched Nationwide</h3>
+<p class="text-on-surface-variant mb-4">An in-depth look at how independent media is fueling local economic growth through storytelling and digital training initiatives...</p>
+<div class="flex items-center gap-4 text-label-sm text-outline">
+<span>Chitlin' Newsroom</span>
+<span>•</span>
+<span>2 hours ago</span>
+</div>
+</div>
+</div>
+<!-- Side News List -->
+<div class="space-y-6">
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-24 h-24 shrink-0 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A close-up of a basketball player's sneakers on a polished wood court, reflecting the arena lights. The lighting is dramatic and focused, highlighting the texture of the court and the intensity of a professional sports environment, perfect for a sports news thumbnail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7ss1lwlgRzy97lsnxC8AoQ9tsCpmVURtzrY7fqzKEV2GWm5ZmcwpfQBRao4FfJTy18IoKjLi0pc4fpuGWBxq-ManI-rnZ7UgORxHcLXup80aZx3V58Xa0oByPYbQ4db8X7luJg4MtBweY25z4CvHXoYzaYkAdFOv0Uef0RCDfSQ2FMABVNBfIe0-Rc_CgDGkqpfCDpTV57kEaXEj7ZyTeEGKJzorK6vs43D98uQoExD_YhpXCbrVlru1P_koWUudB2ZBKYHQYod4"/>
+</div>
+<div>
+<h4 class="font-label-bold text-white group-hover:text-primary transition-colors leading-tight mb-2">Regional Finals: Local Underdogs Take the Lead</h4>
+<span class="text-label-sm text-outline">Sports Central • 5h ago</span>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-24 h-24 shrink-0 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A high-end luxury business office interior with glass walls and skyline views. The aesthetic is clean, professional, and sophisticated, emphasizing corporate success and business intelligence in a modern, dark-toned environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZlesPtIDMczOMcV-jlOugeIusf8YVLhmJTaLEG1iiAijbQ0JWMS76nAN_SibNxcTJUOG4lujXSdjYS3Y463YVITsfw44d0RDfbh0dZbOClNH6SjWipDhrgkWSQDeRe1TfDT4ujah_n8lKw8DVbJZ8IgcmxDdNWI117LwxW8avagMZM4X_BbtRbMftTmsm9f-EM0qw7i7_ON58fryQuKR4hRbKgms84GINpNcQFAtO0VFqSGgZpkEkWuQXIuvua_uT7HOEjuhGpKA"/>
+</div>
+<div>
+<h4 class="font-label-bold text-white group-hover:text-primary transition-colors leading-tight mb-2">Black Tech Founders See Record Funding in Q3</h4>
+<span class="text-label-sm text-outline">Business Beat • 8h ago</span>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<div class="w-24 h-24 shrink-0 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="A vibrant street festival with colorful flags and a diverse crowd of people celebrating. The shot is captured with a festive, energetic atmosphere, featuring warm sunlight and a shallow focus that emphasizes the community spirit and cultural richness of the event." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNWw07alQkbiggDg0sGX5n43R69hiIvy6MOYOhEImvKFDeWHjlAk_qZCoyWl7T1OCv3bmLvpdCB3_GbElqQpfhM73IL502DoDzafh-mlxjOxcwQz6uhDSvg8hyi_EwCgrBCfagziUDJvMGmnwJ3lnV6Xsj24Liv9ZPRAatJ48rQn7a134gzMuZb1mTulfwAqR8Uvh1hps5JUxxD1won5tKd0hAei9V7BfG7FIYmvlek3Mae0Zi-CEkVEtgax6TkNlj9Xdbw6SaGOk"/>
+</div>
+<div>
+<h4 class="font-label-bold text-white group-hover:text-primary transition-colors leading-tight mb-2">Festival Season: Celebrating Cultural Heritage</h4>
+<span class="text-label-sm text-outline">Lifestyle • 1d ago</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- B2B Sections: Advertise & Start a Channel -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<!-- Advertise Card -->
+<div class="relative p-10 rounded-2xl overflow-hidden bg-surface-container-high border border-white/5 flex flex-col justify-end min-h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="A group of diverse professionals in a high-end corporate boardroom discussing strategy over digital tablets. The scene is illuminated by soft, natural light and sophisticated office lighting, creating a professional, collaborative atmosphere of success and high-level marketing strategy within a premier media network." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD94JqOL3Q7gA1hdlNA9veUB361rb_3_UrDuLkyXYZaYShSamOX8I1EBEfhNH5wgAVXgLEywVTAVuEIm5rDW3rsAhx-rcLr6PcddsVBbjYBTHhTcF-WPTbeFRSQ2Zuztwevps2Q1P36Gz3jxYLhHh0zcmOWtgQIPREZzrHkyqle3opNRfHUK0_c0zZOy987ZcRgCvpjP6vH-5IUvzEcDvjCybRcCwBKQmkMHU2PlgQ0FpPicauSeJMWKGf7VrYI4f0X72oe49w6vRA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high via-surface-container-high/60 to-transparent"></div>
+<div class="relative z-10">
+<span class="text-primary font-label-bold tracking-widest uppercase mb-4 block">B2B Opportunities</span>
+<h2 class="font-headline-xl text-white mb-4">Advertise with Us</h2>
+<p class="text-body-md text-on-surface-variant mb-8 max-w-sm">Reach a highly engaged audience of culture-shapers and decision-makers through our targeted live and pre-recorded slots.</p>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-bold hover:scale-105 transition-all w-fit">Get Media Kit</button>
+</div>
+</div>
+<!-- Creator Card -->
+<div class="relative p-10 rounded-2xl overflow-hidden bg-surface-container-high border border-white/5 flex flex-col justify-end min-h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="A modern home studio setup with a digital tablet, high-end headphones, and creative sketches, bathed in cool blue and violet atmospheric light. The environment is artistic and inspiring, perfect for content creators and independent filmmakers looking to build their own brand on a premium cultural streaming network." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxA9J4IctsGjY4x9_8v8RVzzKYzk80Si6--7ieoiWULaNCvuhlkwvFuotkTFeZTfZ33Z-ZDOQ8te7QkHBDpaJGNEoHxHS3UwEwkEtmriXdzB48FlocaF7Y79N7PM-ddxNazKI53ti-72sqyJ2y9OMLRVlIj4uLMc9klBf06-5izGJSETMG9Hwop-SNwWYIIDsipdP3rTBRGL1yldWG7r8WBy2jv0Lz_5-_ygUoKsk54ZJJ1FoTSXCbHAyYxR-RAR98abHywFVWIt4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high via-surface-container-high/60 to-transparent"></div>
+<div class="relative z-10">
+<span class="text-tertiary font-label-bold tracking-widest uppercase mb-4 block">For Creators</span>
+<h2 class="font-headline-xl text-white mb-4">Start Your Own Channel</h2>
+<p class="text-body-md text-on-surface-variant mb-8 max-w-sm">Join the network that prioritizes independent voices. Own your content, build your audience, and monetize from day one.</p>
+<button class="border-2 border-primary text-primary px-8 py-3 rounded-lg font-label-bold hover:bg-primary/10 transition-all w-fit">Apply as Creator</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5 bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="space-y-6">
+<span class="text-headline-md font-headline-xl text-primary font-black">Chitlin’ Network</span>
+<p class="text-on-surface-variant text-label-sm max-w-xs">Elevating Black media and independent storytelling through a premium, cinematic streaming experience for a global audience.</p>
+<div class="flex gap-4">
+<a class="material-symbols-outlined text-outline hover:text-primary transition-colors" href="#">public</a>
+<a class="material-symbols-outlined text-outline hover:text-primary transition-colors" href="#">share</a>
+<a class="material-symbols-outlined text-outline hover:text-primary transition-colors" href="#">favorite</a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-label-bold mb-6">Company</h4>
+<ul class="space-y-4 text-on-surface-variant font-label-sm">
+<li><a class="hover:text-primary transition-colors duration-200" href="#">About</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Press</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-label-bold mb-6">Partnerships</h4>
+<ul class="space-y-4 text-on-surface-variant font-label-sm">
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Advertise</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Start a Channel</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Content Guidelines</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Affiliates</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-label-bold mb-6">Legal</h4>
+<ul class="space-y-4 text-on-surface-variant font-label-sm">
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Terms</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Privacy</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-on-surface-variant">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+<p class="font-label-sm text-outline">Designed with Pride.</p>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitlin’ Network | Edit Channel Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .focus-ring:focus-within {
+      outline: 3px solid #D4AF37;
+      transform: scale(1.02);
+      transition: all 0.3s ease;
+    }
+    .glass-panel {
+      background: rgba(26, 26, 26, 0.7);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 253, 208, 0.1);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#f2ca50",
+            "secondary-container": "#920703",
+            "surface-dim": "#131313",
+            "tertiary-fixed-dim": "#cac99f",
+            "on-surface": "#e5e2e1",
+            "outline": "#99907c",
+            "on-tertiary": "#323214",
+            "on-surface-variant": "#d0c5af",
+            "surface-container-highest": "#353534",
+            "inverse-on-surface": "#313030",
+            "on-error-container": "#ffdad6",
+            "on-background": "#e5e2e1",
+            "on-primary": "#3c2f00",
+            "on-tertiary-fixed": "#1d1d03",
+            "on-tertiary-container": "#474727",
+            "surface-tint": "#e9c349",
+            "surface-container": "#201f1f",
+            "tertiary-container": "#b6b58c",
+            "error": "#ffb4ab",
+            "on-secondary-container": "#ff9a8a",
+            "background": "#131313",
+            "surface": "#131313",
+            "outline-variant": "#4d4635",
+            "on-primary-container": "#554300",
+            "secondary": "#ffb4a8",
+            "surface-variant": "#353534",
+            "primary-fixed-dim": "#e9c349",
+            "on-primary-fixed": "#241a00",
+            "inverse-surface": "#e5e2e1",
+            "on-primary-fixed-variant": "#574500",
+            "on-tertiary-fixed-variant": "#484828",
+            "on-secondary-fixed": "#410000",
+            "tertiary-fixed": "#e6e5b9",
+            "on-secondary": "#690000",
+            "tertiary": "#d2d1a6",
+            "primary-fixed": "#ffe088",
+            "on-secondary-fixed-variant": "#920703",
+            "surface-container-lowest": "#0e0e0e",
+            "secondary-fixed-dim": "#ffb4a8",
+            "secondary-fixed": "#ffdad4",
+            "inverse-primary": "#735c00",
+            "error-container": "#93000a",
+            "primary-container": "#d4af37",
+            "surface-container-low": "#1c1b1b",
+            "surface-bright": "#3a3939",
+            "surface-container-high": "#2a2a2a",
+            "on-error": "#690005"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "unit": "8px",
+            "gutter": "24px",
+            "margin-mobile": "16px",
+            "margin-desktop": "64px",
+            "safe-area-tv": "80px"
+          },
+          "fontFamily": {
+            "label-bold": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-md": ["Epilogue"],
+            "body-lg": ["Inter"],
+            "headline-xl": ["Epilogue"],
+            "body-md": ["Inter"],
+            "display-lg": ["Epilogue"]
+          },
+          "fontSize": {
+            "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+            "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+            "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 bg-surface/70 backdrop-blur-24 border-b border-white/10 shadow-2xl flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-8">
+<div class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter">Chitlin’ Network</div>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Watch Live</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Advertise</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1 hover:scale-105 hover:text-primary transition-all duration-300" href="#">Start a Channel</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="search">search</button>
+<div class="h-10 w-10 rounded-full border border-primary/30 overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of a stylish Black creator wearing a premium black turtleneck against a deep mahogany background. The lighting is cinematic and focused, highlighting facial features with a soft gold rim light. The overall mood is sophisticated, representing Black excellence in media and high-end streaming production aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIo-fB12TX7WHKB-Woqy2g9jkV_nKqCSMsieCYsqQhAZPSmpk_Hxlj0Kg0_-SdZPYO5KiDizLITActAWt4wO_glhJke-uIw66KE1xtvjG6iTlvJhNjYLPdNfMAf98AN79M34jF_SzXM-cZwnAyr1B8j5yzVUmL-hfLg8RFhTzPE3s8xbHwid-6v_47JP52trjvzNTXOQhteo3U7SJw8LhAlUqlekkRrm3--86iRVzasIP04PLydHz7i_njfUQ64jD_FZfFWLuG2T8"/>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<!-- Header Section -->
+<div class="mb-12">
+<h1 class="font-headline-xl text-display-lg text-on-surface mb-2 tracking-tight">Edit Channel Profile</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">Refine your channel's identity. Your profile settings directly influence how your content is discovered and presented to the global community.</p>
+</div>
+<!-- Editor Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Primary Form Section -->
+<div class="lg:col-span-8 space-y-gutter">
+<section class="glass-panel p-8 rounded-xl space-y-6">
+<div class="flex items-center gap-2 border-b border-white/5 pb-4 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="settings_cinematic">settings_cinematic_blur</span>
+<h2 class="font-headline-md text-headline-md">General Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Channel Name</label>
+<input class="w-full bg-surface-container-low border border-white/10 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-on-surface font-body-md" placeholder="Enter channel name" type="text" value="Urban Pulse Originals"/>
+</div>
+<div class="space-y-2">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Slug</label>
+<div class="flex items-center bg-surface-container-low border border-white/10 rounded-lg px-4 focus-within:ring-2 focus-within:ring-primary transition-all">
+<span class="text-on-surface-variant/50 font-label-sm mr-1">chitlin.net/channel/</span>
+<input class="flex-grow bg-transparent border-none py-3 px-0 focus:ring-0 text-on-surface font-body-md" placeholder="slug" type="text" value="urban-pulse"/>
+</div>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Description</label>
+<textarea class="w-full bg-surface-container-low border border-white/10 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-on-surface font-body-md" placeholder="Tell your channel's story..." rows="4">Dedicated to premium storytelling from the heart of the community. Urban Pulse Originals brings high-production value documentaries and scripted series focused on the modern Black experience.</textarea>
+</div>
+<div class="space-y-2">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Category</label>
+<select class="w-auto min-w-[240px] bg-surface-container-low border border-white/10 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-on-surface font-body-md appearance-none">
+<option>News &amp; Culture</option>
+<option selected="">Original Series</option>
+<option>Sports</option>
+<option>Music &amp; Arts</option>
+<option>Business &amp; Tech</option>
+</select>
+</div>
+</section>
+<!-- Contact & Social Section -->
+<section class="glass-panel p-8 rounded-xl space-y-6">
+<div class="flex items-center gap-2 border-b border-white/5 pb-4 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="share">share</span>
+<h2 class="font-headline-md text-headline-md">Contact &amp; Social</h2>
+</div>
+<div class="space-y-4">
+<div class="space-y-2">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Contact Email</label>
+<input class="w-full bg-surface-container-low border border-white/10 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary text-on-surface font-body-md" type="email" value="contact@urbanpulse.media"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant">X (Twitter)</label>
+<div class="flex items-center bg-surface-container-low border border-white/10 rounded-lg px-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2" data-icon="alternate_email">alternate_email</span>
+<input class="w-full bg-transparent border-none py-2 px-0 focus:ring-0 text-on-surface font-label-bold" type="text" value="urbanpulse"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant">Instagram</label>
+<div class="flex items-center bg-surface-container-low border border-white/10 rounded-lg px-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2" data-icon="photo_camera">photo_camera</span>
+<input class="w-full bg-transparent border-none py-2 px-0 focus:ring-0 text-on-surface font-label-bold" type="text" value="urbanpulse_media"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant">Facebook</label>
+<div class="flex items-center bg-surface-container-low border border-white/10 rounded-lg px-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2" data-icon="facebook">social_leaderboard</span>
+<input class="w-full bg-transparent border-none py-2 px-0 focus:ring-0 text-on-surface font-label-bold" type="text" value="urbanpulseofficial"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Branding Sidebar -->
+<div class="lg:col-span-4 space-y-gutter">
+<section class="glass-panel p-8 rounded-xl space-y-8">
+<div class="flex items-center gap-2 border-b border-white/5 pb-4">
+<span class="material-symbols-outlined text-primary" data-icon="palette">palette</span>
+<h2 class="font-headline-md text-headline-md">Visual Identity</h2>
+</div>
+<!-- Channel Logo -->
+<div class="space-y-4">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Channel Logo</label>
+<div class="flex justify-center">
+<div class="relative group cursor-pointer h-32 w-32 rounded-full border-2 border-dashed border-primary/40 flex items-center justify-center overflow-hidden hover:border-primary transition-all bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="A sleek, modern channel logo design featuring minimalist abstract shapes in gold and charcoal. The composition is centered and balanced, reflecting a contemporary media brand for a premium streaming network. The lighting is soft and professional, with a clean digital aesthetic that matches the Chitlin Network brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRrI9jjAqTHw39e53ZsB31P4ETsJLPTYgeC6dHNrZyUXnQ3Xt8ioxOyG425KRVeKbb9PH043u4SUOc7TsKP_DewW_LLcqM8iJ1XBkR08u_nm8zPmKaMoUKDq-ggvjenCzfkwJfM6lHzaogQknYZAZ_gQbGKEywwHoCpPznsT9vQkeap0frQw-LNQlopnin1AQh_7Ppsofpeov98YWeaBVOjM-bj2Lym0GR7xryl0TjF3KEyEtRXc6niKKJL3yAetOOJU-IkarueHU"/>
+<div class="z-10 text-center flex flex-col items-center">
+<span class="material-symbols-outlined text-primary" data-icon="upload">upload</span>
+<span class="text-label-sm mt-1">Replace Logo</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Channel Banner -->
+<div class="space-y-4">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Channel Banner</label>
+<div class="relative group cursor-pointer w-full aspect-[21/9] rounded-lg border-2 border-dashed border-primary/40 flex items-center justify-center overflow-hidden hover:border-primary transition-all bg-surface-container-low">
+<img class="absolute inset-0 w-full h-full object-cover opacity-40" data-alt="A wide cinematic banner landscape for a media channel. It features deep red and gold atmospheric light streaks across a dark, textured background reminiscent of a high-end recording studio. The aesthetic is moody and premium, suggesting exclusive content and professional broadcasting. High contrast and elegant grain give it a cinematic film feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTOg5uBzxWRUPHFfUD62emrLp4vDBj665317uYIMZCxO0qxZn7Mm2JCWg6iCG1jvT7KLRRyQSjNyyP9ZqPLLtQejCvBZPKBQ0yiT8ECk58iiHhtfN7ImePSXtlD4B2QuNxuHPyjyJC-Ckn2Tq37wjd6nteZmSZGMU1xsRFRISrYBKygFt0jctk3j3ETHtyimWysI82vUs7wdu4JFnciltzNdAKj1s_MvraqN8vN5eWXpvu9h6GEwZee3Oy6MidMASWETAfuCmFK1E"/>
+<div class="z-10 text-center flex flex-col items-center bg-surface/40 backdrop-blur-md px-4 py-2 rounded-full">
+<span class="material-symbols-outlined text-primary" data-icon="add_a_photo">add_a_photo</span>
+<span class="text-label-sm mt-1">Upload New Banner</span>
+</div>
+</div>
+</div>
+<!-- Brand Color -->
+<div class="space-y-4">
+<label class="block font-label-bold text-label-bold text-on-surface-variant">Brand Primary Color</label>
+<div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-lg border border-white/5">
+<input class="h-10 w-10 border-none rounded cursor-pointer bg-transparent" type="color" value="#D4AF37"/>
+<div class="flex-grow">
+<p class="font-label-bold text-on-surface">#D4AF37</p>
+<p class="text-label-sm text-on-surface-variant">Applied to buttons and accents</p>
+</div>
+</div>
+</div>
+<!-- Submit Action -->
+<div class="pt-4">
+<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-lg font-label-bold text-label-bold uppercase tracking-widest shadow-lg hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+              Submit for Review
+            </button>
+<p class="text-center text-label-sm text-on-surface-variant mt-4 px-4 leading-tight">Your changes will be reviewed by our standards team before going live.</p>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer Section -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5 bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="flex flex-col gap-4">
+<div class="text-headline-md font-headline-xl text-primary font-black">Chitlin’ Network</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm leading-relaxed">The premier destination for high-production Black-owned media. Empowering storytellers and creating a cinematic digital space for global Black culture.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-primary font-label-bold mb-2">Platform</h3>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors duration-200" href="#">Advertise</a>
+<a class="text-primary font-label-sm text-label-sm hover:text-on-surface transition-colors duration-200" href="#">Start a Channel</a>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-primary font-label-bold mb-2">Support</h3>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors duration-200" href="#">Terms</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors duration-200" href="#">Privacy</a>
+<a class="text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface transition-colors duration-200" href="#">Guidelines</a>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="text-primary font-label-bold mb-2">Connect</h3>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all" data-icon="social_leaderboard">social_leaderboard</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all" data-icon="videocam">videocam</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-all" data-icon="public">public</span>
+</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm mt-4">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+</div>
+</div>
+</footer>
+</body></html>

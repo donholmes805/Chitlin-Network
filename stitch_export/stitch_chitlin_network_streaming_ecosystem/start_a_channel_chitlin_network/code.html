@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Start a Channel | Chitlin’ Network</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#f2ca50",
+                    "secondary-container": "#920703",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed-dim": "#cac99f",
+                    "on-surface": "#e5e2e1",
+                    "outline": "#99907c",
+                    "on-tertiary": "#323214",
+                    "on-surface-variant": "#d0c5af",
+                    "surface-container-highest": "#353534",
+                    "inverse-on-surface": "#313030",
+                    "on-error-container": "#ffdad6",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#3c2f00",
+                    "on-tertiary-fixed": "#1d1d03",
+                    "on-tertiary-container": "#474727",
+                    "surface-tint": "#e9c349",
+                    "surface-container": "#201f1f",
+                    "tertiary-container": "#b6b58c",
+                    "error": "#ffb4ab",
+                    "on-secondary-container": "#ff9a8a",
+                    "background": "#131313",
+                    "surface": "#131313",
+                    "outline-variant": "#4d4635",
+                    "on-primary-container": "#554300",
+                    "secondary": "#ffb4a8",
+                    "surface-variant": "#353534",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-primary-fixed": "#241a00",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-fixed-variant": "#484828",
+                    "on-secondary-fixed": "#410000",
+                    "tertiary-fixed": "#e6e5b9",
+                    "on-secondary": "#690000",
+                    "tertiary": "#d2d1a6",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#920703",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed-dim": "#ffb4a8",
+                    "secondary-fixed": "#ffdad4",
+                    "inverse-primary": "#735c00",
+                    "error-container": "#93000a",
+                    "primary-container": "#d4af37",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-bright": "#3a3939",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px",
+                    "safe-area-tv": "80px"
+            },
+            "fontFamily": {
+                    "label-bold": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Epilogue"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Epilogue"],
+                    "body-md": ["Inter"],
+                    "display-lg": ["Epilogue"]
+            },
+            "fontSize": {
+                    "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cinematic-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 253, 208, 0.1);
+        }
+        .focus-ring:focus {
+            outline: 3px solid #D4AF37;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary/30 min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 shadow-2xl border-b border-white/10">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-8">
+<a class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter" href="#">Chitlin’ Network</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Watch Live</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors hover:scale-105 hover:text-primary transition-all duration-300" href="#">Advertise</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1 hover:scale-105 transition-all duration-300" href="#">Start a Channel</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 bg-primary text-on-primary font-label-bold rounded hover:scale-105 transition-all duration-300 focus:ring-3 focus:ring-primary focus:outline-none active:scale-95">Sign In</button>
+</div>
+</nav>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40" data-alt="A professional Black content creator in a high-end streaming studio with cinematic lighting. The studio features warm gold accents, professional cameras on gimbals, and multiple high-resolution monitors displaying vibrant media content. The atmosphere is sophisticated and ambitious, reflecting the brand's 'Black Excellence' aesthetic with deep charcoal backgrounds and golden key lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrr_SMSnR8shDXTW4BEJnWmi_j7Vfm39fn7EY7HBTOKVKzGqMHqhSFS6K1MmQoXnnJ6e5RCObwYxwgGn7ppg2hbx0l7shcSNiTSnX-g1iejUlYm4cZLiF2YXc1uYgYAMGQctfCaYH7G8bVbS8HXBjCxwD5Lj6gVOUMrtCp-n5U_pQOqS-SEIbXb0n9HZEHslDrRbaaPZfAm02hX9mPrfEafVFJdUTgoPN3xxfUeq5is_lYws9ZL4kRLqe2yJsZ2fpVyY37K1ECrwQ"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop w-full max-w-4xl">
+<span class="inline-block px-3 py-1 bg-secondary-container text-white text-label-sm font-label-bold rounded mb-6 tracking-widest uppercase">Creator Platform</span>
+<h1 class="font-display-lg text-display-lg mb-6 leading-tight">Launch Your Own Channel on <span class="text-primary italic">Chitlin’ Network</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">Empowering Black creators to reach a global audience with premium TV-style streaming. Join the network built for excellence and take ownership of your narrative.</p>
+<div class="flex flex-wrap gap-4">
+<button class="px-10 py-4 bg-primary text-on-primary font-headline-md rounded-lg shadow-lg hover:scale-105 transition-all duration-300 active:scale-95">Apply Now</button>
+<button class="px-10 py-4 border-2 border-white text-white font-headline-md rounded-lg hover:bg-white/10 transition-all duration-300">View Perks</button>
+</div>
+</div>
+</section>
+<!-- Benefits Bento Grid -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="text-center mb-16">
+<h2 class="font-headline-xl text-headline-xl mb-4">Why Launch With Us?</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">We provide the infrastructure so you can focus on the art. Professional tools for professional creators.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<!-- Global Distribution -->
+<div class="md:col-span-2 glass-panel p-8 rounded-xl flex flex-col justify-between group hover:border-primary/50 transition-all">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="public">public</span>
+<h3 class="font-headline-md text-headline-md mb-2">Global Distribution</h3>
+<p class="text-on-surface-variant">Stream across iOS, Android, Roku, FireTV, and the web. Your content, available everywhere.</p>
+</div>
+<div class="mt-8 overflow-hidden rounded-lg h-32 opacity-60 group-hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="A stylized glowing digital world map showing interconnected nodes across continents, rendered in a cinematic deep charcoal and gold color scheme. The lighting is soft and atmospheric, highlighting the global reach of the network with elegant, thin golden lines connecting major cities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCQb0p9KAW6YyMgDiUxl1MVmQTGBmjbcCgJpUvo_Hr36TSFLF3qxOISHxGvBdmlu6o3TaQ1ku47DQK-K20KF9jPx25e33mkzPFKMhyvNg53RGNoQqlfl2WqHCzhxEwlQHE6slNeZ78Y0LnPvYNlzjtoA-m5xVWhM0Lsi3Ufl13z3Rpog8aTN6-q8Sjz5vFG6eNweurPAn8KoLx_hgyVicXkZeLD0qIhhUv0Y1eOySf0WVTyRiwZZ1JSqpdT0CHASx7gj-aUJzc-ZI"/>
+</div>
+</div>
+<!-- Revenue Sharing -->
+<div class="glass-panel p-8 rounded-xl hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="payments">payments</span>
+<h3 class="font-headline-md text-headline-md mb-2">Revenue Sharing</h3>
+<p class="text-on-surface-variant">Industry-leading ad-split and subscription revenue models designed for creator sustainability.</p>
+</div>
+<!-- Audience Analytics -->
+<div class="glass-panel p-8 rounded-xl hover:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="query_stats">query_stats</span>
+<h3 class="font-headline-md text-headline-md mb-2">Audience Analytics</h3>
+<p class="text-on-surface-variant">Deep insights into viewer behavior, demographics, and real-time engagement metrics.</p>
+</div>
+<!-- Content Protection -->
+<div class="md:col-span-4 glass-panel p-10 rounded-xl flex items-center gap-10 hover:border-primary/50 transition-all">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="encrypted">encrypted</span>
+<h3 class="font-headline-md text-headline-md mb-2">Content Protection</h3>
+<p class="text-on-surface-variant">Enterprise-grade DRM and digital rights management. We ensure your intellectual property stays yours and is protected from unauthorized piracy.</p>
+</div>
+<div class="hidden lg:block w-1/3">
+<img class="rounded-lg" data-alt="A futuristic data encryption interface with high-contrast golden visual elements on a dark, polished glass surface. The design features sophisticated cryptographic symbols and glowing security locks, maintaining a premium cinematic aesthetic that emphasizes reliability and security for professional creators." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgJqYJS5NlE1j3E6sANGsBlid0XjeqZcF2_yW7Zr-0gxpz4KYp74mhGZmBiK-h2uIOVUV1yJPikh9A5OTkWSrqrb5kMowd7mBfSLBLCjEm_JtEyXwK2NAFPZy1GdkxQet-SjFeTOE_izL6Ab0ZYNn_8ETZCF9eqZx_9QYlUT9foHQM_wr0ml6CFWdNJK9c_TypnSUFQG4fDcI53W6O2HWqLL8qbT_D0ZoCgO044pUc1C_P7w5yL308m2ve_ZYZJ1hDLQxe3cwFsB8"/>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="text-center mb-16">
+<h2 class="font-headline-xl text-headline-xl mb-4">Launch in 4 Simple Steps</h2>
+<p class="text-on-surface-variant">From application to global broadcast in weeks, not months.</p>
+</div>
+<div class="relative">
+<!-- Line background -->
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant -translate-y-1/2 z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container border-2 border-primary flex items-center justify-center font-headline-md text-primary mb-6">1</div>
+<h4 class="font-label-bold text-headline-md mb-2">Apply</h4>
+<p class="text-on-surface-variant text-body-md px-4">Submit your content portfolio and channel concept for review.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container border-2 border-primary flex items-center justify-center font-headline-md text-primary mb-6">2</div>
+<h4 class="font-label-bold text-headline-md mb-2">Build</h4>
+<p class="text-on-surface-variant text-body-md px-4">Customize your channel branding and upload your initial library.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container border-2 border-primary flex items-center justify-center font-headline-md text-primary mb-6">3</div>
+<h4 class="font-label-bold text-headline-md mb-2">Stream</h4>
+<p class="text-on-surface-variant text-body-md px-4">Go live or schedule your VOD content for global release.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container border-2 border-primary flex items-center justify-center font-headline-md text-primary mb-6">4</div>
+<h4 class="font-label-bold text-headline-md mb-2">Earn</h4>
+<p class="text-on-surface-variant text-body-md px-4">Track revenue from ads and premium subscriptions monthly.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Plans -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="text-center mb-16">
+<h2 class="font-headline-xl text-headline-xl mb-4">Flexible Plans for Every Stage</h2>
+<p class="text-on-surface-variant">Choose the partnership level that matches your ambition.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter max-w-6xl mx-auto">
+<!-- Starter -->
+<div class="glass-panel p-10 rounded-2xl border-white/5 flex flex-col items-start hover:scale-[1.02] transition-transform duration-300">
+<h3 class="font-headline-md text-headline-md mb-2">Starter Channel</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-bold">Free</span>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span> 1080p Streaming</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span> Basic Analytics</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span> 50% Ad Revenue Split</li>
+<li class="flex items-center gap-3 text-on-surface-variant opacity-50"><span class="material-symbols-outlined text-xl" data-icon="block">block</span> No Premium Tier</li>
+</ul>
+<button class="w-full py-3 border-2 border-primary text-primary font-label-bold rounded hover:bg-primary/10 transition-colors">Apply Free</button>
+</div>
+<!-- Growth (Best Value) -->
+<div class="bg-primary-container p-10 rounded-2xl relative shadow-2xl scale-105 z-10 border-2 border-primary hover:scale-[1.07] transition-transform duration-300">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-on-primary text-label-sm font-label-bold rounded-full">MOST POPULAR</div>
+<h3 class="font-headline-md text-headline-md text-on-primary-container mb-2">Growth Channel</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-bold text-on-primary-container">$49</span>
+<span class="text-on-primary-container/70">/mo</span>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-on-primary-container"><span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="star" data-weight="fill">star</span> 4K UHD Streaming</li>
+<li class="flex items-center gap-3 text-on-primary-container"><span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="star" data-weight="fill">star</span> Advanced Analytics</li>
+<li class="flex items-center gap-3 text-on-primary-container"><span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="star" data-weight="fill">star</span> 70% Ad Revenue Split</li>
+<li class="flex items-center gap-3 text-on-primary-container"><span class="material-symbols-outlined text-on-primary-container text-xl" data-icon="star" data-weight="fill">star</span> Subscription Gating</li>
+</ul>
+<button class="w-full py-4 bg-on-primary-container text-primary font-label-bold rounded shadow-lg hover:shadow-xl transition-all">Start Growth</button>
+</div>
+<!-- Network Partner -->
+<div class="glass-panel p-10 rounded-2xl border-white/5 flex flex-col items-start hover:scale-[1.02] transition-transform duration-300">
+<h3 class="font-headline-md text-headline-md mb-2">Network Partner</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-4xl font-bold">Custom</span>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span> White-label Apps</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span> 85% Revenue Split</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span> Dedicated Account Mgr</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl" data-icon="check_circle">check_circle</span> Custom Integrations</li>
+</ul>
+<button class="w-full py-3 border-2 border-white text-white font-label-bold rounded hover:bg-white/10 transition-colors">Contact Sales</button>
+</div>
+</div>
+</section>
+<!-- Revenue Sharing Infographic Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+<div class="lg:w-1/2">
+<h2 class="font-headline-xl text-headline-xl mb-6">Transparent Revenue Modeling</h2>
+<p class="text-on-surface-variant text-body-lg mb-8">We believe in empowering creators through fair economic structures. Our model ensures that as you grow, your profit share scales with you.</p>
+<div class="space-y-6">
+<div class="p-6 rounded-xl bg-surface-container border-l-4 border-primary">
+<h4 class="font-label-bold text-lg mb-2">Ad-Revenue Split</h4>
+<p class="text-on-surface-variant">Up to 85% of ad revenue generated on your channel goes directly into your pocket.</p>
+</div>
+<div class="p-6 rounded-xl bg-surface-container border-l-4 border-secondary-container">
+<h4 class="font-label-bold text-lg mb-2">Subscription Direct</h4>
+<p class="text-on-surface-variant">Keep 100% of the net revenue from your specific channel subscribers after platform fees.</p>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 w-full">
+<div class="glass-panel p-8 rounded-3xl relative aspect-square flex items-center justify-center overflow-hidden">
+<!-- Circle Chart Mockup -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-64 h-64 rounded-full border-[20px] border-secondary-container opacity-20"></div>
+<div class="w-64 h-64 rounded-full border-[20px] border-primary border-t-transparent border-r-transparent rotate-45 absolute shadow-[0_0_40px_rgba(242,202,80,0.3)]"></div>
+</div>
+<div class="relative z-10 text-center">
+<span class="text-display-lg font-bold text-primary">85%</span>
+<p class="font-label-bold text-on-surface uppercase tracking-widest">Creator Share</p>
+</div>
+<!-- Background Glow -->
+<div class="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/10 blur-[80px] rounded-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop bg-primary text-on-primary text-center">
+<h2 class="font-display-lg text-headline-xl md:text-display-lg mb-6">Ready to reach millions?</h2>
+<p class="text-on-primary/80 text-body-lg mb-10 max-w-2xl mx-auto">Applications are reviewed on a rolling basis. Take the first step toward building your media empire today.</p>
+<button class="px-12 py-5 bg-on-primary text-primary font-headline-md rounded-xl shadow-2xl hover:scale-105 active:scale-95 transition-all">Apply to Start a Channel</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="col-span-1 lg:col-span-1">
+<h3 class="text-headline-md font-headline-xl text-primary font-black mb-4">Chitlin’ Network</h3>
+<p class="font-body-md text-label-sm text-on-surface-variant max-w-xs">Building the premier global platform for Black content excellence.</p>
+</div>
+<div>
+<h4 class="font-label-bold text-on-surface mb-4 uppercase tracking-widest text-sm">Platform</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">About</a></li>
+<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">Advertise</a></li>
+<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">Start a Channel</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-on-surface mb-4 uppercase tracking-widest text-sm">Support</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">Terms</a></li>
+<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">Privacy</a></li>
+<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors duration-200" href="#">Help Center</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-on-surface mb-4 uppercase tracking-widest text-sm">Connect</h4>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="public">public</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="video_library">video_library</span>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-6 border-t border-white/5 text-center md:text-left">
+<p class="font-body-md text-label-sm text-on-surface-variant">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+</div>
+</footer>
+</body></html>

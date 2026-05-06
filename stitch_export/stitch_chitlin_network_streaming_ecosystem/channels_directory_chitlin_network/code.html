@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chitlin’ Network | Channels Directory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .channel-card-hover:focus-within, .channel-card-hover:hover {
+            outline: 3px solid #d4af37;
+            transform: scale(1.02);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#f2ca50",
+                        "secondary-container": "#920703",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#cac99f",
+                        "on-surface": "#e5e2e1",
+                        "outline": "#99907c",
+                        "on-tertiary": "#323214",
+                        "on-surface-variant": "#d0c5af",
+                        "surface-container-highest": "#353534",
+                        "inverse-on-surface": "#313030",
+                        "on-error-container": "#ffdad6",
+                        "on-background": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "on-tertiary-fixed": "#1d1d03",
+                        "on-tertiary-container": "#474727",
+                        "surface-tint": "#e9c349",
+                        "surface-container": "#201f1f",
+                        "tertiary-container": "#b6b58c",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#ff9a8a",
+                        "background": "#131313",
+                        "surface": "#131313",
+                        "outline-variant": "#4d4635",
+                        "on-primary-container": "#554300",
+                        "secondary": "#ffb4a8",
+                        "surface-variant": "#353534",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-tertiary-fixed-variant": "#484828",
+                        "on-secondary-fixed": "#410000",
+                        "tertiary-fixed": "#e6e5b9",
+                        "on-secondary": "#690000",
+                        "tertiary": "#d2d1a6",
+                        "primary-fixed": "#ffe088",
+                        "on-secondary-fixed-variant": "#920703",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-fixed-dim": "#ffb4a8",
+                        "secondary-fixed": "#ffdad4",
+                        "inverse-primary": "#735c00",
+                        "error-container": "#93000a",
+                        "primary-container": "#d4af37",
+                        "surface-container-low": "#1c1b1b",
+                        "surface-bright": "#3a3939",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error": "#690005"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "safe-area-tv": "80px"
+                    },
+                    "fontFamily": {
+                        "label-bold": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Epilogue"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Epilogue"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Epilogue"]
+                    },
+                    "fontSize": {
+                        "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface/70 backdrop-blur-xl dark:bg-surface/70 docked full-width top-0 sticky z-50 bg-surface/70 backdrop-blur-24 border-b border-white/10 shadow-2xl flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-8">
+<span class="text-headline-md font-headline-xl text-primary font-black italic tracking-tighter">Chitlin’ Network</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Watch Live</a>
+<a class="text-primary font-label-bold border-b-2 border-primary pb-1" href="#">Channels</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Shows</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Advertise</a>
+<a class="text-on-surface-variant font-label-bold hover:text-on-surface transition-colors" href="#">Start a Channel</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-4 py-2 border border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-bold placeholder:text-on-surface-variant/50 w-48" placeholder="Search channels..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-bold px-6 py-2 rounded-lg hover:scale-105 transition-all active:scale-95">Sign In</button>
+</div>
+</nav>
+<main class="flex-grow">
+<!-- Header Section -->
+<header class="px-margin-mobile md:px-margin-desktop py-12 bg-gradient-to-b from-surface-container-low to-surface">
+<div class="max-w-7xl mx-auto space-y-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-headline-xl text-display-lg text-on-surface">Channels</h1>
+<p class="font-body-md text-on-surface-variant mt-2 max-w-xl">Explore the best in Black-owned media, from global news to independent creators showcasing cultural excellence.</p>
+</div>
+<div class="flex flex-col gap-4 w-full md:w-auto">
+<div class="md:hidden flex items-center bg-surface-container rounded-lg px-4 py-3 border border-white/10">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-label-bold w-full" placeholder="Find a channel" type="text"/>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-full font-label-bold text-label-sm">All</button>
+<button class="bg-surface-container-high text-on-surface hover:bg-surface-variant px-4 py-2 rounded-full font-label-bold text-label-sm transition-colors">News</button>
+<button class="bg-surface-container-high text-on-surface hover:bg-surface-variant px-4 py-2 rounded-full font-label-bold text-label-sm transition-colors">Sports</button>
+<button class="bg-surface-container-high text-on-surface hover:bg-surface-variant px-4 py-2 rounded-full font-label-bold text-label-sm transition-colors">Entertainment</button>
+<button class="bg-surface-container-high text-on-surface hover:bg-surface-variant px-4 py-2 rounded-full font-label-bold text-label-sm transition-colors">Indie</button>
+<button class="bg-surface-container-high text-on-surface hover:bg-surface-variant px-4 py-2 rounded-full font-label-bold text-label-sm transition-colors">Faith</button>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Channels Grid -->
+<section class="px-margin-mobile md:px-margin-desktop pb-24">
+<div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Card 1: Featured Soul Stage -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden channel-card-hover border border-white/5 transition-all duration-300">
+<div class="aspect-[16/9] w-full relative">
+<img class="w-full h-full object-cover" data-alt="A vibrant landscape concert stage illuminated by deep golden spotlights and warm amber lighting, capturing a high-energy live musical performance. The scene conveys a cinematic modernism style with rich charcoal shadows and premium gold accents, embodying the spirit of Black excellence in entertainment and media arts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGYqTHSDbYKHYHoEi28fF9A05VXsG5hC2fRTlF4JicAs36ijJxlk0TeSsTLsfP06WVd1m3fWoXTFQs-fZadhTpOHVaaMmYe3kWfyBkp_ZU1nE4OVea61TvBDYEDZJpliwgXSAHfh1HLQL1tRtZawdS3kUBwGaHjYlLrh8fEi-xPrQVRGJtFsKYGZoZAuLYaXgCutYsAOn5pD6ZJ5wzMobFkr9eTrfwj5ucTsaeSLrXwitktlUCKENYZ98Ufvyzrf3UM6md4-mrcVI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-primary text-on-primary text-[10px] font-black px-2 py-1 rounded tracking-widest flex items-center">
+                                FEATURED
+                            </span>
+<span class="bg-secondary-container text-white text-[10px] font-black px-2 py-1 rounded tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> LIVE
+                            </span>
+</div>
+</div>
+<div class="p-5 relative">
+<div class="absolute -top-10 left-5">
+<div class="w-16 h-16 rounded-full border-4 border-surface-container-low overflow-hidden bg-primary shadow-xl">
+<img class="w-full h-full object-cover" data-alt="A minimalist and high-contrast circular logo for a media channel, featuring abstract geometric forms in gold and deep black. The design is modern, professional, and reflects a premium cinematic brand identity suitable for a streaming network dedicated to Black culture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMQZGFJab3ApG3bYe_FCgkwaB5kI630LenHzWkMMLxxPoU6RMtYOKwHxYF8YuVu4rTm6c4Z9lY8uBEHNJJ0KR0A099-IGdnp7lzfC912Tv8vwBDAx-Klpnufvqwbow22D-m6H5MsAYGIKAhwWkXsREctbBB64NFTUqsxJpq33oPxESJpwS1LOvteckG52GHb5tViqPi50BLAWX0-vaU3aV0ZvWZ8dlMUZbAZw4Ow8dyZcpCm4nhZ-EVO08bwgSBNWsp29Yx6YLFbw"/>
+</div>
+</div>
+<div class="mt-8 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface">Soul Stage</h3>
+<span class="text-label-sm text-on-surface-variant font-medium">1.2M followers</span>
+</div>
+<p class="text-label-bold text-primary text-[12px] uppercase">Entertainment</p>
+</div>
+<button class="w-full mt-6 bg-primary text-on-primary font-label-bold py-3 rounded-lg hover:bg-primary-fixed transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Watch Channel
+                        </button>
+</div>
+</div>
+<!-- Card 2: Gospel Sunday -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden channel-card-hover border border-white/5 transition-all duration-300">
+<div class="aspect-[16/9] w-full relative">
+<img class="w-full h-full object-cover" data-alt="A peaceful and powerful setting within a modern, sun-drenched cathedral with expansive glass walls. The lighting is soft and ethereal, using a palette of creams and deep blacks. The scene represents a premium faith-based broadcast experience, emphasizing dignity and spiritual elevation in a cinematic digital environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvfN8yVCPrPA-GASZQZs20ZF8j_FZ1uYvKGQ5NhKCa6EsA1StXSLJIfNAz1JAru4Ynj9y1_hdpPmrkkkmcEzzWKzelj0m7rnC5emyGLUDagIlPfoEwWJhVcowdLPfZsPPeN_9Ki29u4eT1jNtvpwBaAEbzDdnDPiGdYiwBvSRM9TEZoGtEdRYD7lg8ScDN4uO98X4UhhXWjK335pyI9nPvA90zMX1cg92yq1qbpue2Z8-EoZt7geo6pnqPqGlbsLU3ZzPl03e5EV4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3">
+<span class="bg-secondary-container text-white text-[10px] font-black px-2 py-1 rounded tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> LIVE
+                            </span>
+</div>
+</div>
+<div class="p-5 relative">
+<div class="absolute -top-10 left-5">
+<div class="w-16 h-16 rounded-full border-4 border-surface-container-low overflow-hidden bg-primary shadow-xl">
+<img class="w-full h-full object-cover" data-alt="A sophisticated circular brand mark for a faith channel, utilizing elegant serif typography in gold against a deep charcoal background. The visual style is rooted in professional cinematic modernism, projecting a sense of heritage and divine excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZhZZm3zDDttW_SNCIur3swY-jE1JBe6y2T_X_C_ealE6_InclRnCMiPVUC7SZ5L-m0GzUwg2xh5vaaMAV4NQfN2ZZBgv4U0FeGp-EptiooxJGpeizwGnsuPWXKE0GZoF0hKwCKg05LgWNdrIEermql-cl7IubRuGLse9vDWw3QXZ8HdOiEGrDD26GHTgXzTvbIqWBuh_p9uEbdXsgF6E9g96xEffRqITwY5RWFZSuXiM-U2vzzWqh-gLm1cNCkN6qz6BMMjvuqus"/>
+</div>
+</div>
+<div class="mt-8 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface">Gospel Sunday</h3>
+<span class="text-label-sm text-on-surface-variant font-medium">850K followers</span>
+</div>
+<p class="text-label-bold text-primary text-[12px] uppercase">Faith</p>
+</div>
+<button class="w-full mt-6 bg-primary text-on-primary font-label-bold py-3 rounded-lg hover:bg-primary-fixed transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Watch Channel
+                        </button>
+</div>
+</div>
+<!-- Card 3: Urban Beat -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden channel-card-hover border border-white/5 transition-all duration-300">
+<div class="aspect-[16/9] w-full relative">
+<img class="w-full h-full object-cover" data-alt="A stylish urban rooftop setting at dusk, overlooking a glowing city skyline. The lighting is cinematic with deep reds and cool blues reflecting off glass surfaces. This visual represents an independent media channel focused on contemporary urban lifestyle and independent music, styled with a high-end, modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl-vw4B-fz29Bklvf4LAaQpOW7OEqxbYSbVS1idzF_CoQUo3hK9bNTivJv3jBmvF5IfwlDx0786-dCjEXUcYvF-jtTM8qXS5-swCMaCmQb1C5Lwv9xHN8dNCxBnu_PHj37KWCM3Dh3QTh5CmPHldc50sWMl0X-5-bg6HDkrAy4U1C31OcAypqzzUJM0i8gvYvVRYVe3phh5xpSbWyB_WhDz5VNI5XsC0zX_TXLfCzsQSLdVE35cx3KirSBEJSh1tW-T3pdfC4zzFU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+</div>
+<div class="p-5 relative">
+<div class="absolute -top-10 left-5">
+<div class="w-16 h-16 rounded-full border-4 border-surface-container-low overflow-hidden bg-primary shadow-xl">
+<img class="w-full h-full object-cover" data-alt="A bold, modern circular logo with a gold 'UB' monogram on a textured black background. The design is sleek and rhythmic, capturing a contemporary urban energy within the network's cinematic and professional visual framework." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfjMRnfraa8GnQQADXXfEm86F_dEbtjxJbOeWw-qYhnSOznOnmeLt0Rl3zBQlG-vaMeRug0-BXFUG0K80sg4LQZR1Kz6V77DuRKZUYH0tZu6cLMRTG7oUaX4Wh2tCBXef2CS4pP93nwpIUfoQ5_m671o6UVu-1Fhce40Xg0FzU_BJ-WTui2lZnTnDWp6gM4Oo5sapAl7fXOR7t4F6bj6CeUucniGPuPtvPPHjf0yPm5Ri8A1w5biXV_7BghgL_tuB_SG1sBII-msw"/>
+</div>
+</div>
+<div class="mt-8 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface">Urban Beat</h3>
+<span class="text-label-sm text-on-surface-variant font-medium">420K followers</span>
+</div>
+<p class="text-label-bold text-primary text-[12px] uppercase">Indie</p>
+</div>
+<button class="w-full mt-6 bg-primary text-on-primary font-label-bold py-3 rounded-lg hover:bg-primary-fixed transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Watch Channel
+                        </button>
+</div>
+</div>
+<!-- Card 4: Global Truth -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden channel-card-hover border border-white/5 transition-all duration-300">
+<div class="aspect-[16/9] w-full relative">
+<img class="w-full h-full object-cover" data-alt="A high-tech news studio set with massive high-definition screens displaying global data and maps. The lighting is crisp and professional, using cool whites and deep navy tones, accented by the network's signature gold. It embodies a trusted, world-class journalism environment in a modern digital media context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMXv2Rw8dXMaqfMIWWwmG6up3Us2S_M5Q5b0xBlWcpaCuv5vfI6TBGB_-jxfqDAR4tekRR2JJDeg6S1Yy6kXzBBB-NoHoai1G6YybaIUburTAuk4JQ9L5oLhGZan2F5rvY-moY0_XaGQiCoVzeu2-fgjk4inB4mg46b4WROqJUb_i7YxeXXBp0n4Jzcf9XizyfxSji25-r0o_iYMGPDa9voNiDbvOtMEEm0KPs9OCJD2uajdZrO0LMHMcltsEYy3t_dLZ8ZYDpb0s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+</div>
+<div class="p-5 relative">
+<div class="absolute -top-10 left-5">
+<div class="w-16 h-16 rounded-full border-4 border-surface-container-low overflow-hidden bg-primary shadow-xl">
+<img class="w-full h-full object-cover" data-alt="A clean and authoritative circular logo for a news channel, featuring a stylized globe icon in gold and white on a dark surface. The design is sharp and trustworthy, reflecting international prestige and professional media standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyPdF-Vd2xLcDIkcx6ddz092q1Ms3CPRyFQNx4zMS7Yv8W0r9lMKEZbd2xNY0esAVH__98je7dahdphuYojS8jgL4Co75xgkwlUhMz_3ARCYerGjeYG5SCDoCeobTzoOICiDclc4PW7_qGIaKUKc7kOo3BXQeFYgkMcxWFozJKwzgHWBQAKJlkeQxPaXMWw-AA7A01WxWrY9oxTjjq530_SsM3pyo39j-TxAOdChsNFUopT6gESlq85JSKJfPtHS4vnYHt0cfspsw"/>
+</div>
+</div>
+<div class="mt-8 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface">Global Truth</h3>
+<span class="text-label-sm text-on-surface-variant font-medium">2.1M followers</span>
+</div>
+<p class="text-label-bold text-primary text-[12px] uppercase">News</p>
+</div>
+<button class="w-full mt-6 bg-primary text-on-primary font-label-bold py-3 rounded-lg hover:bg-primary-fixed transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Watch Channel
+                        </button>
+</div>
+</div>
+<!-- Additional Grid Items (Repeated Pattern) -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden channel-card-hover border border-white/5 transition-all duration-300">
+<div class="aspect-[16/9] w-full relative">
+<img class="w-full h-full object-cover" data-alt="A dynamic shot of a basketball court at night with high-contrast stadium lighting creating long shadows and dramatic highlights. The visual palette includes deep charcoal and energetic gold glows, symbolizing premium sports broadcasting and the thrill of athletic excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9YV9A17-Nc1qCb79AhbikqpHkskWMpND9htTbgDG6tOwLJIlfBbODSJNiIl-tTmIM4dh4fzd2d-le2HE-QES5M8Wj5DWzy0uwFq4NzS9NUSDFPH8MveBcKS1vSHJivPG8E1zryIF9T3QLv8jl8El-AAh9PVEIHFTTtkwviYRYDiX1bvALQjEdxCb80R2PmyCAnVZT3x-ey387f9Uno3ITjqIGD7Znj96v1uwaHcHFsaUlyLz3b6gQvlHrgm4P6bpqqOnCTXAx_XU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3">
+<span class="bg-secondary-container text-white text-[10px] font-black px-2 py-1 rounded tracking-widest flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span> LIVE
+                            </span>
+</div>
+</div>
+<div class="p-5 relative">
+<div class="absolute -top-10 left-5">
+<div class="w-16 h-16 rounded-full border-4 border-surface-container-low overflow-hidden bg-primary shadow-xl">
+<img class="w-full h-full object-cover" data-alt="A circular sports channel logo featuring a bold, kinetic gold emblem representing movement and power against a matte black background. It is professional, intense, and fits the cinematic streaming identity of the network." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyvvstco_YMYnI_sDG-Kl_fH50F-LS4Tuz3vItKo1XmnKrVtRFoHFfP5t1QoSsA5NGMYA1HZTGjmGvMVzEjQ_KbkNCnIf6dJQXFYI24LyGnuN3FRjcGvqYS0CnUDUjwZKG93ij1SganFGzosuDpGjy7vP1BlzBLIz_da_6OrVFJeJCT1u5i3nbrMD-GY4dcAmvAz5v38t0jd06AAysHy95738E2nr25Lq_Iux-P5nemuTxOIkceQCKRJmc_eF-eYJBl5sdK50_xOE"/>
+</div>
+</div>
+<div class="mt-8 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface">Pro Court</h3>
+<span class="text-label-sm text-on-surface-variant font-medium">560K followers</span>
+</div>
+<p class="text-label-bold text-primary text-[12px] uppercase">Sports</p>
+</div>
+<button class="w-full mt-6 bg-primary text-on-primary font-label-bold py-3 rounded-lg hover:bg-primary-fixed transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Watch Channel
+                        </button>
+</div>
+</div>
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden channel-card-hover border border-white/5 transition-all duration-300">
+<div class="aspect-[16/9] w-full relative">
+<img class="w-full h-full object-cover" data-alt="A cinematic low-angle shot of a high-end film set with professional lighting rigs and cameras focused on a dramatic scene. The atmosphere is artistic and focused, featuring rich shadows and warm, prestigious lighting that celebrates independent filmmaking and Black cinematic excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_02J1GSwZxBQd0aCDPkBAwMqPnK6PK4flAuIlT17s8DQM5n5iQ9VDd8Pg9t4uGCs5T6pl-o_brWcTJXJFAIxVeAvBxTJdTUCZr8mu1yqw54Fa5vf7FzKJyj6djKb2dvs2106ZVRPSzQ8NQhctH6uFD5SIP7tkaZ2-VIQq1ObAIdvLyh1b7lDdJ0ZGdFJHg_VpPaSfQ72Lfz_-3koBUWVFpssE_C-yEnKoKNlq3FQDY928PQaw-4uL6sWDHjrtnx0sq1-VkJCIUjw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+</div>
+<div class="p-5 relative">
+<div class="absolute -top-10 left-5">
+<div class="w-16 h-16 rounded-full border-4 border-surface-container-low overflow-hidden bg-primary shadow-xl">
+<img class="w-full h-full object-cover" data-alt="An artistic circular logo for an independent film channel, using a stylized gold clapperboard icon and modern typography. The design is minimal and premium, representing the cutting edge of independent cultural media." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSo2zT4lZN_3XH9_aS9QqVYuoCYhPeyRWpAM0WKpwLRaxyw_KrLxzuytjPmxaBCeFGmaWiaxstgLUwxcgewaPRanDsG0QJh2cKMkQ6jO2575P-ioP0PiBJQ6cf-_sOZiUckZY5Oc7ckh613G_WXwdq3X1EOgk9NnORYg4BKTLgnC0NKrCds9Owy5DGZKs0BHyr8MzZBB8RnJYYtPnaEcmtH5ncQPV0uj8UaK7Rcrbd6XyyprYxfPqdXWBV6cndGMBrM_C6J7Q3PM0"/>
+</div>
+</div>
+<div class="mt-8 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline-md text-headline-md text-on-surface">Cinema Noir</h3>
+<span class="text-label-sm text-on-surface-variant font-medium">310K followers</span>
+</div>
+<p class="text-label-bold text-primary text-[12px] uppercase">Indie</p>
+</div>
+<button class="w-full mt-6 bg-primary text-on-primary font-label-bold py-3 rounded-lg hover:bg-primary-fixed transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                            Watch Channel
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width bottom-0 mt-auto border-t border-white/5 bg-surface-container-lowest grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-12">
+<div class="space-y-4">
+<span class="text-headline-md font-headline-xl text-primary font-black">Chitlin’ Network</span>
+<p class="text-on-surface-variant font-label-sm text-label-sm leading-relaxed">
+                The premier destination for high-production Black-owned media. Experience cinematic storytelling, live community events, and a front-row seat to Black Excellence.
+            </p>
+</div>
+<div class="space-y-4">
+<h4 class="text-on-surface font-label-bold uppercase tracking-wider text-[12px]">Explore</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm" href="#">About</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm" href="#">Advertise</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm" href="#">Start a Channel</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-on-surface font-label-bold uppercase tracking-wider text-[12px]">Legal</h4>
+<ul class="space-y-2">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm" href="#">Terms</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm" href="#">Privacy</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container border border-white/10 hover:border-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary">public</span>
+</a>
+<a class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container border border-white/10 hover:border-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary">language</span>
+</a>
+</div>
+<p class="text-on-surface-variant font-label-sm text-label-sm">© 2024 Chitlin’ Network. Black Excellence in Media.</p>
+</div>
+</footer>
+</body></html>
