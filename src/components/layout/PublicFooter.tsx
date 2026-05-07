@@ -4,8 +4,8 @@ export default function PublicFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-surface-container-lowest border-t border-white/5 pt-32 pb-16">
-      <div className="safe-area grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 xl:gap-24 mb-32">
+    <footer className="bg-surface-container-lowest border-t border-white/5 pt-20 md:pt-32 pb-16">
+      <div className="safe-area grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 md:gap-16 xl:gap-24 mb-20 md:mb-32">
         
         {/* Brand Column — Professional & Soulful */}
         <div className="lg:col-span-5 space-y-10">
@@ -69,7 +69,7 @@ export default function PublicFooter() {
       </div>
       
       {/* Bottom Bar — Disciplined Branding */}
-      <div className="safe-area pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10">
+      <div className="safe-area pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10">
         <div className="flex flex-col items-center md:items-start gap-3 text-center md:text-left">
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-on-surface-variant/70">
             © {currentYear} Chitlin’ Network TV. A Global Cultural Institution.
@@ -82,7 +82,7 @@ export default function PublicFooter() {
           </div>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-10 text-[10px] font-black uppercase tracking-widest text-outline-variant/60">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-10 text-[10px] font-black uppercase tracking-widest text-outline-variant/60">
           <Link href="#" className="hover:text-primary transition-colors">Privacy</Link>
           <Link href="#" className="hover:text-primary transition-colors">Terms</Link>
           <Link href="#" className="hover:text-primary transition-colors">Contact</Link>

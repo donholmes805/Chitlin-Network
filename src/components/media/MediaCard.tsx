@@ -41,19 +41,21 @@ export default function MediaCard({
         aspectClass,
         "min-h-[180px]"
       )}>
-        {/* Background Image */}
-        <div className="absolute inset-0 bg-surface-container-highest/10 animate-pulse" />
+        {/* Fallback Branded Layer */}
+        <div className="absolute inset-0 bg-gradient-to-br from-surface-container-highest to-background flex items-center justify-center">
+          <span className="material-symbols-outlined text-white/5 text-8xl scale-150 rotate-12 select-none">
+            {aspectRatio === 'poster' ? 'movie' : 'play_circle'}
+          </span>
+        </div>
+
         <img 
           src={imageUrl} 
           alt={title}
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1598897611553-d68a8819752e?auto=format&fit=crop&q=80&w=1000';
-          }}
-          className="absolute inset-0 w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out z-0"
+          className="absolute inset-0 w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out z-10"
         />
         
         {/* Cinematic Master Overlay — Refined Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-700 z-20" />
 
         {/* Live Indicator — Refined Professional Style */}
         {isLive && (

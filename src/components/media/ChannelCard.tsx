@@ -15,16 +15,18 @@ export default function ChannelCard({ name, description, imageUrl, category = 'G
   return (
     <Link href={finalHref} className="group relative block aspect-[16/10] overflow-hidden transition-all duration-700">
       {/* Background Image — Refined Scaling */}
-      <div className="absolute inset-0 z-0 feather-mask-all opacity-60 grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out">
+      <div className="absolute inset-0 z-0 feather-mask-all">
+        {/* Fallback Layer */}
+        <div className="absolute inset-0 bg-gradient-to-br from-surface-container-highest to-background flex items-center justify-center">
+          <span className="material-symbols-outlined text-white/5 text-8xl scale-150 rotate-12 select-none">broadcast_on_home</span>
+        </div>
+        
         <img 
           src={imageUrl} 
           alt={name}
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1598897611553-d68a8819752e?auto=format&fit=crop&q=80&w=1000';
-          }}
-          className="w-full h-full object-cover" 
+          className="absolute inset-0 w-full h-full object-cover opacity-60 grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out z-10" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent group-hover:via-background/40 transition-all duration-700" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent group-hover:via-background/40 transition-all duration-700 z-20" />
       </div>
 
       {/* Content — Professional Spacing */}

@@ -9,6 +9,7 @@ export default function PublicHeader() {
   const pathname = usePathname();
   const { user, signInWithGoogle, logout, role } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -22,16 +23,18 @@ export default function PublicHeader() {
     { name: 'Directory', href: '/channels' },
     { name: 'Originals', href: '/shows' },
     { name: 'Advertise', href: '/advertise' },
+    { name: 'Start a Channel', href: '/start-a-channel' },
+    { name: 'Membership', href: '/membership' },
   ];
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${
-        isScrolled ? 'premium-blur border-b border-white/5 py-4' : 'bg-transparent py-8'
+        isScrolled ? 'premium-blur border-b border-white/5 py-3 md:py-4' : 'bg-transparent py-4 md:py-8'
       }`}
     >
       <nav className="safe-area flex justify-between items-center">
-        <div className="flex items-center gap-16">
+        <div className="flex items-center gap-6 md:gap-16">
           <Link href="/" className="group flex items-center gap-2">
             <span className="text-xl md:text-2xl font-headlines font-black italic tracking-tighter text-primary group-hover:scale-105 transition-transform duration-500">
               CHITLIN’ NETWORK
@@ -56,9 +59,16 @@ export default function PublicHeader() {
           </div>
         </div>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 md:gap-8">
           <button className="material-symbols-outlined text-on-surface-variant/60 hover:text-primary transition-all duration-500 cursor-pointer text-xl">
             search
+          </button>
+
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden material-symbols-outlined text-on-surface hover:text-primary transition-all duration-500 cursor-pointer text-2xl"
+          >
+            {isMenuOpen ? 'close' : 'menu'}
           </button>
           
           {user ? (
@@ -122,6 +132,30 @@ export default function PublicHeader() {
           )}
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`lg:hidden fixed inset-0 z-40 premium-blur transition-all duration-500 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+        <div className="flex flex-col items-center justify-center h-full space-y-8 safe-area">
+          {navLinks.map((link) => (
+            <Link 
+              key={link.href}
+              href={link.href} 
+              onClick={() => setIsMenuOpen(false)}
+              className="text-2xl font-headlines font-black uppercase tracking-[0.2em] text-white hover:text-primary transition-all"
+            >
+              {link.name}
+            </Link>
+          ))}
+          {!user && (
+            <button 
+              onClick={() => { signInWithGoogle(); setIsMenuOpen(false); }}
+              className="btn-gold !px-12 !py-6"
+            >
+              Sign In
+            </button>
+          )}
+        </div>
+      </div>
     </header>
   );
 }
