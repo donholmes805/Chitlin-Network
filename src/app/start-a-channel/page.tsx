@@ -102,7 +102,7 @@ export default function StartAChannelPage() {
                   <div className="flex-grow space-y-8">
                     <div className="space-y-4">
                       <p className={`text-[11px] font-black uppercase tracking-[0.4em] ${plan.id === 'growth' ? 'text-primary' : 'text-on-surface-variant'}`}>
-                        {plan.name}
+                        {plan.label || plan.name}
                       </p>
                       <div className="flex items-baseline gap-2">
                         <span className="text-6xl font-headlines font-black italic text-white leading-none">${plan.monthlyFee}</span>
@@ -145,6 +145,27 @@ export default function StartAChannelPage() {
                 </div>
               </div>
             ))}
+          </div>
+          
+          {/* Clarity & Introductory Pricing Notes */}
+          <div className="safe-area mt-16 space-y-6 text-center">
+            <div className="inline-block glass-panel px-8 py-4 rounded-2xl border-white/5">
+              <p className="text-[11px] text-on-surface-variant font-medium leading-relaxed max-w-3xl mx-auto">
+                <span className="text-primary font-black uppercase tracking-widest mr-2">Note:</span>
+                Channel owners are responsible for maintaining their own approved media hosting for pre-recorded content. 
+                Chitlin’ Network TV provides the channel platform, scheduling, distribution, monetization tools, and approved live broadcast infrastructure where included.
+              </p>
+            </div>
+            
+            <div className="max-w-3xl mx-auto space-y-4 px-4">
+              <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest leading-loose opacity-80">
+                Introductory Founder Pricing is available for early channel partners before the official launch. 
+                Pricing may increase as Chitlin’ Network TV expands audience reach, distribution, live broadcasting capacity, advertising demand, and platform features.
+              </p>
+              <p className="text-primary font-black uppercase tracking-[0.2em] text-[9px]">
+                Founding channel partners may keep their introductory rate as long as their account remains active and in good standing.
+              </p>
+            </div>
           </div>
         </section>
 

@@ -8,6 +8,7 @@ import { db } from "@/lib/firebase/config";
 import type { Channel, LiveEvent } from "@/types";
 import { collection, doc, getDoc, getDocs, orderBy, query, serverTimestamp, updateDoc, where } from "firebase/firestore";
 import { useEffect, useMemo, useState } from "react";
+import { CHANNEL_PLANS } from "@/lib/pricing";
 
 const navItems = [
   { label: "Overview", href: "/owner" },
@@ -130,51 +131,46 @@ export default function OwnerLivePage() {
     if (!selectedChannelId) return;
     
     // Plan Enforcement
-    if (role !== "owner") {
-      const plan = billing?.channelPlan || "none";
+    if (role !== "owner" && role !== "admin") {
+      const planId = billing?.channelPlan || "none";
+      const plan = CHANNEL_PLANS.find(p => p.id === planId || (p.id === 'partner' && planId === 'network_partner'));
       
-      if (plan === "none" || plan === "starter") {
-        setError("Live broadcasting is not available on your current plan. Please upgrade to a Growth or Network Partner plan.");
+      if (!plan) {
+        setError("Live broadcasting is not available without an active channel plan. Please upgrade your plan.");
         return;
       }
 
-      // Growth Plan limits: 1 per day, 90 mins
-      if (plan === "growth") {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        const showsToday = events.filter(e => {
-          const created = e.createdAt?.toDate ? e.createdAt.toDate() : new Date();
-          return created >= today && e.status !== 'disabled';
-        });
+      // Calculate total scheduled live duration for today
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
 
-        if (showsToday.length >= 1) {
-          setError("Growth Plan limit reached: 1 live show per day. Upgrade to Network Partner for expanded access.");
-          return;
-        }
+      const eventsToday = events.filter(e => {
+        const start = e.scheduledStart?.toDate ? e.scheduledStart.toDate() : (e.scheduledStart ? new Date(e.scheduledStart) : null);
+        return start && start >= today && start < tomorrow && e.status !== 'disabled';
+      });
 
-        // Check duration
-        if (form.scheduledStart && form.scheduledEnd) {
-          const start = new Date(form.scheduledStart);
-          const end = new Date(form.scheduledEnd);
-          const diffMin = (end.getTime() - start.getTime()) / (1000 * 60);
-          if (diffMin > 90) {
-            setError("Growth Plan limit reached: Live shows are capped at 90 minutes. Upgrade for longer broadcasts.");
-            return;
-          }
+      const currentScheduledMinutes = eventsToday.reduce((acc, ev) => {
+        const start = ev.scheduledStart?.toDate ? ev.scheduledStart.toDate() : (ev.scheduledStart ? new Date(ev.scheduledStart) : null);
+        const end = ev.scheduledEnd?.toDate ? ev.scheduledEnd.toDate() : (ev.scheduledEnd ? new Date(ev.scheduledEnd) : null);
+        if (start && end) {
+          return acc + (end.getTime() - start.getTime()) / (1000 * 60);
         }
-      }
+        return acc;
+      }, 0);
 
-      // Network Partner limits: 4 hours
-      if (plan === "network_partner") {
-        if (form.scheduledStart && form.scheduledEnd) {
-          const start = new Date(form.scheduledStart);
-          const end = new Date(form.scheduledEnd);
-          const diffMin = (end.getTime() - start.getTime()) / (1000 * 60);
-          if (diffMin > 240) {
-            setError("Network Partner limit reached: Included live broadcasts are capped at 4 hours. Contact admin for extended duration.");
-            return;
-          }
+      const requestedDurationMinutes = (new Date(form.scheduledEnd).getTime() - new Date(form.scheduledStart).getTime()) / (1000 * 60);
+      const totalMinutes = currentScheduledMinutes + requestedDurationMinutes;
+      const limitMinutes = (plan.liveLimitHours || 0) * 60;
+
+      if (totalMinutes > limitMinutes) {
+        if (planId === 'partner' || planId === 'network_partner') {
+          setError(`Network Partner limit reached: Included live broadcasts are capped at 8 hours per day. Special live events beyond this limit require Owner/Admin approval.`);
+        } else {
+          setError(`${plan.name} limit reached: Your plan allows up to ${plan.liveLimitHours} hour(s) of live broadcasting per day. You have already scheduled ${Math.round(currentScheduledMinutes/60 * 10) / 10} hours. Please upgrade for more capacity.`);
         }
+        return;
       }
     }
 

@@ -199,7 +199,7 @@ export default function Home() {
             {CHANNEL_PLANS.map((plan) => (
               <div key={plan.id} className="media-card p-8 md:p-12 flex flex-col h-full space-y-10 group">
                 <div className="space-y-4">
-                  <p className="text-primary font-black uppercase tracking-widest text-[11px]">{plan.name}</p>
+                  <p className="text-primary font-black uppercase tracking-widest text-[11px]">{plan.label || plan.name}</p>
                   <div className="flex items-baseline gap-2">
                     <span className="text-5xl font-headlines font-black text-white italic">${plan.monthlyFee}</span>
                     <span className="text-on-surface-variant text-[10px] font-black uppercase tracking-widest">/ month</span>
@@ -218,24 +218,8 @@ export default function Home() {
                       <span className="font-medium">{feature}</span>
                     </li>
                   ))}
-                  {plan.id === 'starter' && (
-                    <li className="flex gap-4 items-start text-sm text-secondary/70">
-                      <span className="material-symbols-outlined text-xl">cancel</span>
-                      <span className="font-medium">No live broadcasting</span>
-                    </li>
-                  )}
-                  {plan.id === 'growth' && (
-                    <li className="flex gap-4 items-start text-sm text-primary">
-                      <span className="material-symbols-outlined text-xl">bolt</span>
-                      <span className="font-medium">1 Live Show Per Day</span>
-                    </li>
-                  )}
-                   {plan.id === 'partner' && (
-                    <li className="flex gap-4 items-start text-sm text-primary">
-                      <span className="material-symbols-outlined text-xl">stars</span>
-                      <span className="font-medium">Unlimited Live & Video</span>
-                    </li>
-                  )}
+                  {/* Additional Dynamic Info handled by plan features */}
+
                 </ul>
 
                 <Link href="/start-a-channel" className={`w-full text-center py-5 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all ${plan.id === 'growth' ? 'bg-primary text-on-primary shadow-lg scale-105' : 'bg-white/5 border border-white/10 hover:border-primary/40'}`}>
@@ -243,6 +227,27 @@ export default function Home() {
                 </Link>
               </div>
             ))}
+          </div>
+
+          {/* Clarity & Introductory Pricing Notes */}
+          <div className="safe-area mt-12 space-y-6 text-center">
+            <div className="inline-block glass-panel px-8 py-4 rounded-2xl border-white/5">
+              <p className="text-[11px] text-on-surface-variant font-medium leading-relaxed max-w-3xl mx-auto">
+                <span className="text-primary font-black uppercase tracking-widest mr-2">Note:</span>
+                Channel owners are responsible for maintaining their own approved media hosting for pre-recorded content. 
+                Chitlin’ Network TV provides the channel platform, scheduling, distribution, monetization tools, and approved live broadcast infrastructure where included.
+              </p>
+            </div>
+            
+            <div className="max-w-3xl mx-auto space-y-4">
+              <p className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest leading-loose opacity-80">
+                Introductory Founder Pricing is available for early channel partners before the official launch. 
+                Pricing may increase as Chitlin’ Network TV expands audience reach, distribution, live broadcasting capacity, advertising demand, and platform features.
+              </p>
+              <p className="text-primary font-black uppercase tracking-[0.2em] text-[9px]">
+                Founding channel partners may keep their introductory rate as long as their account remains active and in good standing.
+              </p>
+            </div>
           </div>
         </section>
 
