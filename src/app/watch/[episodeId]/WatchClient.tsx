@@ -127,8 +127,8 @@ export default function WatchClient() {
             <div className="flex flex-col gap-6">
               {nextEpisodes.length > 0 ? nextEpisodes.map((next) => (
                 <Link key={next.id} href={`/watch/${next.id}`} className="group flex gap-4 items-start">
-                  <div className="w-40 aspect-video rounded-xl overflow-hidden shrink-0 border border-white/5">
-                    <img src={next.thumbnailUrl} className="w-full h-full object-cover group-hover:scale-110 transition-transform" alt={next.title} />
+                  <div className="w-40 aspect-video overflow-hidden shrink-0 feather-mask-all">
+                    <img src={next.thumbnailUrl} className="w-full h-full object-cover group-hover:scale-110 transition-transform opacity-80" alt={next.title} />
                   </div>
                   <div className="flex-grow min-w-0">
                     <h3 className="font-bold text-sm leading-tight group-hover:text-primary transition-colors line-clamp-2">E{next.episodeNumber}: {next.title}</h3>

@@ -95,7 +95,7 @@ export default function ChannelClient() {
 
         <div className="absolute inset-0 safe-area flex flex-col justify-end pb-16">
           <div className="flex flex-col md:flex-row md:items-end gap-10">
-            <div className="w-28 h-28 md:w-36 md:h-36 rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-surface-container-high shrink-0">
+            <div className="w-28 h-28 md:w-36 md:h-36 overflow-hidden feather-mask-all shrink-0">
               <img src={channel.logoUrl} className="w-full h-full object-cover" alt={channel.name} />
             </div>
             <div className="flex-grow">
@@ -136,8 +136,8 @@ export default function ChannelClient() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {shows.map((s) => (
                 <Link key={s.id} href={`/shows/${s.id}`} className="group">
-                  <div className="relative h-[220px] rounded-2xl overflow-hidden ring-1 ring-white/10 group-hover:ring-primary/50 transition-all shadow-2xl">
-                    <img src={s.bannerUrl || s.posterUrl} className="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700" alt={s.title} />
+                  <div className="relative h-[220px] overflow-hidden feather-mask-all">
+                    <img src={s.bannerUrl || s.posterUrl} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" alt={s.title} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70" />
                     <div className="absolute bottom-5 left-5 right-5">
                       <h3 className="text-2xl font-headlines font-black text-white group-hover:text-primary transition-colors">{s.title}</h3>

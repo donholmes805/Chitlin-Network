@@ -175,20 +175,20 @@ export default function StartAChannelPage() {
              </div>
              
              <div className="relative">
-               <div className="absolute inset-0 bg-primary/10 rounded-[3rem] blur-[80px] pointer-events-none" />
-               <div className="relative glass-panel rounded-[3rem] p-4 border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
-                  <img 
-                    src="https://images.unsplash.com/photo-1593697821252-0c9137d9fc45?auto=format&fit=crop&q=80&w=1000" 
-                    className="rounded-[2.5rem] w-full aspect-square object-cover"
-                    alt="Creator Dashboard Preview"
-                  />
-                  <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-background border border-outline-variant rounded-full flex flex-col items-center justify-center shadow-2xl p-6 text-center animate-float">
-                     <p className="text-primary font-black uppercase tracking-widest text-[10px] mb-2">Revenue Potential</p>
-                     <p className="text-3xl font-headlines font-black text-white italic">$50K+</p>
-                     <p className="text-[8px] font-bold text-on-surface-variant uppercase tracking-tighter mt-1">For Top Tier Channels</p>
-                  </div>
-               </div>
-             </div>
+                <div className="absolute inset-0 bg-primary/10 blur-[80px] pointer-events-none" />
+                <div className="relative overflow-hidden feather-mask-all">
+                   <img 
+                     src="https://images.unsplash.com/photo-1593697821252-0c9137d9fc45?auto=format&fit=crop&q=80&w=1000" 
+                     className="w-full aspect-square object-cover"
+                     alt="Creator Dashboard Preview"
+                   />
+                   <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-background border border-outline-variant rounded-full flex flex-col items-center justify-center shadow-2xl p-6 text-center animate-float">
+                      <p className="text-primary font-black uppercase tracking-widest text-[10px] mb-2">Revenue Potential</p>
+                      <p className="text-3xl font-headlines font-black text-white italic">$50K+</p>
+                      <p className="text-[8px] font-bold text-on-surface-variant uppercase tracking-tighter mt-1">For Top Tier Channels</p>
+                   </div>
+                </div>
+              </div>
           </div>
         </section>
 

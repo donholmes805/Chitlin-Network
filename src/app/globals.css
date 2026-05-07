@@ -86,4 +86,44 @@
   .btn-outline {
     @apply relative overflow-hidden px-8 py-4 rounded-xl font-black uppercase tracking-[0.2em] text-xs transition-all duration-500 border border-outline-variant text-on-surface hover:bg-white/5 hover:border-white/40 hover:scale-105 active:scale-95 shadow-2xl;
   }
+
+  /* Premium Image Feathering & Masking */
+  .feather-mask-all {
+    mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+  }
+
+  .feather-mask-left {
+    mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 100%);
+  }
+
+  .feather-mask-right {
+    mask-image: linear-gradient(to left, transparent 0%, black 30%, black 100%);
+    -webkit-mask-image: linear-gradient(to left, transparent 0%, black 30%, black 100%);
+  }
+
+  .feather-mask-top {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+  }
+
+  .feather-mask-bottom {
+    mask-image: linear-gradient(to top, transparent 0%, black 20%, black 100%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 20%, black 100%);
+  }
+
+  .feather-mask-y {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  }
+
+  .feather-mask-x {
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  }
+
+  .cinematic-vignette {
+    @apply relative after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_center,transparent_30%,#080808_95%)] after:pointer-events-none;
+  }
 }

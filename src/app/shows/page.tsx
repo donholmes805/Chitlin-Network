@@ -56,10 +56,10 @@ export default function ShowsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
               {shows.map(show => (
                 <Link key={show.id} href={`/shows/${show.id}`} className="group">
-                  <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 ring-1 ring-white/10 group-hover:ring-primary/50 transition-all shadow-2xl">
+                  <div className="relative aspect-[3/4] overflow-hidden mb-6 feather-mask-all">
                     <img 
                       src={show.posterUrl} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 opacity-80" 
                       alt={show.title} 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />

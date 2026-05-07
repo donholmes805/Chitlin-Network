@@ -13,16 +13,16 @@ export default function ChannelCard({ name, description, imageUrl, category = 'G
   const finalHref = href || `/channels/${id || 'default'}`;
 
   return (
-    <Link href={finalHref} className="group relative block aspect-[16/10] overflow-hidden rounded-xl bg-surface-container-high border border-white/5 transition-all duration-700 hover:border-primary/30 shadow-xl hover:shadow-[0_30px_60px_rgba(0,0,0,0.7)]">
+    <Link href={finalHref} className="group relative block aspect-[16/10] overflow-hidden transition-all duration-700">
       {/* Background Image — Refined Scaling */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 feather-mask-all opacity-60 grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out">
         <img 
           src={imageUrl} 
           alt={name}
           onError={(e) => {
             (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1598897611553-d68a8819752e?auto=format&fit=crop&q=80&w=1000';
           }}
-          className="w-full h-full object-cover opacity-50 grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out" 
+          className="w-full h-full object-cover" 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent group-hover:via-background/40 transition-all duration-700" />
       </div>
